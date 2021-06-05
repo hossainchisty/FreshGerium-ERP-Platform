@@ -20,7 +20,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     description = models.TextField(blank=True,null=True)
     date_created = models.DateTimeField(auto_now_add=True,null=True)
-    tags = models.ManyToManyField(Tag,blank=True,null=True)
+    tags = models.ManyToManyField(Tag)
 
     @property
     def get_total_amount(self):
