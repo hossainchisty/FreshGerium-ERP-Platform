@@ -1,0 +1,13 @@
+/.vscode
+*.pyc
+*.log
+*.tmp
+*.swp
+*pydev*
+*.CRM_Project/__pycache__/
+*.tmp*~
+*.DS_Store
+*CACHE*
+db.sqlite3
+media/
+static_files/
