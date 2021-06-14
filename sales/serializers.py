@@ -14,15 +14,16 @@ class ProductSerializer(serializers.ModelSerializer):
             'description',
             'date_created',
         )
+        read_only_fields = ('date_created',)
         depth = 1
-        # read_only_fields = ()
 
 class OrderSerializer(serializers.ModelSerializer):
-    models = Order
-    fields = (
-        'id',
-        'customer',
-        'product',
-        'status',
-        'date_created',
-    )
+    class Meta:
+        model = Order
+        fields = [
+            'customer',
+            'product',
+            'status',
+            'date_created',
+        ]
+        depth = 1
