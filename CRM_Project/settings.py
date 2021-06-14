@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     #? third party apps
+    'django_filters',
     'django_countries',
     'rest_framework',
     'phonenumber_field',
@@ -68,19 +69,35 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 REST_FRAMEWORK = {
-
-    #! allow read-only access for unauthenticated users.
-    #! IsAuthenticated access for authenticate user
-    #! AllowAny for anyone can access this api
-    'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',    
-        #   'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.AllowAny',
+    'DEFAULT_PERMISSION_CLASSES': [    
+        'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
     'rest_framework.authentication.TokenAuthentication',
     'rest_framework.authentication.SessionAuthentication',
     ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
+REST_FRAMEWORK = {
+    #? By default set to like that 
+    # 'SEARCH_PARAM': 'search'
+    'SEARCH_PARAM': 'q'
+
+}
+
+# Setting the throttling policy
+
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '2/day',
+        'user': '5/hour',
+        'product': '3/min',
+    }
 }
 
 
