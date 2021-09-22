@@ -4,7 +4,7 @@ cffi==1.14.5
 chardet==4.0.0
 cryptography==3.4.7
 defusedxml==0.7.1
-Django==3.2.4
+Django==3.2.5
 django-allauth==0.44.0
 django-countries==7.2.1
 django-phonenumber-field==5.2.0
