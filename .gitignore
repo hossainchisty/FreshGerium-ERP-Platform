@@ -1,13 +1,69 @@
-/.vscode
-*.pyc
-*.log
-*.tmp
-*.swp
-*pydev*
-*.CRM_Project/__pycache__/
-*.tmp*~
-*.DS_Store
-*CACHE*
-db.sqlite3
-media/
-static_files/
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytestdebug.log
+
+
+# Django stuff:
+# *.log
+# db.sqlite3
+# *db.sqlite3
+# db.sqlite3-journal
+
+
+# Environments
+/fast/
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# VS code path settings
+/.vscode/
+
+# File stytem 
+cache/
+CRM_frontend/
+image/
+docs/
+Procfile
+README.md
+README1.md
