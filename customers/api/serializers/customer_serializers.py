@@ -4,6 +4,9 @@ from customers.models import Customer
 
 
 class CustomerSerializer(serializers.ModelSerializer):
+    '''
+    Serializer for Customer model
+    '''
     class Meta:
         model = Customer
         fields = (

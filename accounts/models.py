@@ -1,6 +1,8 @@
-from django.db import models
-from django.contrib.auth.models import User
 from django_countries.fields import CountryField
+
+from django.contrib.auth.models import User
+from django.db import models
+
 
 class Account(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
@@ -19,7 +21,11 @@ class Account(models.Model):
         ('REAL ESTATE', 'REAL ESTATE'),
         ('SOFTWARE', 'SOFTWARE'),
     )
-    organization_industry = models.CharField(help_text='Enter Organization Industry Type: ', choices=INDUSTRY, max_length=255 )
-    
+    organization_industry = models.CharField(help_text='Enter Organization Industry Type: ', choices=INDUSTRY, max_length=255)
+
+    class Meta:
+        verbose_name = 'Account'
+        verbose_name_plural = 'Accounts'
+
     def __str__(self):
         return self.account_name

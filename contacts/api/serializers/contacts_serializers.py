@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from .models import Contact
+
+from contacts.models import Contact
+
 
 class ContactSerializer(serializers.ModelSerializer):
+    '''
+    Serializer for Contact model
+    '''
     class Meta:
         model = Contact
         fields = (
