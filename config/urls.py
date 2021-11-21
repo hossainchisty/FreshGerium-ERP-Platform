@@ -9,9 +9,9 @@ urlpatterns = [
     path('teams/', include('teams.urls')),
     path('contacts/', include('contacts.urls')),
     path('customers/', include('customers.urls')),
-    path('accounts-user/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
     path('opportunity/', include('opportunities.urls')),
     path('api/rest-auth/', include('rest_auth.urls')),
-    path('accounts/', include('allauth.urls')),
+    path('accounts-user/', include('allauth.urls')),
     path('api/rest-auth/registration/', include('rest_auth.registration.urls')),
 ]
