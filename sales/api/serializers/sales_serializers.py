@@ -1,7 +1,11 @@
 from rest_framework import serializers
-from .models import Product,Order,Tag
+from sales.models import Order, Product
+
 
 class ProductSerializer(serializers.ModelSerializer):
+    '''
+    Serializer for Product model
+    '''
     class Meta:
         model = Product
         fields = (
@@ -17,7 +21,11 @@ class ProductSerializer(serializers.ModelSerializer):
         read_only_fields = ('date_created',)
         depth = 1
 
+
 class OrderSerializer(serializers.ModelSerializer):
+    '''
+    Serializer for Order model
+    '''
     class Meta:
         model = Order
         fields = [
