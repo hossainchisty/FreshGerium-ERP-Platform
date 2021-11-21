@@ -1,6 +1,7 @@
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
 
 # Distribution / packaging
 .Python
@@ -40,10 +41,10 @@ pytestdebug.log
 
 
 # Django stuff:
-# *.log
-# db.sqlite3
-# *db.sqlite3
-# db.sqlite3-journal
+*.log
+db.sqlite3
+*db.sqlite3
+db.sqlite3-journal
 
 
 # Environments
@@ -67,3 +68,13 @@ docs/
 Procfile
 README.md
 README1.md
+README2.md
+config/settings/development.py
+config/settings/production.py
+requirements-dev.txt
+requirements.txt
+.gitignore
+.isort.cfg
+setup.py
+requirements.txt
+config/settings.py
