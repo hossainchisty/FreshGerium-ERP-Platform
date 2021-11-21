@@ -1,8 +1,11 @@
 from rest_framework import serializers
-from .models import Teams
+from teams.models import Teams
 
 
 class TeamSerializer(serializers.ModelSerializer):
+    '''
+    Serializer for Teams model
+    '''
     class Meta:
         model = Teams
         fields = (
