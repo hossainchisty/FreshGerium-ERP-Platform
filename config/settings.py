@@ -29,6 +29,8 @@ DEFAULT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'django.contrib.sitemaps',
+    'django.contrib.humanize',
     'django_filters',
     'django_countries',
     'rest_framework',
@@ -42,12 +44,15 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'leads.apps.LeadsConfig',
-    'tasks.apps.TasksConfig',
+    'core.apps.CoreConfig',
     'teams.apps.TeamsConfig',
     'sales.apps.SalesConfig',
+    'tasks.apps.TasksConfig',
+    'leads.apps.LeadsConfig',
     'accounts.apps.AccountsConfig',
+    'settings.apps.SettingsConfig',
     'contacts.apps.ContactsConfig',
+    'profiles.apps.ProfilesConfig',
     'customers.apps.CustomersConfig',
     'opportunities.apps.OpportunitiesConfig',
 ]
@@ -97,7 +102,7 @@ REST_FRAMEWORK = {
 
 
 
-MIDDLEWARE = [
+DEFAULT_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -106,6 +111,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+MIDDLEWARE = DEFAULT_MIDDLEWARE 
 
 TEMPLATES = [
     {

@@ -1,0 +1,101 @@
+{% extends 'core/_base.html' %}
+{% load static %}
+<title>{% block title %}{{request.user.get_full_name}} | {{ request.get_host }} {% endblock title %}</title>
+{% load humanize %}
+{% load cache %}
+{% block body %}
+<style>
+    .alert {
+        position: relative;
+        margin: 30px;
+        padding: 0.7rem 2rem;
+        border: 1px solid transparent;
+        border-radius: 31.35rem;
+    }
+</style>
+
+{% for message in messages %}
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+<div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+    <!--Main Col-->
+    <div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none mx-6 lg:mx-0">
+        <div class="p-4 md:p-12 text-center lg:text-left">
+
+            <!-- Image for mobile view-->
+            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+                style="background-image: url('https://images.moviefit.me/p/o/71931-josephine-langford.jpg')"></div>
+
+
+
+            <h1 class="text-3xl font-bold pt-8 lg:pt-0">{{request.user.get_full_name}}</h1>
+            <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+            <p class="pt-8 text-sm">Last login: {{request.user.last_login|naturaltime}}</p>
+            <p class="text-sm">Joined Date: {{request.user.date_joined|naturaltime}}</p>
+
+
+            <div class="pt-12 pb-8">
+                <button class="bg-purple-700 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded-full">
+                    <a class="text-white hover:no-underline" href="">Edit Profile</a>
+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Img Col-->
+    <div class="lg:w-2/5">
+        <!-- Big profile image for side bar (desktop) -->
+
+        <img src="https://images.moviefit.me/p/o/71931-josephine-langford.jpg"
+            class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+
+    </div>
+
+    <!-- Pin to top right corner -->
+    <div class="absolute h-12 w-18 p-6">
+        <button class="js-change-theme focus:outline-none">🌙</button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@4"></script>
+<script>
+    //Init tooltips
+    tippy('.link', {
+        placement: 'bottom'
+    })
+
+    //Toggle mode
+    const toggle = document.querySelector('.js-change-theme');
+    const body = document.querySelector('body');
+    const profile = document.getElementById('profile');
+
+
+    toggle.addEventListener('click', () => {
+
+        if (body.classList.contains('text-gray-900')) {
+            toggle.innerHTML = "☀️";
+            body.classList.remove('text-gray-900');
+            body.classList.add('text-gray-100');
+            profile.classList.remove('bg-white');
+            profile.classList.add('bg-gray-900');
+        } else {
+            toggle.innerHTML = "🌙";
+            body.classList.remove('text-gray-100');
+            body.classList.add('text-gray-900');
+            profile.classList.remove('bg-gray-900');
+            profile.classList.add('bg-white');
+
+        }
+    });
+
+</script>
+</div>
+<!-- End of Main Content -->
+{% endblock body %}
