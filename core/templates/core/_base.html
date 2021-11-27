@@ -46,21 +46,111 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{% url 'dashboard' %}">
                     <i class="fas fa-home"></i>
                     <span>Dashboard</span></a>
             </li>
 
+            <!-- Customer menus start -->
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'customer' %}">
-                    <i class="fas fa-hands-helping"></i>
-                    <span>Customer</span></a>
+                <a class="nav-link collapsed" href="{% url 'customer' %}" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                     <i class="fas fa-hands-helping"></i>
+                    <span>Customer</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="login.html">Add Customer</a>
+                        <a class="collapse-item" href="register.html">Customer List</a>
+                       
+                        <a class="collapse-item" href="forgot-password.html">Paid Customer</a>
+
+                        <a class="collapse-item" href="forgot-password.html">Customer Ledger</a>
+
+                        <a class="collapse-item" href="forgot-password.html">Customer Advance</a>
+                        
+                    </div>
+                </div>
             </li>
+            <!-- Customer menus end -->
+
 
             <li class="nav-item active">
                 <a class="nav-link" href="product.html">
-                    <i class="fas fa-shopping-bag"></i>
+                    <i class="fas fa-boxes"></i>
                     <span>Product</span></a>
+            </li>
+            
+            <!-- Sale menus start -->
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                     <i class="fas fa-hands-helping"></i>
+                    <span>Sale</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="login.html">New Sale</a>
+                        <a class="collapse-item" href="register.html">Manage Sale</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Sale menus end -->
+
+            <!-- Supplier menus start -->
+            <li class="nav-item active">
+                <a class="nav-link " href="" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="false" aria-controls="collapsePages">
+                     <i class="fas fa-people-carry"></i>
+                    <span>Supplier</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="login.html">Add Supplier</a>
+                        <a class="collapse-item" href="register.html">Supplier List</a>
+                        <a class="collapse-item" href="register.html">Supplier Ledger</a>
+                        <a class="collapse-item" href="register.html">Supplier Advance</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Supplier menus end -->
+
+            <!-- Purchase menus start -->
+            <li class="nav-item active">
+                <a class="nav-link" href="product.html">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Purchase</span></a>
+            </li>
+            <!-- Purchase menus end -->
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="product.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Stock</span></a>
+            </li>
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="product.html">
+                    <i class="fas fa-bug"></i>
+                    <span>Report</span></a>
+            </li>
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="product.html">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Return</span></a>
+            </li> 
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="product.html">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Quotation</span></a>
+            </li>
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="product.html">
+                    <i class="fab fa-servicestack"></i>
+                    <span>Service</span></a>
             </li>
 
             <li class="nav-item active">
