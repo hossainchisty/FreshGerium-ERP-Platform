@@ -78,3 +78,4 @@ requirements.txt
 setup.py
 requirements.txt
 config/settings.py
+fresh/ 
