@@ -1,0 +1,17 @@
+# project build medadata that can't be used in docker
+env
+.circleci
+.github
+img
+vscode
+Dockerfile
+.dockerignore
+.git*
+
+# documentation not needed
+CHANGELOG.md
+LICENSE
+Procfile
+README.md
+runtime.txt
+docs
