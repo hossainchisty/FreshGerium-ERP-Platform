@@ -1,7 +1,12 @@
-from django.db import models
-from accounts.models import Account
+from django_countries.fields import CountryField
+from phonenumber_field.modelfields import PhoneNumberField
 
-class Customer(models.Model):
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+from utils.models.common_fields import Ledger, Timestamp
+
+
+class Customer(Timestamp):
     customer_name = models.CharField(max_length=200)
     customer_email = models.EmailField()
     GENDER_SELECT = (
@@ -11,9 +16,17 @@ class Customer(models.Model):
     )
     gender = models.CharField(max_length=200, choices=GENDER_SELECT)
     customer_address = models.TextField()
+    mobile_no = PhoneNumberField(default="+8801")
+    city = CountryField(default="Bangladesh")
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    previous_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
-    previous_balance = models.FloatField()
-    accounts = models.ForeignKey(Account, on_delete=models.CASCADE)
+    customer_ledger = models.ForeignKey(Ledger, on_delete=models.DO_NOTHING, null=True, blank=True)
+
+    class Meta:
+        verbose_name = _('Customer')
+        verbose_name_plural = _('Customers')
 
     def __str__(self):
+        """String for representing the Model object."""
         return self.customer_name
