@@ -52,6 +52,7 @@ LOCAL_APPS = [
     'profiles.apps.ProfilesConfig',
     'products.apps.ProductsConfig',
     'accounts.apps.AccountsConfig',
+    'purchase.apps.PurchaseConfig',
     'suppliers.apps.SuppliersConfig',
     'customers.apps.CustomersConfig',
 ]
