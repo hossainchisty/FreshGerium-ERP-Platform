@@ -1,50 +1,31 @@
-from django.db import models
 from customers.models import Customer
+from django.db import models
+from products.models import Product
+from utils import random
+from utils.models.common_fields import Timestamp
 
-class Category(models.Model):
-    name = models.CharField(max_length=250)
 
-    def __str__(self):
-        return self.name
+class Sale(Timestamp):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date = models.DateField()
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    payment_type = models.CharField(max_length=50, choices=(
+        ('cash payment', 'Cash Payment'),
+        ('credit payment', 'Credit Payment'),
+        ('check payment', 'Check payment'),
+        ('bank payment', 'Bank Payment'),
+    ))
+    invoice_number = models.CharField(max_length=10, unique=True, default=random.unique_code(10))
 
-class Tag(models.Model):
-    name = models.CharField(max_length=250,null=True,blank=True)
-
-    def __str__(self):
-        return self.name
-
-class Product(models.Model):
-    name = models.CharField(max_length=250,null=True)
-    price = models.FloatField(null=True)
-    quantity = models.IntegerField(null=True, blank=True)
-    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
-    description = models.TextField(blank=True,null=True)
-    date_created = models.DateTimeField(auto_now_add=True,null=True)
-    tags = models.ManyToManyField(Tag)
-
-    @property
-    def get_total_amount(self):
-        total = self.product.price * self.quantity
-        return total
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        ordering = ('-date_created',)
-        
-
-class Order(models.Model): 
-    STATUS = (
-        ('Processing', 'Processing'),
-        ('Shipped', 'Shipped'),
-        ('Out for delivery', 'Out for delivery'),
-        ('Delivered','Delivered'),
-    )
-    customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
-    product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
-    status = models.CharField(max_length=200, null=True, choices=STATUS)
-    date_created = models.DateTimeField(auto_now_add=True,null=True)
+    sale_discount = models.DecimalField(max_digits=10, decimal_places=2)
+    total_sale = models.DecimalField(max_digits=10, decimal_places=2)
+    total_tax = models.DecimalField(max_digits=10, decimal_places=2)
+    Shipping_tax = models.DecimalField(max_digits=10, decimal_places=2)
+    net_total = models.DecimalField(max_digits=10, decimal_places=2)
+    paid_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    due = models.DecimalField(max_digits=10, decimal_places=2)
+    charge = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return self.product.name
+        """String for representing the Model object."""
+        return f'{self.customer} {self.date}'
