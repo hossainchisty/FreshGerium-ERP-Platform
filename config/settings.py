@@ -1,6 +1,6 @@
 """
-Title: CRM (Customer Relationship Management) system.
-Description: CRM as SaaS platforms.
+Title: Freshdesk CRM Platform.
+Description: Freshdesk is smart ERP solution to manage your business. you can keep track of your inventory customers, products, orders, invoices, and more.
 Author: Hossain Chisty(Backend Developer)
 Contact: hossain.chisty11@gmail.com
 Github: https://github.com/hossainchisty
@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-mqcg&7z#rec4yygir4_@&5ms0bno*9gribx$3@xwu#&-rvw$cs
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 DEFAULT_APPS = [
@@ -45,16 +45,15 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'core.apps.CoreConfig',
-    'teams.apps.TeamsConfig',
+    'stock.apps.StockConfig',
     'sales.apps.SalesConfig',
-    'tasks.apps.TasksConfig',
-    'leads.apps.LeadsConfig',
-    'accounts.apps.AccountsConfig',
+    'report.apps.ReportConfig',
     'settings.apps.SettingsConfig',
-    'contacts.apps.ContactsConfig',
     'profiles.apps.ProfilesConfig',
+    'products.apps.ProductsConfig',
+    'accounts.apps.AccountsConfig',
+    'suppliers.apps.SuppliersConfig',
     'customers.apps.CustomersConfig',
-    'opportunities.apps.OpportunitiesConfig',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -144,6 +143,28 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Mail configrations
+# EMAIL_HOST = "smtp.zoho.com"
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = "hossain.chisty@zohomail.com"
+# EMAIL_HOST_PASSWORD = "#2#3B399TiU@aBC"
+# EMAIL_USE_SSL = True
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# Session configuration
+# CART_SESSION_ID = 'cart'
+SESSION_COOKIE_AGE = 86400  # 24 hours in seconds
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# Celery Configurations
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+# CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Dhaka'
 
 DATABASES = {
     'default': {
