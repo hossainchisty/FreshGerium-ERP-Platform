@@ -26,6 +26,13 @@ class Sale(Timestamp):
     due = models.DecimalField(max_digits=10, decimal_places=2)
     charge = models.DecimalField(max_digits=10, decimal_places=2)
 
+    @property
+    def total_sale(self):
+        '''
+        This method is used to calculate the total sales.
+        '''
+        return Sale.objects.all().count()
+
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.customer} {self.date}'
