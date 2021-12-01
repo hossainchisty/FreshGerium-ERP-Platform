@@ -31,6 +31,13 @@ class Product(Timestamp):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
 
+    @property
+    def total_product(self):
+        '''
+        This method is to calculate the total product
+        '''
+        return Product.objects.all().count()
+
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.product_name} Supplier {self.supplier}'
