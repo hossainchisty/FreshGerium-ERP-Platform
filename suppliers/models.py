@@ -1,5 +1,6 @@
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
+from simple_history.models import HistoricalRecords
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -16,8 +17,21 @@ class Supplier(Timestamp):
     supplier_fax = models.BigIntegerField(null=True, blank=True, verbose_name=_('Supplier Fax'))
     supplier_previous_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name=_('Supplier Previous Balance'))
 
-    supplier_ledger = models.ForeignKey(Ledger, on_delete=models.DO_NOTHING)
+    supplier_ledger = models.ManyToManyField(Ledger, verbose_name=_('Supplier Ledger'))
+
+    history = HistoricalRecords()
+
+    @property
+    def total_supplier(self):
+        '''
+        This method is used to calculate the total supplier.
+        '''
+        return Supplier.objects.all().count()
+
+    class Meta:
+        verbose_name = _('Supplier')
+        verbose_name_plural = _('Suppliers')
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.supplier_name + ' - ' + self.supplier_email
+        return self.supplier_full_name + ' - ' + self.supplier_email
