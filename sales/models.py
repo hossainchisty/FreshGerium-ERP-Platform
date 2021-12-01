@@ -1,5 +1,6 @@
 from customers.models import Customer
 from django.db import models
+from django.db.models import Sum
 from products.models import Product
 from utils import random
 from utils.models.common_fields import Timestamp
@@ -32,6 +33,21 @@ class Sale(Timestamp):
         This method is used to calculate the total sales.
         '''
         return Sale.objects.all().count()
+
+    @property
+    def total_balance(self):
+        '''
+        This method is used to get total balance.
+        '''
+        return Sale.objects.aggregate(Sum('paid_amount'))['paid_amount__sum']
+
+    def save(self, *args, **kwargs):
+        '''
+        This method is used to save the data.
+        '''
+        self.total_balance = self.total_balance + self.due
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """String for representing the Model object."""
