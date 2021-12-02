@@ -1,4 +1,5 @@
-from rest_framework.throttling import UserRateThrottle,AnonRateThrottle
+from rest_framework.throttling import UserRateThrottle
 
-class ProductRateThrottle(UserRateThrottle):
-    scope = 'product'
+
+class SaleRateThrottle(UserRateThrottle):
+    scope = 'sale'

@@ -5,108 +5,57 @@ from rest_framework.generics import (
 from rest_framework.permissions import (
     IsAuthenticated, IsAuthenticatedOrReadOnly,
 )
-from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
-from sales.api.serializers.sales_serializers import (
-    OrderSerializer, ProductSerializer,
-)
-from sales.models import Order, Product
-from sales.throttling import ProductRateThrottle
+from rest_framework.throttling import AnonRateThrottle
+
+from sales.api.serializers.sales_serializers import SaleSerializer
+from sales.models import Sale
+from sales.throttling import SaleRateThrottle
 
 
-class ProductAPIView(ListAPIView):
+class SaleAPIView(ListAPIView):
     '''
-    ♻API endpoint that allows product to be viewed.
+    ♻API endpoint that allows Sale to be viewed.
     '''
     permission_classes = [IsAuthenticatedOrReadOnly]
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer
     filter_backends = [SearchFilter]
     search_fields = ['^name']
-    throttle_classes = [ProductRateThrottle, AnonRateThrottle]
+    throttle_classes = [SaleRateThrottle, AnonRateThrottle]
     ordering_fields = ['Name']
 
 
-class CreateProduct(CreateAPIView):
+class CreateSale(CreateAPIView):
     '''
-    ♻API endpoint that allows product to be created.
-    '''
-    permission_classes = [IsAuthenticated]
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-
-
-class UpdateProduct(UpdateAPIView):
-    '''
-    ♻API endpoint that allows product to be updated.
+    ♻API endpoint that allows Sale to be created.
     '''
     permission_classes = [IsAuthenticated]
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer
 
 
-class RetrieveProduct(RetrieveAPIView):
+class UpdateSale(UpdateAPIView):
     '''
-    ♻API endpoint that allows product to be retrieved.
-    '''
-    permission_classes = [IsAuthenticated]
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-
-
-class DestroyProduct(DestroyAPIView):
-    '''
-    ♻API endpoint that allows product to be deleted.
+    ♻API endpoint that allows Sale to be updated.
     '''
     permission_classes = [IsAuthenticated]
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer
 
 
-class OrderAPIView(ListAPIView):
+class RetrieveSale(RetrieveAPIView):
     '''
-    ♻API endpoint that allows order to be viewed.
-    '''
-    permission_classes = [IsAuthenticated]
-    serializer_class = OrderSerializer
-    queryset = Order.objects.all()
-    throttle_classes = [UserRateThrottle, AnonRateThrottle]
-
-
-class CreateOrder(CreateAPIView):
-    '''
-    ♻API endpoint that allows order to be created.
+    ♻API endpoint that allows Sale to be retrieved.
     '''
     permission_classes = [IsAuthenticated]
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    throttle_classes = [UserRateThrottle, AnonRateThrottle]
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer
 
 
-class UpdateOrder(UpdateAPIView):
+class DestroySale(DestroyAPIView):
     '''
-    ♻API endpoint that allows order to be updated.
-    '''
-    permission_classes = [IsAuthenticated]
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    throttle_classes = [UserRateThrottle, AnonRateThrottle]
-
-
-class RetrieveOrder(RetrieveAPIView):
-    '''
-    ♻API endpoint that allows order to be retrieved.
+    ♻API endpoint that allows Sale to be deleted.
     '''
     permission_classes = [IsAuthenticated]
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    throttle_classes = [UserRateThrottle, AnonRateThrottle]
-
-
-class DestroyOrder(DestroyAPIView):
-    '''
-    ♻API endpoint that allows order to be deleted.
-    '''
-    permission_classes = [IsAuthenticated]
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    throttle_classes = [UserRateThrottle, AnonRateThrottle]
+    queryset = Sale.objects.all()
+    serializer_class = SaleSerializer
