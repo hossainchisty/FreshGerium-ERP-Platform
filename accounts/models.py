@@ -8,7 +8,7 @@ class Account(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     account_name = models.CharField(verbose_name='Name of Account', max_length=25)
     account_description = models.TextField(verbose_name='Descrition')
-    country = CountryField()
+    country = CountryField(default="BD")
     account_phone = models.IntegerField()
     billing_address = models.TextField()
     INDUSTRY = (
