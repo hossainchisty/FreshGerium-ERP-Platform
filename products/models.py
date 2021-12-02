@@ -19,6 +19,9 @@ class Category(models.Model):
 
 
 class Product(Timestamp):
+    """
+    Product model for storing product data🛢
+    """
     product_name = models.CharField(max_length=100)
     product_code = models.CharField(max_length=4, unique=True, default=random.unique_code(4))
     product_model = models.CharField(max_length=100)

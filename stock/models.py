@@ -5,6 +5,9 @@ from utils.models.common_fields import Timestamp
 
 
 class Stock(Timestamp):
+    """
+    Stock model for storing stock data🛢
+    """
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     sale_price = models.DecimalField(max_digits=10, decimal_places=2)
     purchase_price = models.DecimalField(max_digits=10, decimal_places=2)

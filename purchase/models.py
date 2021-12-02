@@ -7,6 +7,9 @@ from utils.models.common_fields import Timestamp
 
 
 class Purchase(Timestamp):
+    """
+    Purchase model for storing purchase data🛢
+    """
     invoice_number = models.CharField(max_length=4, unique=True, default=random.unique_code(4))
     purchase_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     purchase_date = models.DateField()

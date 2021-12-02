@@ -8,6 +8,9 @@ from utils.models.common_fields import Ledger, Timestamp
 
 
 class Supplier(Timestamp):
+    """
+    Supplier model for storing supplier data🛢
+    """
     supplier_full_name = models.CharField(max_length=100, verbose_name=_('Supplier Full Name'))
     supplier_address = models.CharField(max_length=100, verbose_name=_('Supplier Address'))
     supplier_phone = PhoneNumberField()

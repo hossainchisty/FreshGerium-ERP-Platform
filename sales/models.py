@@ -7,6 +7,9 @@ from utils.models.common_fields import Timestamp
 
 
 class Sale(Timestamp):
+    """
+    Sale model for storing sale data🛢
+    """
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date = models.DateField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
