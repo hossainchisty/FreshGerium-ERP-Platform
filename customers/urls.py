@@ -1,8 +1,8 @@
 
-from customers.views.customer_views import Customer
+from customers.views.customer_views import CustomerList
 from django.urls import include, path
 
 urlpatterns = [
-    path('', Customer.as_view(), name='customer'),
+    path('', CustomerList.as_view(), name='customer_list'),
     path('api/v1/', include('customers.api.urls.customer_urls')),
 ]

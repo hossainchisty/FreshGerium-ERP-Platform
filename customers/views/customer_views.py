@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 
 
-class Customer(View):
+class CustomerList(View):
     def get(self, request):
         '''
         TODO:
