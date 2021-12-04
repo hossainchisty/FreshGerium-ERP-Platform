@@ -2,5 +2,5 @@ from core.views import core_views as views
 from django.urls import path
 
 urlpatterns = [
-    path('', views.dashboard, name='dashboard'),
+    path('', views.Dashboard.as_views(), name='dashboard'),
 ]
