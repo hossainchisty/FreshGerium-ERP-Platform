@@ -1,6 +1,6 @@
-from core.views import core_views as views
+from core.views.core_views import Dashboard
 from django.urls import path
 
 urlpatterns = [
-    path('', views.Dashboard.as_view(), name='dashboard'),
+    path('', Dashboard.as_view(), name='dashboard'),
 ]
