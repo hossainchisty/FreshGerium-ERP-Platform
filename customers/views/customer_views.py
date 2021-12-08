@@ -1,3 +1,4 @@
+from customers.models import Customer
 from django.shortcuts import render
 from django.views.generic import View
 
@@ -5,7 +6,11 @@ from django.views.generic import View
 class CustomerList(View):
     def get(self, request):
         '''
-        TODO:
-        - This will reutrn list of customer
+        This will reutrn list of customer
         '''
-        return render(request, 'customers/customer.html')
+        customers = Customer.objects.all().order_by('-id')
+
+        context = {
+            'customers': customers
+        }
+        return render(request, 'customers/customer.html', context)
