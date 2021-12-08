@@ -2,7 +2,6 @@ from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
 from django.db import models
-from django.db.models import Sum
 from django.utils.translation import gettext_lazy as _
 from utils.models.common_fields import Ledger, Timestamp
 
@@ -24,24 +23,18 @@ class Customer(Timestamp):
 
     customer_ledger = models.ManyToManyField(Ledger)
 
-    @property
-    def total_customer(self):
+    def save(self, *args, **kwargs):
         '''
-        This method is used to get total customer.
+        Converts a string into all uppercase.
+        eg: if customer name is "sakib", then it will save as "Sakib"
         '''
-        return Customer.objects.all().count()
-
-    @property
-    def total_balance(self):
-        '''
-        This method is used to get total balance.
-        '''
-        return Customer.objects.aggregate(Sum('balance'))['balance__sum']
-
-    class Meta:
-        verbose_name = _('Customer')
-        verbose_name_plural = _('Customers')
+        self.customer_name = self.customer_name.title()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """String for representing the Model object."""
         return self.customer_name
+
+    class Meta:
+        verbose_name = _('Customer')
+        verbose_name_plural = _('Customers')
