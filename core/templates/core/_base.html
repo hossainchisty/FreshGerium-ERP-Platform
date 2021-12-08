@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
 
     <meta charset="utf-8">
@@ -18,7 +19,14 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
@@ -52,124 +60,65 @@
             </li>
 
             <!-- Customer menus start -->
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="{% url 'customer' %}" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                     <i class="fas fa-hands-helping"></i>
-                    <span>Customer</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Add Customer</a>
-                        <a class="collapse-item" href="register.html">Customer List</a>
-                       
-                        <a class="collapse-item" href="forgot-password.html">Paid Customer</a>
-
-                        <a class="collapse-item" href="forgot-password.html">Customer Ledger</a>
-
-                        <a class="collapse-item" href="forgot-password.html">Customer Advance</a>
-                        
-                    </div>
-                </div>
-            </li>
+            {% include 'core/customer_side_menus.html' %}
             <!-- Customer menus end -->
 
-
-            <li class="nav-item active">
-                <a class="nav-link" href="product.html">
-                    <i class="fas fa-boxes"></i>
-                    <span>Product</span></a>
-            </li>
-            
-            <!-- Sale menus start -->
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                     <i class="fas fa-hands-helping"></i>
-                    <span>Sale</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">New Sale</a>
-                        <a class="collapse-item" href="register.html">Manage Sale</a>
-                    </div>
-                </div>
-            </li>
-            <!-- Sale menus end -->
-
             <!-- Supplier menus start -->
-            <li class="nav-item active">
-                <a class="nav-link " href="" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="false" aria-controls="collapsePages">
-                     <i class="fas fa-people-carry"></i>
-                    <span>Supplier</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Add Supplier</a>
-                        <a class="collapse-item" href="register.html">Supplier List</a>
-                        <a class="collapse-item" href="register.html">Supplier Ledger</a>
-                        <a class="collapse-item" href="register.html">Supplier Advance</a>
-                    </div>
-                </div>
-            </li>
+            {% include 'core/supplier_side_menus.html' %}
             <!-- Supplier menus end -->
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Product menus start -->
+            {% include 'core/product_side_menus.html' %}
+            <!-- Product menus end -->
+
             <!-- Purchase menus start -->
-            <li class="nav-item active">
-                <a class="nav-link" href="product.html">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span>Purchase</span></a>
-            </li>
+            {% include 'core/purchase_side_menus.html' %}
             <!-- Purchase menus end -->
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="product.html">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Stock</span></a>
-            </li>
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="product.html">
-                    <i class="fas fa-bug"></i>
-                    <span>Report</span></a>
-            </li>
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="product.html">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>Return</span></a>
-            </li> 
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="product.html">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span>Quotation</span></a>
-            </li>
-            
-            <li class="nav-item active">
-                <a class="nav-link" href="product.html">
-                    <i class="fab fa-servicestack"></i>
-                    <span>Service</span></a>
-            </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="order.html">
-                    <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
-                    <span>Order</span></a>
-            </li>
+            <!-- Sale menus start -->
+            {% include 'core/sale_side_menus.html' %}
+            <!-- Sale menus end -->
 
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'accounts' %}">
-                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    <span>Account</span></a>
-            </li>
+            <!-- Stock menus start -->
+            {% include 'core/stock_side_menus.html' %}
+            <!-- Stock menus end -->
 
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'contact' %}">
-                    <i class="fas fa-address-book fa-2x text-gray-300"></i>
-                    <span>Contact</span></a>
-            </li>
+            <!-- Account menus start -->
+            {% include 'core/account_side_menus.html' %}
+            <!-- Account menus end -->
+
+            <!-- Report menus start -->
+            {% include 'core/report_side_menus.html' %}
+            <!-- Report menus end -->
+
+            <!-- Return menus start -->
+            {% include 'core/return_side_menus.html' %}
+            <!-- Return menus end -->
+
+
+            <!-- Quotation menus start -->
+            {% include 'core/quotation_side_menus.html' %}
+            <!-- Quotation menus end -->
+
+            <!-- Service menus start -->
+            {% include 'core/service_side_menus.html' %}
+            <!-- Service menus end -->
+
+            <!-- Damage menus start -->
+            {% include 'core/damage_side_menus.html' %}
+            <!-- Damage menus end -->
+
+            <!-- Order menus start -->
+            {% include 'core/order_side_menus.html' %}
+            <!-- Order menus end -->
+
+            <!-- Expense menus start -->
+            {% include 'core/expense_side_menus.html' %}
+            <!-- Expense menus end -->
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -182,12 +131,13 @@
             </li> {% endcomment %}
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesPages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePagesPages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
@@ -218,22 +168,33 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
+                    
+                   
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Alerts -->
+                        {% include 'core/nav_alert.html' %}
+                        <!-- Nav Item - Alerts -->
+
+
                         <div class="topbar-divider d-none d-sm-block"></div>
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hossain Chisty</span>
-                                <img class="img-profile rounded-circle" src="https://images.moviefit.me/p/o/71931-josephine-langford.jpg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    <div id="greeting"></div>Hossain Chisty
+                                </span>
+                                <img class="img-profile rounded-circle"
+                                    src="https://images.moviefit.me/p/o/71931-josephine-langford.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -259,20 +220,20 @@
                 </nav>
                 <!-- End of Topbar -->
 
-    {% block body %}
+                {% block body %}
 
-    {% endblock body %}
+                {% endblock body %}
 
-</div>
-<!-- End of Main Content -->
+            </div>
+            <!-- End of Main Content -->
 
-</div>
-<!-- End of Content Wrapper -->
+        </div>
+        <!-- End of Content Wrapper -->
 
-</div>
-<!-- End of Page Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
 
- <!-- Scroll to Top Button-->
+    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
@@ -296,6 +257,22 @@
             </div>
         </div>
     </div>
+    <script type="text/babel">
+
+        class Greeting extends React.Component {
+            render() {
+                const currentTime = new Date().getHours()
+                return (
+                    <div>
+                        <span>Good {currentTime >= 12 ?
+                            currentTime >= 16 ? 'Evening🌃' : 'Afternoon🌇' : 'Morning🌅'}</span>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Greeting />, document.getElementById('greeting'))
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
@@ -313,6 +290,7 @@
     <!-- Page level custom scripts -->
     <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
     <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+    <script src="{% static 'js/demo/chart-bar-demo.js' %}"></script>
 
 </body>
 
