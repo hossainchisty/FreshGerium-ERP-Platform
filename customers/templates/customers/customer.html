@@ -1,5 +1,5 @@
 {% extends 'core/_base.html' %}
-
+{% load customer_tags %}
 {% block title %} Customers {% endblock title %}
 {% block body %}
 
@@ -10,8 +10,6 @@
             <h6 class="m-0 font-weight-bold text-primary">Manage Customer</h6>
         </div>
         <div class="card-body">
-            <button type="button" class="btn btn-primary">
-                <i class="fa fa-plus"></i> Add Customer</button>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -26,27 +24,53 @@
                         </tr>
                     </thead>
 
+                    
+                    {% for customer in customers %}
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Hossain Chisty</td>
-                            <td>demo@gmail.com</td>
-                            <td>1232137982372</td>
-                            <td>Dinajpur</td>
-                            <td>$190</td>
-                            <td>
-                                <i class="material-icons m-2 text-blue-600">
-                                    <a href="" class="text-decoration-none">&#xE254;</a> </i>
-                                <i class="material-icons">
-                                    <a href=""
-                                        class="text-decoration-none  text-red-600 hover:text-red-600">&#xE872;</a></i>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ customer.customer_name}}</td>
+                            <td>{{ customer.customer_email }}</td>
+                            <td>{{ customer.mobile_no }}</td>
+                            <td>{{ customer.customer_address }}</td>
+                            <td>${{ customer.balance }}</td>
+                            <td class="text-center">
+                                <button
+                                    class="py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal">
+                                    <a class="text-white hover:no-underline" href=""></a>
+                                    <i class="fas fa-trash-alt"></i></button>
+                                <button
+                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
+                                    <a class="text-white hover:no-underline" href=""></a>
+                                    <i class="fa fa-edit" style="font-size:20px"></i></button>
                             </td>
                         </tr>
                     </tbody>
+                    {% endfor %}
+                    <th colspan="6.6" class="text-right">Total: {% total_balance %}</th>
+                    <th></th>
                 </table>
             </div>
         </div>
     </div>
     <!-- Customer Table -->
+</div>
+<!-- delete Modal-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this item?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button class="py-2 px-2 text-white rounded-lg bg-green-400 block md:inline-block" type="button" data-dismiss="modal">Cancel</button>
+                <a class="py-2 px-2 text-white rounded-lg bg-red-400 block md:inline-block" href="login.html">Delete</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock body %}
