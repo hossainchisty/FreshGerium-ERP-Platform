@@ -12,17 +12,20 @@ class ExpenseModelTest(TestCase):
         '''
         Expense.objects.create(
             id=1,
-            date= "2020-01-01",
-            expense_type= "Food",
-            amount= 10.00,
+            date="2020-01-01",
+            expense_type="Food",
+            amount=10.00,
         )
 
     def tearDown(self):
         Expense.objects.all().delete()
 
-
     def test_expense_type(self):
         ''' Test expense type '''
         expense = Expense.objects.get(id=1)
         self.assertEqual(expense.expense_type, 'Food')
- 
+
+    def test_expense_amount(self):
+        ''' Test expense amount '''
+        expense = Expense.objects.get(id=1)
+        self.assertEqual(expense.amount, 10.00)
