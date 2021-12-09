@@ -1,8 +1,11 @@
+
+
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('inbox/notifications/', include('notifications.urls', namespace='notifications')),
     path(r'', include('user_sessions.urls', 'user_sessions')),
     path('', include('core.urls')),
     path('profile/', include('profiles.urls')),
