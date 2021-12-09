@@ -1,5 +1,4 @@
 {% extends 'core/_base.html' %}
-{% load customer_tags %}
 {% block body %}
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -15,263 +14,56 @@
     <div class="row">
 
         <!-- Total customer -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Total Customer</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            {% total_customer %}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/CustomerCard.html' %}
         <!-- End  -->
 
         <!-- TOTAL PURCHASE COST -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                TOTAL PURCHASE COST</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="far fa-money-bill-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/PurchaseCard.html' %}
         <!-- End  -->
 
         <!-- TOTAL PROFIT -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                TOTAL PROFIT</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/ProfitCard.html' %}
         <!-- End  -->
 
         <!-- Total Sale-->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Total Sale</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/SaleCard.html' %}
         <!-- End  -->
 
         <!-- TODAY EXPENSE -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                TODAY EXPENSE</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-hourglass-start"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/TodayExpenseCard.html' %}
         <!-- End  -->
 
         <!-- TOTAL EXPENSE -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                TOTAL EXPENSE</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="far fa-money-bill-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/TotalExpenseCard.html' %}
         <!-- End  -->
 
         <!-- Total orders -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Total Orders</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">15,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/TotalOrderCard.html' %}
         <!-- End  -->
 
-        <!-- Orders Shipped -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Orders Shipped</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">15,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Total Orders Shipped -->
+        {% include 'core/components/TotalOrdersShippedCard.html' %}
         <!-- End  -->
 
         <!-- Orders Processing -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Orders Processing</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">15,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-spinner"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/OrdersProcessingCard.html' %}
         <!-- End  -->
 
 
         <!-- Orders Delivered -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Orders Delivered</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">5,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/OrdersDelivered.html' %}
         <!-- End  -->
 
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total
-                                Product
-                            </div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                </div>
-                                <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-box"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Total Product -->
+        {% include 'core/components/TotalProduct.html' %}
         <!-- End  -->
 
         <!-- Pending Requests Card  -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pending Requests</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/PendingRequestCard.html' %}
         <!-- End  -->
 
         <!-- Total Supplier Card  -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-purple text-uppercase mb-1">
-                                Total Supplier</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-people-carry fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'core/components/TotalSupplierCard.html' %}
         <!-- End  -->
     </div>
 
