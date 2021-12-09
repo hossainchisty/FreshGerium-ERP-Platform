@@ -77,3 +77,12 @@ requirements.txt
 setup.py
 requirements.txt
 config/settings.py
+ERP-Software-Requirement.md
+.circleci/config.yml
+.github/FUNDING.yml
+db.sqlite3
+.github/workflows/ci-pipeline.yml
+.github/workflows/linters.yml
+.github/workflows/coverage.yml
+db.sqlite3
+.flake8
