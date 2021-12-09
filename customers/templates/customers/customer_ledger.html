@@ -1,0 +1,54 @@
+{% extends 'core/_base.html' %} 
+{% block title %} Customers {% endblock title %}
+{% load customer_tags %}
+{% block body %}
+
+<div class="container-fluid">
+  <!-- Customer ledger Table -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Customer Ledger</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Voucher No</th>
+              <th>Debit</th>
+              <th>Credit</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+
+
+          <tbody>
+          {% for customer in customer_ledger %}
+           {% for balances in customer_balance %}
+            <tr>
+              <td>{{ customer.date }}</td>
+              <td>{{ customer.decsription }}</td>
+              <td>{{ customer.voucher_no }}</td>
+              <td>{{ customer.debit }}</td>
+              <td>{{ customer.credit }}</td>
+              <td>${{ balances.balance }}</td>
+            </tr>
+          </tbody>
+            {% endfor %}
+          {% endfor %} 
+          <th colspan="6.6" class="text-right">Total: {% total_balance %}</th>
+          <th></th>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Customer ledger Table -->
+</div>
+{% endblock body %}
