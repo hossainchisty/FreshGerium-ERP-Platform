@@ -1,4 +1,4 @@
 [flake8]
-max-line-length = 133
+max-line-length = 170
 exclude = __init__.py, *env
 ; ignore = E501,F841
