@@ -1,0 +1,48 @@
+{% extends 'core/_base.html' %}
+{% block title %} Supplier {% endblock title %}
+{% block body %}
+<div class="container-fluid">
+    <!-- Suppliers Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Supplier List</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>SL.</th>
+                            <th>Supplier Name</th>
+                            <th>Address</th>
+                            <th>Mobile No</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Status</th>
+                            <th>Zip code</th>
+                            <th>Country</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Mr. Bob</td>
+                            <td>andu villa, duse road</td>
+                            <td>+42342</td>
+                            <td>bod@gmai.com</td>
+                            <td>South Korea</td>
+                            <td>salio</td>
+                            <td>3424</td>
+                            <td>South Korea</td>
+                            <td>90.500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Suppliers Table -->
+</div>
+{% endblock body %}

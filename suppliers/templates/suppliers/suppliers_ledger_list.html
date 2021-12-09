@@ -1,0 +1,45 @@
+{% extends 'core/_base.html' %}
+{% block title %}Supplier Ledger{% endblock title %}
+{% block body %}
+<div class="container-fluid">
+    <!-- Suppliers Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Supplier Ledger</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>SL.</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Voucher No</th>
+                            <th>Debit</th>
+                            <th>Credit</th>
+                            <th>Balance</th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2020-10-24</td>
+                            <td>Supplier .Michell</td>
+                            <td>20201024100818</td>
+                            <td>$ 0.00</td>
+                            <td>$ 92,500.00</td>
+                            <td>$ -92,500.00</td>
+                            Grand Total:	$ 277,500.00	$ 1,227,500.00	$ -950,000.00
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Suppliers Table -->
+</div>
+{% endblock body %}
