@@ -7,7 +7,7 @@
     <div id="collapsePagesExpense" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{% url 'expense_item' %}">Expense Item</a>
-            <a class="collapse-item" href="login.html">Add Expense</a>
+            <a class="collapse-item" href="{% url 'add_expense' %}">Add Expense</a>
             <a class="collapse-item" href="{% url 'manage_expense' %}">Manage Expense</a>
             <a class="collapse-item" href="{% url 'expense_statement' %}">Expense Statement</a>
         </div>
