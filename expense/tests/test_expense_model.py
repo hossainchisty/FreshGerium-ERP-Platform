@@ -18,6 +18,9 @@ class ExpenseModelTest(TestCase):
         )
 
     def tearDown(self):
+        '''
+        Delete expense instance after testing
+        '''
         Expense.objects.all().delete()
 
     def test_expense_type(self):
