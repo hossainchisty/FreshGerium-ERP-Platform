@@ -24,13 +24,6 @@ class Supplier(Timestamp):
 
     history = HistoricalRecords()
 
-    @property
-    def total_supplier(self):
-        '''
-        This method is used to calculate the total supplier.
-        '''
-        return Supplier.objects.all().count()
-
     class Meta:
         verbose_name = _('Supplier')
         verbose_name_plural = _('Suppliers')
