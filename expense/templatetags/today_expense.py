@@ -8,11 +8,8 @@ register = template.Library()
 
 
 @register.simple_tag
-def get_today_expsense():
+def get_today_expsense(default=0.00):
     '''
     This method is used to get today total expense.
     '''
-    if Expense.objects.filter(date=date.today()).exists():
-        return Expense.objects.filter(date=date.today()).aggregate(Sum('amount'))['amount__sum']
-    else:
-        return 0.00
+    return Expense.objects.filter(date=date.today()).aggregate(Sum('amount'))['amount__sum'] or default

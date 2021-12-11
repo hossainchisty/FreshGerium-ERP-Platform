@@ -6,8 +6,8 @@ register = template.Library()
 
 
 @register.simple_tag
-def get_total_expsense():
+def get_total_expsense(default=0.00):
     '''
     This method is used to get total expense.
     '''
-    return Expense.objects.aggregate(Sum('amount'))['amount__sum']
+    return Expense.objects.aggregate(Sum('amount'))['amount__sum'] or default
