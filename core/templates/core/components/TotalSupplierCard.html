@@ -1,3 +1,4 @@
+{% load total_supplier %}
 <div class="col-xl-3 col-md-6 mb-4">
   <div class="card border-left-warning shadow h-100 py-2">
     <div class="card-body">
@@ -6,7 +7,7 @@
           <div class="text-xs font-weight-bold text-purple text-uppercase mb-1">
             Total Supplier
           </div>
-          <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+          <div class="h5 mb-0 font-weight-bold text-gray-800">{% get_total_supplier %}</div>
         </div>
         <div class="col-auto">
           <i class="fas fa-people-carry fa-2x text-gray-300"></i>
