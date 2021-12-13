@@ -10,6 +10,7 @@ class Sale(Timestamp):
     """
     Sale model for storing sale data🛢
     """
+    seller = models.CharField(max_length=100, default='Unknown')
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date = models.DateField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -30,13 +31,6 @@ class Sale(Timestamp):
     due = models.DecimalField(max_digits=10, decimal_places=2)
     charge = models.DecimalField(max_digits=10, decimal_places=2)
 
-
-    @property
-    def total_balance(self):
-        '''
-        This method is used to get total balance.
-        '''
-        return Sale.objects.aggregate(Sum('paid_amount'))['paid_amount__sum']
 
     def save(self, *args, **kwargs):
         '''
