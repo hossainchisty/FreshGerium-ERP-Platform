@@ -53,6 +53,7 @@ LOCAL_APPS = [
     'expense.apps.ExpenseConfig',
     'sales.apps.SalesConfig',
     'report.apps.ReportConfig',
+    'service.apps.ServiceConfig',
     'settings.apps.SettingsConfig',
     'profiles.apps.ProfilesConfig',
     'products.apps.ProductsConfig',
