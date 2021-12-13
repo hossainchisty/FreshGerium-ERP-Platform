@@ -9,6 +9,7 @@ urlpatterns = [
     path(r'', include('user_sessions.urls', 'user_sessions')),
     path('', include('core.urls')),
     path('profile/', include('profiles.urls')),
+    path('service/', include('service.urls')),
     path('purchase/', include('purchase.urls')),
     path('expense/', include('expense.urls')),
     path('products/', include('products.urls')),
