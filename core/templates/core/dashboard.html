@@ -59,7 +59,7 @@
         <!-- End  -->
 
         <!-- Pending Requests Card  -->
-        {% include 'core/components/PendingRequestCard.html' %}
+        {% comment %} {% include 'core/components/PendingRequestCard.html' %} {% endcomment %}
         <!-- End  -->
 
         <!-- Total Supplier Card  -->
@@ -71,77 +71,15 @@
 
     <div class="row">
 
-        <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Sales Overview Area Chart Start -->
+        {% include 'core/graph/SalesOverview.html' %}
+        <!-- Sales Overview Area Chart End -->
 
-        <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                            aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-center small">
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Direct
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Social
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Referral
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!-- Expense Pie Chart Start -->
+        {% include 'core/graph/ExpenseSummary.html' %}
+        <!-- Expense Pie Chart End -->        
+        
+        
 
     <!-- Content Row -->
     <div class="row">
@@ -167,7 +105,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<!-- Start Graph -->
+{% comment %} <!-- Start Graph -->
 <div class="flex flex-row flex-wrap flex-grow mt-2">
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
@@ -175,7 +113,7 @@
         <div class="bg-white border-transparent rounded-lg">
             <div
                 class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                <h5 class="font-bold uppercase text-gray-600">Markting Summary</h5>
             </div>
             <div class="p-5">
                 <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
@@ -269,7 +207,7 @@
         <!--/Graph Card-->
     </div>
 </div>
-<!-- End Graph -->
+<!-- End Graph --> {% endcomment %}
 
 </div>
 <!-- End of Main Content -->
