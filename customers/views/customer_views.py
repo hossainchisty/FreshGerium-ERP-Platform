@@ -6,6 +6,7 @@ from utils.models.common_fields import Ledger
 
 
 class CustomerList(View):
+
     def get(self, request):
         '''
         This will reutrn list of customer
