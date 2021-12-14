@@ -11,7 +11,7 @@ class Unit(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, null=True, blank=True)
 
     def __str__(self):
         """String for representing the Model object."""
