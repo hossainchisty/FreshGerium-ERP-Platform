@@ -10,7 +10,8 @@ class ManageService(View):
     '''
     def get(self, request):
         service_list = Service.objects.all().order_by('-id')
-        paginator = Paginator(service_list, 25) # Show 25 customers per page.
+        paginator = Paginator(service_list, 25)
+        # Show 25 services per page.
         page_number = request.GET.get('page')
         services = paginator.get_page(page_number)
 
