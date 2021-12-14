@@ -5,11 +5,14 @@ from django.views import View
 
 
 class CreateCustomer(View):
-    ''' Create a new customer '''
+    '''
+    Intentionally simple parent class for all views.
+    '''
     def get(self, request, *args, **kwargs):
         return render(request,  'customers/add_customer.html')
 
     def post(self, request, *args, **kwargs):
+        ''' Create a new customer '''
         customer_name = request.POST.get('customer_name')
         customer_email = request.POST.get('customer_email')
         mobile_no = request.POST.get('mobile_no')
@@ -17,4 +20,5 @@ class CreateCustomer(View):
         balance = request.POST.get('balance')
         customer = Customer(customer_name=customer_name, customer_email=customer_email, mobile_no=mobile_no, customer_address=customer_address, balance=balance)
         customer.save()
+        """Provide a redirect on GET request."""
         return redirect('customer_list')
