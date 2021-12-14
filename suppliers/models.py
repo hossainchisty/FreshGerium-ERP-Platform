@@ -30,4 +30,4 @@ class Supplier(Timestamp):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.supplier_full_name + ' - ' + self.supplier_email
+        return self.supplier_full_name
