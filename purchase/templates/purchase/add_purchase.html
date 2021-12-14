@@ -1,0 +1,18 @@
+{% extends 'core/_base.html' %}
+{% block title %} Add Purchase {% endblock title %}
+{% load crispy_forms_tags %}
+{% block body %}
+<section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20">
+    <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Add Purchase</h2>
+    <form method="POST">
+        <!-- Security token -->
+        {% csrf_token %}
+        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+            {{ forms|crispy }}
+        </div>
+        <div class="flex justify-end mt-6">
+            <button type="submit" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+        </div>
+    </form>
+</section>
+{% endblock body %}
