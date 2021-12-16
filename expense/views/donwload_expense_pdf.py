@@ -6,7 +6,7 @@ from expense.models import Expense
 from utils.render_to_pdf import generate_pdf
 
 
-class DownloadPDF(View):
+class DownloadExpensePDF(View):
     '''
     Automaticly downloads to PDF file.
     '''
