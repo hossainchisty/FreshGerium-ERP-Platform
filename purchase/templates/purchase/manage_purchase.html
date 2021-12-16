@@ -24,10 +24,12 @@
                     </button>
                 </a>
 
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                Print
-                <i class="fas fa-print"></i>
-                </button>
+                <a class="hover:no-underline" href="{% url 'download_purchase_pdf' %}" >
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    Print
+                    <i class="fas fa-print"></i>
+                    </button>
+                </a>
             </div>
             <div class="pb-3">
                 <a href="{% url 'add_purchase' %}">

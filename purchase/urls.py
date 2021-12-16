@@ -1,6 +1,7 @@
 from django.urls import path
 from purchase.views.add_purchase_views import CreatePurchase
 from purchase.views.delete_purchase_views import DeletePurchase
+from purchase.views.donwload_purchase_pdf import DownloadPurchasePDF
 from purchase.views.export_purchase_csv_views import DownloadPurchaseCSV
 from purchase.views.manage_purchase_views import ManagePurchase
 from purchase.views.purchase_pdf_views import ViewPurchasePDF
@@ -13,4 +14,5 @@ urlpatterns = [
     path('update/<int:pk>/', UpdatePurchase.as_view(), name='update_purchase'),
     path('export/', DownloadPurchaseCSV.as_view(), name='download_purchase_csv'),
     path('pdf/', ViewPurchasePDF.as_view(), name='view_purchase_pdf'),
+    path('pdf/download/', DownloadPurchasePDF.as_view(), name="download_purchase_pdf")
 ]
