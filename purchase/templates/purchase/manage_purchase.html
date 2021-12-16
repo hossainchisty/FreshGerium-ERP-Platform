@@ -62,11 +62,13 @@
                                     <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="{% url 'delete_purchase'  purchase.pk %}">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
-                                    </button>
-                                <button
-                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
-                                    <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fa fa-edit" style="font-size:20px"></i></button> 
+                                </button>
+
+                                <button>
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block" href="{% url 'update_purchase'  purchase.pk %}">
+                                        <i class="fa fa-edit" style="font-size:20px"></i>
+                                    </a>
+                                </button>
                                     
                                 <button
                                     class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
