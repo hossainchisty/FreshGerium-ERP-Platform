@@ -4,7 +4,7 @@ from expense.models import Expense
 from utils.render_to_pdf import generate_pdf
 
 
-class ViewPDF(View):
+class ViewExpensePDF(View):
 	def get(self, request, *args, **kwargs):
 		expense = Expense.objects.all().order_by('-id')
 		pdf = generate_pdf('expense/pdf/expense_pdf.html', {'expense': expense})
