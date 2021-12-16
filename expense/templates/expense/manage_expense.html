@@ -11,18 +11,24 @@
         {% if expenses %}
         <div class="card-body">
             <div class="text-center">
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                CSV
-                <i class="fas fa-file-excel"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                PDF
-                <i class="far fa-file-pdf"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                Print
-                <i class="fas fa-print"></i>
-                </button>
+                <a class="hover:no-underline" href="{% url 'download_expense_csv' %}">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    CSV
+                    <i class="fas fa-file-excel"></i>
+                    </button>
+                </a>
+                <a class="hover:no-underline" href="{% url 'view_pdf' %}" target="_blank">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    PDF
+                    <i class="far fa-file-pdf"></i>
+                    </button>
+                </a>
+                <a class="hover:no-underline" href="{% url 'pdf_download' %}">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    Print
+                    <i class="fas fa-print"></i>
+                    </button>
+                </a>
             </div>
             <div class="pb-3">
                 <a href="{% url 'add_expense' %}">
@@ -30,9 +36,12 @@
                     <i class="fa fa-plus"></i>
                     Add Expense</button>
                 </a>
-                <button type="button" class="btn btn-success">
-                    <i class="fa fa-plus">
-                    </i>Add Expense(CSV)</button>
+                <a href="">
+                    <button type="button" class="btn btn-success">
+                        <i class="fa fa-plus">
+                        </i>Add Expense(CSV)
+                    </button>
+                </a>
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
