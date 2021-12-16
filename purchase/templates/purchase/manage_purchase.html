@@ -17,10 +17,13 @@
                     </button>
                 </a>
                 
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                PDF
-                <i class="far fa-file-pdf"></i>
-                </button>
+                <a class="hover:no-underline" href="{% url 'view_purchase_pdf' %}" target="_blank">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    PDF
+                    <i class="fas fa-file-pdf"></i>
+                    </button>
+                </a>
+
                 <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
                 Print
                 <i class="fas fa-print"></i>

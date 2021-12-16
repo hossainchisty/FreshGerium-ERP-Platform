@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<title>Purchase Data</title>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 7px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Purchase Data</h2>
+    <table>
+        <tr>
+            <th>SL.</th>
+            <th>Invoice Number</th>
+            <th>Purchase ID</th>
+            <th>Purchase Date</th>
+            <th>Total Amount</th>
+        </tr>
+        {% for item in purchase %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.invoice_number }}</td>
+            <td>{{ item.purchase_id }}</td>
+            <td>{{ item.purchase_date }}</td>
+            <td>{{ item.total_amount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
