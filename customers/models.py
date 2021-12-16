@@ -15,7 +15,7 @@ class Customer(Timestamp):
         ("Other", "Other"),
     )
     gender = models.CharField(max_length=200, choices=GENDER_SELECT)
-    customer_address = models.TextField()
+    customer_address = models.CharField(max_length=200)
     mobile_no = PhoneNumberField(default="+8801")
     city = CountryField(default="BD")
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
