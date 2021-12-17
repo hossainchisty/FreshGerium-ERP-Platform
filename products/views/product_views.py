@@ -9,7 +9,7 @@ class ProductListView(View):
         ''' This will reutrn list of products '''
         product_list = Product.objects.all().order_by('-id')
 
-        paginator = Paginator(product_list, 25) # Show 25 customers per page.
+        paginator = Paginator(product_list, 25)
         page_number = request.GET.get('page')
         products = paginator.get_page(page_number)
 
@@ -23,7 +23,7 @@ class CategoryListView(View):
     def get(self, request):
         ''' This will reutrn list of category '''
         category_list = Category.objects.all().order_by('-id')
-        paginator = Paginator(category_list, 25) # Show 25 customers per page.
+        paginator = Paginator(category_list, 25)
         page_number = request.GET.get('page')
         category = paginator.get_page(page_number)
 
