@@ -16,7 +16,7 @@
                     <i class="fas fa-file-excel"></i>
                     </button>
                 </a>
-                <a class="hover:no-underline" href="" target="_blank">
+                <a class="hover:no-underline" href="{% url 'view_stock_pdf' %}" target="_blank">
                     <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
                     PDF
                     <i class="far fa-file-pdf"></i>
@@ -48,7 +48,7 @@
                             <th>Purchase Price</th>
                             <th>In Quantity</th>
                             <th>Out Quantity</th>
-                            <th>Stock</th>
+                            <th>In Stock</th>
                             <th>Stock Sale Price</th>
                             <th>Stock Purchase Price</th>
                         </tr>
