@@ -10,7 +10,7 @@ class ManageExpense(View):
     '''
     def get(self, request):
         expenses_list = Expense.objects.all().order_by('-id')
-        paginator = Paginator(expenses_list, 20) # Show 20 Expense list per page.
+        paginator = Paginator(expenses_list, 20)
         page_number = request.GET.get('page')
         expenses = paginator.get_page(page_number)
         context = {
@@ -31,10 +31,16 @@ class ExpenseStatement(View):
 
 class ExpenseItem(View):
     '''
-    TODO:
-    1. Need to show the expense item action buttons[Edit, Delete]
+    Expense item action buttons[Edit, Delete]
      - CSV,pdf,print
-    2. Need to add pagination[20 items per page]
+    TODO: 2. Need to add pagination[20 items per page]
     '''
     def get(self, request):
-        return render(request, 'expense/expense_item.html')
+        expenses_list = Expense.objects.all().order_by('-id')
+        paginator = Paginator(expenses_list, 20)
+        page_number = request.GET.get('page')
+        expenses = paginator.get_page(page_number)
+        context = {
+            'expenses': expenses
+        }
+        return render(request, 'expense/expense_item.html', context)
