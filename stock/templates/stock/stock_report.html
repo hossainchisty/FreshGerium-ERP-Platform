@@ -7,6 +7,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Manage Stock</h6>
         </div>
+        {% if stocks %}
         <div class="card-body">
             <div class="text-center">
                 <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
@@ -47,20 +48,22 @@
                         </tr>
                     </thead>
 
+                    {% for stock in stocks %}
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Sound System</td>
-                            <td>Ml</td>
-                            <td>$1,200.00</td>
-                            <td>$1,000.00</td>
-                            <td>50.00</td>
-                            <td>5.00</td>
-                            <td>55</td>
-                            <td>$54,000.00</td>
-                            <td>$45,000.00</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ stock.product.product_name }}</td>
+                            <td>{{ stock.product.product_model }}</td>
+                            <td>${{ stock.sale_price }}</td>
+                            <td>${{ stock.purchase_price }}</td>
+                            <td>{{ stock.in_qnty }}</td>
+                            <td>{{ stock.out_qnty }}</td>
+                            <td>{{ stock.stock }}</td>
+                            <td>${{ stock.sale_price }}</td>
+                            <td>${{ stock.stock_purchase_price }}</td>
                         </tr>
                     </tbody>
+                    {% endfor %}
                 </table>
             </div>
             <!-- TODO: Dynamic Pagination  -->
@@ -121,6 +124,9 @@
             <p class="text-base">Showing 1/10</p>
             <!--- Pagination End -->
         </div>
+        {% else %}
+        {% include 'core/info/message.html' %}
+        {% endif %}
     </div>
     <!-- Stock Table -->
     
