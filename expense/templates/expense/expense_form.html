@@ -1,0 +1,19 @@
+{% extends 'core/_base.html' %}
+{% block title %} Update Expense {% endblock title %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="flex justify-center items-center pt-10 mt-16">
+    <div class="lg:w-2/5 md:w-1/2 w-2/3">
+        <form class="bg-white p-10 rounded-lg shadow-lg min-w-full" method="POST">
+            <!-- Security token -->
+            {% csrf_token %}
+            <div>
+                {{ form|crispy }}
+            </div>
+            
+            <button type="submit"
+                class="w-full mt-6 bg-indigo-600 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans">Save Change</button>
+        </form>
+    </div>
+</div>
+{% endblock body %}
