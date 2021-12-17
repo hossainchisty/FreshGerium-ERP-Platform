@@ -4,98 +4,98 @@
 {% load humanize %}
 {% load cache %}
 {% block body %}
-<style>
-    .alert {
-        position: relative;
-        margin: 30px;
-        padding: 0.7rem 2rem;
-        border: 1px solid transparent;
-        border-radius: 31.35rem;
-    }
-</style>
+<div class="container">
+<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
-{% for message in messages %}
-<div class="alert alert-info alert-dismissible fade show" role="alert">
-    <strong>{{ message }}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-{% endfor %}
-<div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
-    <!--Main Col-->
-    <div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none mx-6 lg:mx-0">
-        <div class="p-4 md:p-12 text-center lg:text-left">
-
-            <!-- Image for mobile view-->
-            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
-                style="background-image: url('https://images.moviefit.me/p/o/71931-josephine-langford.jpg')"></div>
-
-
-
-            <h1 class="text-3xl font-bold pt-8 lg:pt-0">{{request.user.get_full_name}}</h1>
-            <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-            <p class="pt-8 text-sm">Last login: {{request.user.last_login|naturaltime}}</p>
-            <p class="text-sm">Joined Date: {{request.user.date_joined|naturaltime}}</p>
-
-
-            <div class="pt-12 pb-8">
-                <button class="bg-purple-700 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded-full">
-                    <a class="text-white hover:no-underline" href="">Edit Profile</a>
-
-                </button>
+<main class="profile-page">
+  <section class="relative block h-500-px">
+    <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
+            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80');
+          ">
+      <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
+    </div>
+    <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
+      <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+        <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </section>
+  <section class="relative py-16 bg-blueGray-200">
+    <div class="container mx-auto px-4">
+      <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+        <div class="px-6">
+          <div class="flex flex-wrap justify-center">
+            <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+              <div class="relative">
+                <img alt="..." src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+              </div>
             </div>
+            <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+              <div class="py-6 px-3 mt-32 sm:mt-0">
+                <button class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button">
+                  Connect
+                </button>
+              </div>
+            </div>
+            <div class="w-full lg:w-4/12 px-4 lg:order-1">
+              <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                <div class="mr-4 p-3 text-center">
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">22</span><span class="text-sm text-blueGray-400">Friends</span>
+                </div>
+                <div class="mr-4 p-3 text-center">
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">10</span><span class="text-sm text-blueGray-400">Photos</span>
+                </div>
+                <div class="lg:mr-4 p-3 text-center">
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">89</span><span class="text-sm text-blueGray-400">Comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+              Jenna Stones
+            </h3>
+            <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+              <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+              Los Angeles, California
+            </div>
+            <div class="mb-2 text-blueGray-600 mt-10">
+              <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Solution Manager - Creative Tim Officer
+            </div>
+            <div class="mb-2 text-blueGray-600">
+              <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>University of Computer Science
+            </div>
+          </div>
+          <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+            <div class="flex flex-wrap justify-center">
+              <div class="w-full lg:w-9/12 px-4">
+                <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
+                  An artist of considerable range, Jenna the name taken by
+                  Melbourne-raised, Brooklyn-based Nick Murphy writes,
+                  performs and records all of his own music, giving it a
+                  warm, intimate feel with a solid groove structure. An
+                  artist of considerable range.
+                </p>
+                <a href="#pablo" class="font-normal text-pink-500">Show more</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <!--Img Col-->
-    <div class="lg:w-2/5">
-        <!-- Big profile image for side bar (desktop) -->
-
-        <img src="https://images.moviefit.me/p/o/71931-josephine-langford.jpg"
-            class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
-
+    <footer class="relative bg-blueGray-200 pt-8 pb-6 mt-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap items-center md:justify-between justify-center">
+      <div class="w-full md:w-6/12 px-4 mx-auto text-center">
+        <div class="text-sm text-blueGray-500 font-semibold py-1">
+          Made with <a href="https://www.creative-tim.com/product/notus-js" class="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" class="text-blueGray-500 hover:text-blueGray-800" target="_blank"> Creative Tim</a>.
+        </div>
+      </div>
     </div>
-
-    <!-- Pin to top right corner -->
-    <div class="absolute h-12 w-18 p-6">
-        <button class="js-change-theme focus:outline-none">🌙</button>
-    </div>
+  </div>
+</footer>
+  </section>
+</main>
 </div>
-
-<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
-<script src="https://unpkg.com/tippy.js@4"></script>
-<script>
-    //Init tooltips
-    tippy('.link', {
-        placement: 'bottom'
-    })
-
-    //Toggle mode
-    const toggle = document.querySelector('.js-change-theme');
-    const body = document.querySelector('body');
-    const profile = document.getElementById('profile');
-
-
-    toggle.addEventListener('click', () => {
-
-        if (body.classList.contains('text-gray-900')) {
-            toggle.innerHTML = "☀️";
-            body.classList.remove('text-gray-900');
-            body.classList.add('text-gray-100');
-            profile.classList.remove('bg-white');
-            profile.classList.add('bg-gray-900');
-        } else {
-            toggle.innerHTML = "🌙";
-            body.classList.remove('text-gray-100');
-            body.classList.add('text-gray-900');
-            profile.classList.remove('bg-gray-900');
-            profile.classList.add('bg-white');
-
-        }
-    });
-
-</script>
-</div>
-<!-- End of Main Content -->
 {% endblock body %}
