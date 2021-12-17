@@ -1,5 +1,12 @@
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+
 from django.contrib import admin
+from expense.models import Expense
 
-from .models import Expense
 
-admin.site.register(Expense)
+@admin.register(Expense)
+class ExpenseAdmin(ImportExportModelAdmin):
+    pass
+
+
