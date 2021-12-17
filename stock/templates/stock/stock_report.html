@@ -10,18 +10,24 @@
         {% if stocks %}
         <div class="card-body">
             <div class="text-center">
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                CSV
-                <i class="fas fa-file-excel"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                PDF
-                <i class="far fa-file-pdf"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                Print
-                <i class="fas fa-print"></i>
-                </button>
+                <a class="hover:no-underline" href="{% url 'donwload_stock_csv' %}">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    CSV
+                    <i class="fas fa-file-excel"></i>
+                    </button>
+                </a>
+                <a class="hover:no-underline" href="" target="_blank">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    PDF
+                    <i class="far fa-file-pdf"></i>
+                    </button>
+                </a>
+                <a class="hover:no-underline" href="">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    Print
+                    <i class="fas fa-print"></i>
+                    </button>
+                </a>
             </div>
             <div class="pb-3">
                 <button type="button" class="btn btn-primary">
