@@ -8,7 +8,7 @@ class SalesList(View):
     def get(self, request):
         ''' List of all sales '''
         sales_list = Sale.objects.all().order_by('-id')
-        paginator = Paginator(sales_list, 25) # Show 25 customers per page.
+        paginator = Paginator(sales_list, 25)
         page_number = request.GET.get('page')
         sales = paginator.get_page(page_number)
 
