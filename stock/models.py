@@ -41,4 +41,4 @@ class Stock(Timestamp):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.product.name
+        return self.product.product_name
