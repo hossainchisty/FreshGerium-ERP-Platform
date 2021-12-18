@@ -67,13 +67,13 @@
 
                             <td class="text-center">
                                 <button>
-                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="">
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="{% url 'delete_damage' damage.pk %}">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </button>
 
                                 <button>
-                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block" href="">
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block" href="{% url 'update_damage' damage.pk %}">
                                         <i class="fa fa-edit" style="font-size:20px"></i>
                                     </a>
                                 </button>
@@ -103,7 +103,7 @@
                     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                        <form action="" method="post">
+                        <form action="{% url 'delete_damage' damage.pk %}" method="post">
                             <!-- Security token -->
                             {% csrf_token %}
                             <div class="modal-content">
