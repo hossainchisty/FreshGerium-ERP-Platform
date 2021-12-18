@@ -30,14 +30,17 @@
                             <td>Inactive</td>
                             {%endif%}
                             <td class="text-center">
-                                <button
-                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
-                                    <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fa fa-edit" style="font-size:20px"></i></button>                                
-                                <button
-                                    class="py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block">
-                                    <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fas fa-trash-alt"></i></button>
+                                <button>
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </button>
+
+                                <button>
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block" href="{% url 'update_category'  item.pk %}">
+                                        <i class="fa fa-edit" style="font-size:20px"></i>
+                                    </a>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
