@@ -1,5 +1,3 @@
-
-
 from django.contrib import admin
 from django.urls import include, path
 
@@ -16,6 +14,8 @@ urlpatterns = [
     path('suppliers/', include('suppliers.urls')),
     path('settings/', include('settings.urls')),
     path('sales/', include('sales.urls')),
+    path('return/', include('returns.urls')),
+    path('damage/', include('damage.urls')),
     path('stock/', include('stock.urls')),
     path('customers/', include('customers.urls')),
     path('accounts/', include('accounts.urls')),
