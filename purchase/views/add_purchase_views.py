@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect, render
 from django.views import View
 from purchase.forms.purchase_form import PurchaseForm
