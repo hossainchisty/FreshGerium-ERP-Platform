@@ -1,13 +1,12 @@
 {% extends 'core/_base.html' %}
-{% load customer_tags %}
-{% block title %} Stock Return List {% endblock title %}
+{% block title %} Supplier Return List {% endblock title %}
 {% block body %}
 
 <div class="container-fluid">
     <!-- Customer Table -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Stock Return List</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Supplier Return List</h6>
         </div>
         {% if customers %}
         <div class="card-body">
@@ -16,8 +15,8 @@
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Invoice ID</th>
-                            <th>Customer Name</th>
+                            <th>Purchase ID</th>
+                            <th>Supplier Name</th>
                             <th>Date</th>
                             <th>Total Amount</th>
                             <th>Action</th>
@@ -75,8 +74,6 @@
                     </div>
                     <!-- customer delete modal end -->
                     {% endfor %}
-                    <th colspan="6.6" class="text-right">Total: {% total_balance %}</th>
-                    <th></th>
                 </table>
             </div>
             <!-- TODO: Dynamic Pagination  -->
