@@ -1,0 +1,193 @@
+{% extends 'core/_base.html' %}
+{% block title %} Manage Damage {% endblock title %}
+{% block body %}
+<div class="container-fluid">
+    <!-- Damage Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Manage Damage</h6>
+        </div>
+        {% if damages %}
+        <div class="card-body">
+            <div class="text-center">
+                <a class="hover:no-underline" href="">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    CSV
+                    <i class="fas fa-file-excel"></i>
+                    </button>
+                </a>
+                
+                <a class="hover:no-underline" href="" target="_blank">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    PDF
+                    <i class="fas fa-file-pdf"></i>
+                    </button>
+                </a>
+
+                <a class="hover:no-underline" href="" >
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    Print
+                    <i class="fas fa-print"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="pb-3">
+                <a href="">
+                    <button type="button" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                    Add Damage</button>
+                </a>
+                <button type="button" class="btn btn-success">
+                    <i class="fa fa-plus">
+                    </i>Add Damage(CSV)</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>SL.</th>
+                            <th class="text-center">Product</th>
+                            <th class="text-center">Customer</th>
+                            <th class="text-center">Supplier</th>
+                            <th class="text-center">Damaged Date</th>
+                            <th class="text-center">Damaged Reason</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+
+                    {% for damage in damages %}
+                    <tbody>
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td class="text-center">{{ damage.product.product_name }}</td>
+                            <td class="text-center">{{ damage.customer }}</td>
+                            <td class="text-center">{{ damage.supplier }}</td>
+                            <td class="text-center">{{ damage.damaged_date }}</td>
+                            <td class="text-center">{{ damage.damaged_reason|title }}</td>
+
+                            <td class="text-center">
+                                <button>
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </button>
+
+                                <button>
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block" href="">
+                                        <i class="fa fa-edit" style="font-size:20px"></i>
+                                    </a>
+                                </button>
+                                    
+                                <button
+                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
+                                    <a class="text-white hover:no-underline" href=""></a>
+                                    <i class="fas fa-qrcode"></i></button>
+
+                                <button
+                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
+                                    <a class="text-white hover:no-underline" href=""></a>
+                                    <i class="fas fa-barcode"></i></button>
+                                <!--
+                                <button
+                                    class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                                    </svg>
+                                    <span>Download</span>
+                                </button>
+                                -->
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- Damage delete modal start -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <form action="" method="post">
+                            <!-- Security token -->
+                            {% csrf_token %}
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Are you sure you want to delete this? 
+                                        <br>This action cannot be undone.</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <input class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" type="submit" value="Yes">
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    <!-- Damage delete modal end -->
+                    {% endfor %}
+                </table>
+            </div>
+            <!-- TODO: Dynamic Pagination  -->
+            <!--- Pagination Start -->
+            <div class="flex items-center justify-center lg:px-0 sm:px-6">
+                <div class="lg:w-3/5 w-full  flex items-center justify-between border-t border-gray-200">
+                    <div class="flex items-center pt-3 text-gray-600 hover:text-indigo-700 cursor-pointer">
+                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.1665 4H12.8332" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M1.1665 4L4.49984 7.33333" stroke="currentColor" stroke-width="1.25"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M1.1665 4.00002L4.49984 0.666687" stroke="currentColor" stroke-width="1.25"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <p class="text-sm ml-3 font-medium leading-none ">Previous</p>
+                    </div>
+                    <div class="sm:flex hidden">
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                            1</p>
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                            2</p>
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                            3</p>
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-indigo-700 border-t border-indigo-400 pt-3 mr-4 px-2">
+                            4</p>
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                            5</p>
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                            6</p>
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                            7</p>
+                        <p
+                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                            8</p>
+                    </div>
+                    <div class="flex items-center pt-3 text-gray-600 hover:text-indigo-700 cursor-pointer">
+                        <p class="text-sm font-medium leading-none mr-3">Next</p>
+                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.1665 4H12.8332" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M9.5 7.33333L12.8333 4" stroke="currentColor" stroke-width="1.25"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.5 0.666687L12.8333 4.00002" stroke="currentColor" stroke-width="1.25"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+            <p class="text-base">Showing 1/10</p>
+            <!--- Pagination End -->
+        </div>
+        {% else %}
+        {% include 'core/info/message.html' %}
+        {% endif %}
+    </div>
+    <!-- Damage Table -->
+</div>
+{% endblock body %}
