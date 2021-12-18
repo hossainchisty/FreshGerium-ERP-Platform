@@ -9,8 +9,6 @@ Github: https://github.com/hossainchisty
 
 from pathlib import Path
 
-from django.utils.translation import gettext_lazy as _
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-mqcg&7z#rec4yygir4_@&5ms0bno*9gribx$3@xwu#&-rvw$cs'
@@ -30,11 +28,13 @@ DEFAULT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'import_export',
     'notifications',
     'user_sessions',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django_filters',
+    'crispy_forms',
     'simple_history',
     'django_countries',
     'rest_framework',
@@ -54,6 +54,8 @@ LOCAL_APPS = [
     'sales.apps.SalesConfig',
     'report.apps.ReportConfig',
     'service.apps.ServiceConfig',
+    'returns.apps.ReturnsConfig',
+    'damage.apps.DamageConfig',
     'settings.apps.SettingsConfig',
     'profiles.apps.ProfilesConfig',
     'products.apps.ProductsConfig',
@@ -86,10 +88,8 @@ REST_FRAMEWORK = {
 }
 
 REST_FRAMEWORK = {
-    #? By default set to like that 
     # 'SEARCH_PARAM': 'search'
     'SEARCH_PARAM': 'q'
-
 }
 
 # Setting the throttling policy
@@ -106,6 +106,8 @@ REST_FRAMEWORK = {
     }
 }
 
+# tailwind css pack
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 DEFAULT_MIDDLEWARE = [
@@ -119,7 +121,7 @@ DEFAULT_MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MIDDLEWARE = DEFAULT_MIDDLEWARE 
+MIDDLEWARE = DEFAULT_MIDDLEWARE
 
 TEMPLATES = [
     {
