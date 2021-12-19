@@ -1,5 +1,6 @@
 from customers.models import Customer
 from django.db import models
+from django.utils import timezone
 from products.models import Product
 from purchase.models import Purchase
 from suppliers.models import Supplier
@@ -12,7 +13,8 @@ class Return(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    purchase = models.ForeignKey(Purchase, on_delete=models.CASCADE)
+    purchase = models.ForeignKey(Purchase, on_delete=models.CASCADE, null=True, blank=True)
+    reutrn_date = models.DateField(default=timezone.now)
     additional_information = models.TextField(max_length=500, help_text="e.g. My phone has missing headphones", verbose_name="Additional Information (optional)", blank=True, null=True)
     is_returned = models.BooleanField(default=False)
     select_a_reason = [
