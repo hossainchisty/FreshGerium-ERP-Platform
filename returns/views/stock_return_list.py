@@ -6,6 +6,9 @@ from returns.models import Return
 
 class StockReturnView(View):
     def get(self, request):
+        '''
+        This will reutrn list of stock return items
+        '''
         return_list = Return.objects.all()
         paginator = Paginator(return_list, 20)
         page_number = request.GET.get('page')

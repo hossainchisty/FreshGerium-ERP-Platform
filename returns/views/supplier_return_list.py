@@ -6,6 +6,9 @@ from returns.models import Return
 
 class SupplierReturnView(View):
     def get(self, request):
+        '''
+        This will reutrn list of supplier return items
+        '''
         return_list = Return.objects.all()
         paginator = Paginator(return_list, 10)
         page_number = request.GET.get('page')
