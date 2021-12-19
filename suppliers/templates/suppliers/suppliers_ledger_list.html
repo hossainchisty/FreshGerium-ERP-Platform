@@ -24,19 +24,23 @@
                         </tr>
                     </thead>
 
+                    {% for ledger in supplier_ledgers  %}
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>2020-10-24</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ ledger.date }}</td>
                             <td>Supplier .Michell</td>
                             <td>20201024100818</td>
                             <td>$ 0.00</td>
                             <td>$ 92,500.00</td>
                             <td>$ -92,500.00</td>
-                            Grand Total:	$ 277,500.00	$ 1,227,500.00	$ -950,000.00
+                            
                         </tr>
                     </tbody>
+                    {% endfor %}
                 </table>
+                <th colspan="6.6" class="text-right">Grand Total:	$ 277,500.00	$ 1,227,500.00	$ -950,000.00</th>
+                <th></th>
             </div>
         </div>
     </div>
