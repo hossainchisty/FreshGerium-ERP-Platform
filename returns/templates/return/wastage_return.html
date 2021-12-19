@@ -8,7 +8,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Wastage Return List</h6>
         </div>
-        {% if customers %}
+        {% if wastage_return %}
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -24,15 +24,14 @@
                     </thead>
 
                     
-                    {% for customer in customers %}
+                    {% for item in wastage_return %}
                     <tbody>
                         <tr>
                             <td>{{ forloop.counter }}</td>
-                            <td>{{ customer.customer_name}}</td>
-                            <td>{{ customer.customer_email }}</td>
-                            <td>{{ customer.mobile_no }}</td>
-                            <td>{{ customer.customer_address }}</td>
-                            <td>${{ customer.balance|floatformat:2 }}</td>
+                            <td>{{ item.purchase.invoice_number }}</td>
+                            <td>{{ item.customer.customer_name }}</td>
+                            <td>{{ item.reutrn_date }}</td>
+                            <td>{{ item.purchase.total_amount|floatformat:2 }}</td>
                             <td class="text-center">
                                 <button>
                                     <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="">
