@@ -9,31 +9,29 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Stock Return List</h6>
         </div>
-        {% if customers %}
+        {% if returns %}
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Invoice ID</th>
-                            <th>Customer Name</th>
-                            <th>Date</th>
-                            <th>Total Amount</th>
+                            <th>Product</th>
+                            <th>Additional Information</th>
+                            <th>Return Reason</th>
                             <th>Action</th>
                         </tr>
                     </thead>
 
                     
-                    {% for customer in customers %}
+                    {% for stock in returns %}
                     <tbody>
                         <tr>
                             <td>{{ forloop.counter }}</td>
-                            <td>{{ customer.customer_name}}</td>
-                            <td>{{ customer.customer_email }}</td>
-                            <td>{{ customer.mobile_no }}</td>
-                            <td>{{ customer.customer_address }}</td>
-                            <td>${{ customer.balance|floatformat:2 }}</td>
+                            <td>{{ stock.product.product_name }}</td>
+                            <td>{{ stock.additional_information }}</td>
+                            <td>{{ stock.return_reason }}</td>
+                           
                             <td class="text-center">
                                 <button>
                                     <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="">
@@ -75,8 +73,6 @@
                     </div>
                     <!-- customer delete modal end -->
                     {% endfor %}
-                    <th colspan="6.6" class="text-right">Total: {% total_balance %}</th>
-                    <th></th>
                 </table>
             </div>
             <!-- TODO: Dynamic Pagination  -->
