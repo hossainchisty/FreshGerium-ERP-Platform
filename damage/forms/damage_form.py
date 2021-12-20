@@ -3,7 +3,7 @@ from django.forms import ModelForm
 
 
 class DamageForm(ModelForm):
-    ''' Damge Form for damage Model '''
+    ''' Form asking for the Damge Information '''
     class Meta:
         model = Damage
         fields = '__all__'
