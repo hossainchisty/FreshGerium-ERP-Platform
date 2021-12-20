@@ -16,7 +16,6 @@ class CustomerSerializer(serializers.ModelSerializer):
             "gender",
             "customer_address",
             "previous_balance",
-            "accounts",
         )
 
     # Object-level validation
