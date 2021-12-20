@@ -1,5 +1,16 @@
+from django_otp.admin import OTPAdminSite
+
+from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+
+admin.site.__class__ = OTPAdminSite
+
+# Enforce 2FA only in production.
+'''
+if not settings.DEBUG:
+    admin.site.__class__ = OTPAdminSite
+'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
