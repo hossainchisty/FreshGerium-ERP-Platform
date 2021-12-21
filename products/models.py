@@ -36,4 +36,4 @@ class Product(Timestamp):
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.product_name} Supplier {self.supplier}'
+        return f'{self.product_name}'
