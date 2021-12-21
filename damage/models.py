@@ -11,8 +11,7 @@ class Damage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    is_damaged = models.BooleanField(default=False)
-    damaged_date = models.DateField(auto_now_add=True)
+    damaged_date = models.DateField()
     reason = [('broken', 'Broken'), ('missing', 'Missing')]
     damaged_reason = models.CharField(max_length=100, choices=reason)
 
