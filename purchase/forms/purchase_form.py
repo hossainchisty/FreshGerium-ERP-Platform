@@ -4,7 +4,7 @@ from purchase.models import Purchase
 
 
 class PurchaseForm(ModelForm):
-    ''' Purchase Form for Purchase Model '''
+    ''' Form asking for the Purchase Information '''
     class Meta:
         model = Purchase
         fields = ['invoice_number', 'purchase_id', 'supplier', 'purchase_date', 'total_amount']
