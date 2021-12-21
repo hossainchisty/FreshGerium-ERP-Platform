@@ -40,7 +40,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>SL.</th>
+                            <th class="text-center">SL.</th>
                             <th class="text-center">Expense Item</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -48,7 +48,7 @@
                     {% for expense in expenses %}
                     <tbody>
                         <tr>
-                            <td>{{ forloop.counter }}</td>
+                            <td class="text-center">{{ forloop.counter }}</td>
                             <td class="text-center">{{ expense.expense_type }}</td>
                             <td class="text-center">
                                 <button>
