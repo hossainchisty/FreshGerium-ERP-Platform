@@ -47,20 +47,20 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>SL.</th>
-                            <th>Date</th>
-                            <th>Expense Type</th>
-                            <th>Amount</th>
+                            <th class="text-center">SL.</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">Expense Type</th>
+                            <th class="text-center">Amount</th>
                         </tr>
                     </thead>
                     
                     {% for expense in expenses %}
                     <tbody>
                         <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ expense.date|naturalday|title  }}</td>
-                            <td>{{ expense.expense_type }}</td>
-                            <td>{{ expense.amount }}</td>
+                            <td class="text-center">{{ forloop.counter }}</td>
+                            <td class="text-center">{{ expense.date|naturalday|title  }}</td>
+                            <td class="text-center">{{ expense.expense_type }}</td>
+                            <td class="text-center">{{ expense.amount|intcomma }} Taka</td>
                         </tr>
                     </tbody>                    
                     {% endfor %}
