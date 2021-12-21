@@ -6,4 +6,4 @@ class DamageForm(ModelForm):
     ''' Form asking for the Damge Information '''
     class Meta:
         model = Damage
-        fields = '__all__'
+        fields = ['product', 'customer', 'supplier', 'damaged_date', 'damaged_reason']
