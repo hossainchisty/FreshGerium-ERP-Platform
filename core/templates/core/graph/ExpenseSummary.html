@@ -25,13 +25,13 @@
             </div>
             <div class="mt-4 text-center small">
                 <span class="mr-2">
-                    <i class="fas fa-circle text-danger"></i> Total Expense
+                    <i class="fas fa-circle text-red-600"></i> Total Expense
                 </span>
                 <span class="mr-2">
-                    <i class="fas fa-circle text-success"></i> Expense By Year
+                    <i class="fas fa-circle text-indigo-300"></i> Corrent Year
                 </span>
                 <span class="mr-2">
-                    <i class="fas fa-circle text-info"></i> Expense By Month
+                    <i class="fas fa-circle text-blue-600"></i> Corrent Month
                 </span>
             </div>
         </div>
@@ -44,16 +44,17 @@
     Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
     Chart.defaults.global.defaultFontColor = '#858796';
 
-    // Pie Chart Example
+    // Pie Chart Example #1e1e2d
     var ctx = document.getElementById("expensePieChart");
     var myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
+
             labels: ["Total Expense", "Total Expense By Year", "Total Expense By Month"],
             datasets: [{
                 data: [{{ total_expsense }}, {{ total_expsense_by_year }}, {{ total_expsense_by_month }}],
-            backgroundColor: ['#e01d1d', '#1cc88a', '#36b9cc'],
-            hoverBackgroundColor: ['#cc1010', '#17a673', '#2c9faf'],
+            backgroundColor: ['rgb(220 38 38)', 'rgb(165 180 252)', 'rgb(37 99 235)'],
+            hoverBackgroundColor: ['rgb(220 38 38)', 'rgb(165 180 252)', 'rgb(37 99 235)'],
             hoverBorderColor: "rgba(234, 236, 244, 1)",
         }],
     },
@@ -73,6 +74,7 @@
             display: false
         },
         cutoutPercentage: 80,
+        
     },
     });
 </script>
