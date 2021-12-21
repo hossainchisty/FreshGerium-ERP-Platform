@@ -46,11 +46,11 @@
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Invoice No</th>
-                            <th>Purchase ID</th>
-                            <th>Supplier Name</th>
-                            <th>Purchase Date</th>
-                            <th>Total Amount</th>
+                            <th class="text-center">Invoice No</th>
+                            <th class="text-center">Purchase ID</th>
+                            <th class="text-center">Supplier Name</th>
+                            <th class="text-center">Purchase Date</th>
+                            <th class="text-center">Total Amount</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -58,12 +58,12 @@
                     {% for purchase in purchases %}
                     <tbody>
                         <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ purchase.invoice_number }}</td>
-                            <td>{{ purchase.purchase_id }}</td>
-                            <td>{{ purchase.supplier }}</td>
-                            <td>{{ purchase.purchase_date }}</td>
-                            <td>${{ purchase.total_amount }}</td>
+                            <td class="text-center">{{ forloop.counter }}</td>
+                            <td class="text-center">{{ purchase.invoice_number }}</td>
+                            <td class="text-center">{{ purchase.purchase_id }}</td>
+                            <td class="text-center">{{ purchase.supplier }}</td>
+                            <td class="text-center">{{ purchase.purchase_date }}</td>
+                            <td class="text-center">{{ purchase.total_amount }} <small>BDT</small></td>
 
                             <td class="text-center">
                                 <button>
