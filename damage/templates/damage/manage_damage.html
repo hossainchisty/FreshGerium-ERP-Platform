@@ -60,7 +60,11 @@
                             <td class="text-center">{{ damage.customer }}</td>
                             <td class="text-center">{{ damage.supplier }}</td>
                             <td class="text-center">{{ damage.damaged_date }}</td>
-                            <td class="text-center">{{ damage.damaged_reason|title }}</td>
+                            {% if damage.damaged_reason|title == 'Broken'  %}
+                            <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded-full">{{ damage.damaged_reason|title }}</span></td>
+                            {% elif damage.damaged_reason|title == 'Missing' %}
+                            <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-yellow-500 text-white rounded-full">{{ damage.damaged_reason|title }}</span></td>
+                            {% endif %}
 
                             <td class="text-center">
                                 <button>
