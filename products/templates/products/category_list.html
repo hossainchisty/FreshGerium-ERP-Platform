@@ -13,21 +13,21 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>SL.</th>
-                            <th>Category Name</th>
-                            <th>Status</th>
+                            <th class="text-center">SL.</th>
+                            <th class="text-center">Category Name</th>
+                            <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     {% for item in category %}
                     <tbody>
                         <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ item.name }}</td>
+                            <td class="text-center">{{ forloop.counter }}</td>
+                            <td class="text-center">{{ item.name }}</td>
                             {%if item.is_active == True %}
-                            <td>Active</td>
+                            <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-400 text-white rounded-full">Active</span></td>
                             {% else %}
-                            <td>Inactive</td>
+                            <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-yellow-400 text-white rounded-full">Inactive</span></td>
                             {%endif%}
                             <td class="text-center">
                                 <button>
