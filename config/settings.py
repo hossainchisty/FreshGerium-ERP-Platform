@@ -192,7 +192,7 @@ SESSION_ENGINE = 'user_sessions.backends.db'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'freshdesh-db.sqlite3',
     }
 }
 
