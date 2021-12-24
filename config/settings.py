@@ -32,6 +32,7 @@ THIRD_PARTY_APPS = [
     'import_export',
     'notifications',
     'user_sessions',
+    'django_user_agents',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django_filters',
@@ -128,7 +129,11 @@ DEFAULT_MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MIDDLEWARE = DEFAULT_MIDDLEWARE
+THIRD_PARTY_MIDDLEWARE = [
+    'django_user_agents.middleware.UserAgentMiddleware',
+]
+
+MIDDLEWARE = DEFAULT_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE
 
 TEMPLATES = [
     {
