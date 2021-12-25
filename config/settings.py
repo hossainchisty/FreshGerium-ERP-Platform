@@ -28,6 +28,7 @@ DEFAULT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'channels',
     'corsheaders',
     'import_export',
     'notifications',
@@ -77,6 +78,7 @@ SITE_ID = 1
 
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
+ASGI_APPLICATION = 'config.asgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -111,9 +113,6 @@ REST_FRAMEWORK = {
     #     'sale': '3/min',
     # }
 }
-
-# tailwind css pack
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 DEFAULT_MIDDLEWARE = [
@@ -201,6 +200,17 @@ DATABASES = {
     }
 }
 
+# Channel layer definitions
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+}
+
+
 # CACHES = {
 #     'default': {
 #         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
@@ -222,6 +232,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 
 # A list of origins that are authorized to make cross-site HTTP requests.
@@ -230,7 +241,7 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # ]
 CORS_ALLOW_ALL_ORIGINS = True
 
-# Security Principles
+# Security Principles🛡
 # SECURE_SSL_REDIRECT = True
 # SESSION_COOKIE_SECURE = True
 # SESSION_COOKIE_SECURE = True
