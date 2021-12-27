@@ -1,17 +1,18 @@
 from django_countries.fields import CountryField
+from phonenumber_field.modelfields import PhoneNumberField
 
 from django.db import models
 from utils.bd_districts import bangadesh_districts
 from utils.bd_divisions import bangadesh_divisions
+from utils.models.common_fields import Timestamp
 
 
-class Account(models.Model):
+class Account(Timestamp):
     account_name = models.CharField(verbose_name='Name of Account', max_length=25)
-    account_description = models.TextField(verbose_name='Descrition')
     country = CountryField(default="BD")
     divistion = models.CharField(verbose_name='Division', choices=bangadesh_divisions, max_length=25)
     districts = models.CharField(verbose_name='District', choices=bangadesh_districts, max_length=25)
-    account_phone = models.IntegerField()
+    phone_number = PhoneNumberField(verbose_name='Phone Number', region="BD", default="+880")
     billing_address = models.TextField()
     INDUSTRY = (
         ('REAL ESTATE', 'REAL ESTATE'),
@@ -31,11 +32,6 @@ class Account(models.Model):
         ('OTHER', 'OTHER'),
     )
     organization_industry = models.CharField(help_text='Enter Organization Industry Type: ', choices=INDUSTRY, max_length=255)
-
-    name_of_account = models.CharField(verbose_name='Name Of Account', max_length=25)
-    bank_account_number = models.IntegerField(verbose_name='Bank Account Number')
-    bank_name = models.CharField(verbose_name='Bank Name', max_length=25)
-    bank_branch = models.CharField(verbose_name='Bank Branch', max_length=25)
 
     class Meta:
         verbose_name = 'Account'
