@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
 from accounts.api.serializers.accounts_serializers import AccountSerializer
-from accounts.models import Account
+from accounts.models.account_models import Account
 
 
 class AccountAPIView(generics.ListAPIView):
