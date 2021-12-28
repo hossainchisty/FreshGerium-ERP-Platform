@@ -28,7 +28,6 @@ DEFAULT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'channels',
     'corsheaders',
     'import_export',
     'notifications',
@@ -76,9 +75,10 @@ INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 SITE_ID = 1
 
+
+PHONENUMBER_DEFAULT_REGION = 'BD'
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
-ASGI_APPLICATION = 'config.asgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -149,6 +149,7 @@ TEMPLATES = [
                 'expense.context_processors.get_total_expsense',
                 'expense.context_processors.get_total_expsense_by_month',
                 'expense.context_processors.get_total_expsense_by_year',
+                'sales.context_processors.march_sales',
             ],
         },
     },
@@ -193,6 +194,7 @@ CELERY_TIMEZONE = 'Asia/Dhaka'
 
 SESSION_ENGINE = 'user_sessions.backends.db'
 # FIXME: Make sure LOGOUT_REDIRECT_URL is set to some page to redirect users after logging out.
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -200,15 +202,6 @@ DATABASES = {
     }
 }
 
-# Channel layer definitions
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("localhost", 6379)],
-        },
-    },
-}
 
 
 # CACHES = {
