@@ -1,44 +1,45 @@
 from customers.models import Customer
 from django.db import models
-from django.db.models import Sum
 from products.models import Product
 from utils import random
 from utils.models.common_fields import Timestamp
 
 
 class Sale(Timestamp):
-    """
-    Sale model for storing sale data🛢
-    """
-    seller = models.CharField(max_length=100, default='Unknown')
+    """ Sale model for storing sale data🛢 """
+    invoice_number = models.CharField(max_length=10, unique=True, default=random.unique_code(10))
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    date = models.DateField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    payment_type = models.CharField(max_length=50, choices=(
-        ('cash payment', 'Cash Payment'),
-        ('credit payment', 'Credit Payment'),
-        ('check payment', 'Check payment'),
+    date = models.DateField()
+    discount = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
+    payment_method = models.CharField(max_length=50, choices=(
+        ('hand cash', 'Hand Cash'),
+        ('cash on delivery', 'Cash On Delivery'),
+        ('bKash', 'bKash'),
+        ('উপায় (upay)', 'উপায় (upay)'),
+        ('nagad', 'Nagad'),
+        ('dutch-bangla bank', 'Dutch-Bangla Bank'),
         ('bank payment', 'Bank Payment'),
     ))
-    invoice_number = models.CharField(max_length=10, unique=True, default=random.unique_code(10))
+    status = models.CharField(max_length=50, choices=(
+        ('পাওনা (unpaid)', 'পাওনা (UNPAID)'),
+        ('পরিশোধ (paid)', 'পরিশোধ (PAID)'),
+    ))
+    total_profit = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
+    due = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
+    total = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
 
-    sale_discount = models.DecimalField(max_digits=10, decimal_places=2)
-    total_sale = models.DecimalField(max_digits=10, decimal_places=2)
-    total_tax = models.DecimalField(max_digits=10, decimal_places=2)
-    Shipping_tax = models.DecimalField(max_digits=10, decimal_places=2)
-    net_total = models.DecimalField(max_digits=10, decimal_places=2)
-    paid_amount = models.DecimalField(max_digits=10, decimal_places=2)
-    due = models.DecimalField(max_digits=10, decimal_places=2)
-    charge = models.DecimalField(max_digits=10, decimal_places=2)
+    class Meta:
+        ordering = ['-date']
 
+    # def save(self, *args, **kwargs):
+    #     ''' Calculate sum of total amount with due amount '''
+    #     self.total = self.total + self.due
 
-    def save(self, *args, **kwargs):
-        '''
-        This method is used to save the data.
-        '''
-        self.total_balance = self.total_balance + self.due
+    #     ''' Calculate total profit '''
+    #     self.total_profit = self.total - self.discount
 
-        super().save(*args, **kwargs)
+    #     super().save(*args, **kwargs)
 
     def __str__(self):
         """String for representing the Model object."""
