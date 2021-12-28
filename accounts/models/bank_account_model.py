@@ -1,4 +1,3 @@
-from django.core.exceptions import ValidationError
 from django.db import models
 from utils.models.common_fields import Timestamp
 
