@@ -86,3 +86,12 @@ db.sqlite3
 .github/workflows/coverage.yml
 db.sqlite3
 .flake8
+freshdesk-frontend
+product_images/-ee4d3821356896d564818b4565b974c0f42a64f7.png
+.github/workflows/docker-image.yml
+.github/workflows/docker-image-build.yml
+staticfiles/
+testAPI.html
+auth/
+product_images/Hossain_Chisty.png
+analytics/
