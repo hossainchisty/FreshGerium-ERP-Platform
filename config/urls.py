@@ -4,7 +4,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
-admin.site.__class__ = OTPAdminSite
+# admin.site.__class__ = OTPAdminSite
 
 # Enforce 2FA only in production.
 '''
@@ -14,8 +14,6 @@ if not settings.DEBUG:
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inbox/notifications/', include('notifications.urls', namespace='notifications')),
-    path(r'', include('user_sessions.urls', 'user_sessions')),
     path('', include('core.urls')),
     path('profile/', include('profiles.urls')),
     path('service/', include('service.urls')),
@@ -30,7 +28,5 @@ urlpatterns = [
     path('stock/', include('stock.urls')),
     path('customers/', include('customers.urls')),
     path('accounts/', include('accounts.urls')),
-    path('api/rest-auth/', include('rest_auth.urls')),
     path('accounts-user/', include('allauth.urls')),
-    path('api/rest-auth/registration/', include('rest_auth.registration.urls')),
 ]

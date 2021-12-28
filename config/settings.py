@@ -21,17 +21,16 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    'django.contrib.sessions',
 ]
-
+THOUSAND_SEPARATOR = ','
 THIRD_PARTY_APPS = [
     'corsheaders',
     'import_export',
-    'notifications',
-    'user_sessions',
     'django_user_agents',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
@@ -42,8 +41,6 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'phonenumber_field',
     'rest_framework.authtoken',
-    'rest_auth',
-    'rest_auth.registration',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -114,25 +111,20 @@ REST_FRAMEWORK = {
     # }
 }
 
-
-DEFAULT_MIDDLEWARE = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'user_sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django_otp.middleware.OTPMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Third party middleware📌
+    'corsheaders.middleware.CorsMiddleware',
+    'django_otp.middleware.OTPMiddleware',
 ]
 
-THIRD_PARTY_MIDDLEWARE = [
-    'django_user_agents.middleware.UserAgentMiddleware',
-]
-
-MIDDLEWARE = DEFAULT_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE
 
 TEMPLATES = [
     {
@@ -145,7 +137,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # custom context processors📌
+                # Custom context processors📌
                 'expense.context_processors.get_total_expsense',
                 'expense.context_processors.get_total_expsense_by_month',
                 'expense.context_processors.get_total_expsense_by_year',
@@ -179,7 +171,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 # Session configuration
-# CART_SESSION_ID = 'cart'
 SESSION_COOKIE_AGE = 86400  # 24 hours in seconds
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
@@ -192,8 +183,6 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Dhaka'
 
-SESSION_ENGINE = 'user_sessions.backends.db'
-# FIXME: Make sure LOGOUT_REDIRECT_URL is set to some page to redirect users after logging out.
 
 DATABASES = {
     'default': {
@@ -201,8 +190,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'freshdesh-db.sqlite3',
     }
 }
-
-
 
 # CACHES = {
 #     'default': {
@@ -227,6 +214,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # A list of origins that are authorized to make cross-site HTTP requests.
 # CORS_ALLOWED_ORIGINS = [
