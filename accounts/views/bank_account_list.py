@@ -1,12 +1,16 @@
 from accounts.models.bank_account_model import Bank
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views.generic import View
+from utils.helper.decorators.filter import currentUser
 
 
-class BankAccountList(View):
+class BankAccountList(LoginRequiredMixin, View):
 
-    def get(self, request):
+    @method_decorator(currentUser())
+    def get(self, request, *args, **kwarg):
         ''' This will reutrn list of bank accounts '''
         bank_account_list = Bank.objects.all().order_by('-id')
         paginator = Paginator(bank_account_list, 25)
