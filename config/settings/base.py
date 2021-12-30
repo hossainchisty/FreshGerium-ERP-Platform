@@ -9,9 +9,11 @@ Github: https://github.com/hossainchisty
 
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+from .env import serect_key
 
-SECRET_KEY = 'django-insecure-mqcg&7z#rec4yygir4_@&5ms0bno*9gribx$3@xwu#&-rvw$cs'
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+SECRET_KEY = serect_key
 
 DEBUG = True
 
@@ -27,7 +29,7 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sessions',
 ]
-THOUSAND_SEPARATOR = ','
+
 THIRD_PARTY_APPS = [
     'corsheaders',
     'import_export',
@@ -72,7 +74,7 @@ INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 SITE_ID = 1
 
-
+THOUSAND_SEPARATOR = ','
 PHONENUMBER_DEFAULT_REGION = 'BD'
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
@@ -187,8 +189,9 @@ CELERY_TIMEZONE = 'Asia/Dhaka'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'freshdesh-db.sqlite3',
+        'NAME': BASE_DIR / 'database/freshdesh-db.sqlite3',
     }
+
 }
 
 # CACHES = {
@@ -217,18 +220,9 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # A list of origins that are authorized to make cross-site HTTP requests.
-# CORS_ALLOWED_ORIGINS = [
-#     'http://127.0.0.1:9000',
-# ]
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
+# CORS_ALLOW_ALL_ORIGINS = True
 
-# Security Principles🛡
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
-# SECURE_BROWSER_XSS_FILTER = True
-# SECURE_HSTS_SECONDS = 31536000
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-# CSRF_COOKIE_SECURE = True
+
