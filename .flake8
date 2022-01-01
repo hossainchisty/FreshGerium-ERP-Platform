@@ -1,4 +1,8 @@
 [flake8]
 max-line-length = 170
-exclude = __init__.py, *env
+exclude = 
+    __init__.py, 
+    *env, 
+    config/settings/*.py
+    __pycache__
 ; ignore = E501,F841
