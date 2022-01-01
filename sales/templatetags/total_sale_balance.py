@@ -7,8 +7,6 @@ register = template.Library()
 
 
 @register.simple_tag
-def total_balance(self):
-    '''
-    This method is used to get total balance.
-    '''
-    return Sale.objects.aggregate(Sum('paid_amount'))['paid_amount__sum']
+def total_balance(default=0.00):
+    ''' Calculate sum of total sale balance '''
+    return Sale.objects.aggregate(Sum('total'))['total__sum']
