@@ -19,12 +19,19 @@ class Dashboard(View):
 
         if user_agent.is_mobile:
             request.session['movile_visit'] = movile_visit + 1
+            request.session.save()
         elif user_agent.is_pc:
             request.session['pc_visit'] = pc_visit + 1
+            request.session.save()
         elif user_agent.is_tablet:
             request.session['tablet_visit'] = tablet_visit + 1
+            request.session.save()
         else:
             request.session['num_visits'] = num_visits + 1
+            request.session.save()
+        print(f'PC: {pc_visit}')
+        print(f'Mobile: {movile_visit}')
+        print(f'Tablet: {tablet_visit}')
 
         return render(request, 'core/dashboard.html', {
             'mobile_device': movile_visit,
