@@ -9,7 +9,7 @@ Github: https://github.com/hossainchisty
 
 from pathlib import Path
 
-from .env import serect_key
+from .env import private_ip, serect_key
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -17,7 +17,7 @@ SECRET_KEY = serect_key
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', private_ip]
 
 
 DEFAULT_APPS = [
@@ -81,6 +81,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+
+# Password reset time limit⏳:
+PASSWORD_RESET_TIMEOUT = 259200 # 3 days - 72 hour, in (seconds)
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': [    
@@ -190,9 +193,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'database/freshdesh-db.sqlite3',
-    }
+    },
+    'expense_db' : {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'database/expense-db.sqlite3',
+    },
 
 }
+
+# The list of routers that will be used to determine which database to use when performing a database query.
+DATABASE_ROUTERS = ['database.routers.db_routers.ExpenseRouter']
 
 # CACHES = {
 #     'default': {
