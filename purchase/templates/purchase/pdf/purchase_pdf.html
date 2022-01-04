@@ -36,7 +36,7 @@
         </tr>
         {% for item in purchase %}
         <tr>
-            <td>{{ item.id }}</td>
+            <td>{{ forloop.counter }}</td>
             <td>{{ item.invoice_number }}</td>
             <td>{{ item.purchase_id }}</td>
             <td>{{ item.purchase_date }}</td>
