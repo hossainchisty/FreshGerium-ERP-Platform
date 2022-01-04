@@ -1,0 +1,68 @@
+{% extends 'core/_base.html' %}
+{% block title %} Bank Accounts {% endblock title %}
+{% block body %}
+<section class="container mx-auto p-6">
+    <div class="w-full mb-8 overflow-hidden rounded-lg shadow-sm">
+        <div class="w-full">
+            <table class="w-full">
+                <thead>
+                    <tr class="text-md font-semibold text-center text-gray-900 bg-gray-100 border-b border-gray-600">
+                        <th class="px-4 py-3">Bank Account Name</th>
+                        <th class="px-4 py-3">Bank Account Number</th>
+                        <th class="px-4 py-3">Bank Name</th>
+                        <th class="px-4 py-3">Bank Short Name</th>
+                        <th class="px-4 py-3">Branch Name</th>
+                        <th class="px-4 py-3">Bank Account Type</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr class="text-gray-700">
+                        <td class="px-4 py-3 border">
+                            <div class="flex items-center text-sm">
+                                <p class="font-semibold text-black">{{ object.bank_account_name }}</p>
+                            </div>
+                        </td>
+
+                        <td class="px-4 py-3 border">
+                            <div class="flex items-center text-sm">
+                                <p class="font-semibold text-black">{{ object.bank_account_number }}</p>
+                            </div>
+                        </td>
+
+                        <td class="px-4 py-3 border">
+                            <div class="flex items-center text-sm">
+                                <p class="font-semibold text-black">{{ object.bank_name }}</p>
+                            </div>
+                        </td>
+
+                        <td class="px-4 py-3 border">
+                            <div class="flex items-center text-sm">
+                                <p class="font-semibold text-black">{{ object.bank_short_name }}</p>
+                            </div>
+                        </td>
+
+                        <td class="px-4 py-3 border">
+                            <div class="flex items-center text-sm">
+                                <p class="font-semibold text-black">{{ object.bank_branch }}</p>
+                            </div>
+                        </td>
+
+                        <td class="px-4 py-3 text-xs border">
+                            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">
+                                {{ object.account_type| title }}
+                            </span>
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="{% url 'bank_accounts' %}">
+        <button
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-4 border border-gray-400 rounded shadow-sm">
+            Back
+        </button>
+    </a>
+
+</section>
+{% endblock body %}
