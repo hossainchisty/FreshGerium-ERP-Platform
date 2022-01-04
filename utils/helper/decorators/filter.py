@@ -1,7 +1,7 @@
 from accounts.models.account_models import Account
 from accounts.models.bank_account_model import Bank
 from customers.models import Customer
-from django.http import HttpResponseForbidden
+from django.shortcuts import render
 
 
 def _currentUser():
@@ -17,7 +17,7 @@ def _currentUser():
             if selected_user:
                 return func(request, *args, **kwargs)
             else:
-                return HttpResponseForbidden('<h1>Access Denied</h1>')
+                return render(request, 'core/error/403.html')
 
         return wrapper
     return decorator
