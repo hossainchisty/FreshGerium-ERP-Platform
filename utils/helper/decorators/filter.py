@@ -4,7 +4,7 @@ from customers.models import Customer
 from django.http import HttpResponseForbidden
 
 
-def currentUser():
+def _currentUser():
     '''
     This decorator for authenticated users only, and filtering by the logged in user from the request, another user, even if logged in, can't access another user's data.
     '''
