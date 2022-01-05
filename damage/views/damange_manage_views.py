@@ -1,4 +1,5 @@
 from damage.models import Damage
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
@@ -6,7 +7,7 @@ from django.views.generic import View
 from utils.helper.decorators.filter import _currentUser
 
 
-class DamageList(View):
+class DamageList(LoginRequiredMixin, View):
 
     @method_decorator(_currentUser())
     def get(self, request):
