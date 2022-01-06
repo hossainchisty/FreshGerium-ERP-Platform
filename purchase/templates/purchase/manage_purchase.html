@@ -59,11 +59,11 @@
                     <tbody>
                         <tr>
                             <td class="text-center">{{ forloop.counter }}</td>
-                            <td class="text-center">{{ purchase.invoice_number }}</td>
-                            <td class="text-center">{{ purchase.purchase_id }}</td>
+                            <td class="text-center text-green-500 font-bold">#{{ purchase.invoice_number }}</td>
+                            <td class="text-center text-green-500 font-bold">#{{ purchase.purchase_id }}</td>
                             <td class="text-center">{{ purchase.supplier }}</td>
                             <td class="text-center">{{ purchase.purchase_date }}</td>
-                            <td class="text-center">{{ purchase.total_amount }} <small>BDT</small></td>
+                            <td class="text-center text-green-700">{{ purchase.total_amount }} <small class="text-black">BDT</small></td>
 
                             <td class="text-center">
                                 <button>
