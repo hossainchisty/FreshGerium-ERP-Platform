@@ -4,13 +4,13 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.generic import View
-from utils.helper.decorators.filter import currentUser
+from utils.helper.decorators.filter import _currentUser
 from utils.models.common_fields import Ledger
 
 
 class CustomerList(LoginRequiredMixin, View):
 
-    @method_decorator(currentUser())
+    @method_decorator(_currentUser())
     def get(self, request):
         '''
         This will reutrn list of customer
@@ -26,9 +26,9 @@ class CustomerList(LoginRequiredMixin, View):
         return render(request, 'customers/customer.html', context)
 
 
-class CustomerLedgerList(View):
+class CustomerLedgerList(LoginRequiredMixin, View):
 
-    @method_decorator(currentUser())
+    @method_decorator(_currentUser())
     def get(self, request):
         '''
         This will reutrn list of customer ledger
