@@ -2,7 +2,7 @@ from damage.views.add_manage_views import CreateDamage
 from damage.views.damage_pdf_views import ViewDamagePDF
 from damage.views.damange_manage_views import DamageList
 from damage.views.delete_damage_views import DeleteDamage
-from damage.views.donwload_damage_pdf import DownloadDamagePDF
+from damage.views.download_damage_pdf import DownloadDamagePDF
 from damage.views.export_damage_csv_views import DownloadDamageCSV
 from damage.views.update_damage_views import UpdateDamage
 from django.urls import path

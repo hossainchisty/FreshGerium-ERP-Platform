@@ -10,6 +10,7 @@ class DownloadPurchasePDF(View):
     '''
     Automaticly downloads to PDF file.
     '''
+    # FIXME: Needs to add user filter
     def get(self, request, *args, **kwargs):
         purchase = Purchase.objects.all().order_by('-id')
         pdf = generate_pdf('purchase/pdf/purchase_pdf.html', {'purchase': purchase})
