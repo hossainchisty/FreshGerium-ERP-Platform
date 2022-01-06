@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<title>Damage Data</title>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 7px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Damage Data</h2>
+    <table>
+        <tr>
+            <th>SL.</th>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Supplier</th>
+            <th>Damaged Date</th>
+            <th>Damaged Reason</th>
+        </tr>
+        {% for items in damage %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ items.product}} </td>
+            <td>{{ items.customer}} </td>
+            <td>{{ items.supplier}} </td>
+            <td>{{ items.damaged_date}} </td>
+            <td>{{ items.damaged_reason}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
