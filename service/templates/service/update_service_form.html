@@ -9,7 +9,10 @@
         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             {{ form|crispy }}
         </div>
-        <button type="submit" class="p-2 pl-5 pr-5 bg-transparent border-2 border-purple-500 text-purple-500 text-lg rounded-lg hover:bg-purple-500 hover:text-gray-600 focus:border-4 focus:border-purple-500">Update</button>
+        <button 
+        type="submit"
+        class="w-full mt-6 bg-indigo-600 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans">
+        Save Change</button>
     </form>
 </section>
 {% endblock body %}
