@@ -10,18 +10,26 @@
         {% if services %}
         <div class="card-body">
             <div class="text-center">
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                CSV
-                <i class="fas fa-file-excel"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                PDF
-                <i class="far fa-file-pdf"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                Print
-                <i class="fas fa-print"></i>
-                </button>
+                <a class="hover:no-underline" href="{% url 'download_service_csv' %}">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    CSV
+                    <i class="fas fa-file-excel"></i>
+                    </button>
+                </a>
+                
+                <a class="hover:no-underline" href="{% url 'view_service_pdf' %}" target="_blank">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    PDF
+                    <i class="fas fa-file-pdf"></i>
+                    </button>
+                </a>
+
+                <a class="hover:no-underline" href="{% url 'download_service_pdf' %}">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    Print
+                    <i class="fas fa-print"></i>
+                    </button>
+                </a>
             </div>
             <div class="pb-3">
                 <a href="{% url 'add_service' %}">
@@ -38,7 +46,7 @@
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Service Name</th>
+                            <th class="text-center">Service Name</th>
                             <th class="text-center">Charge</th>
                             <th class="text-center">Description</th>
                             <th class="text-center">VAT</th>
@@ -50,10 +58,10 @@
                     <tbody>
                         <tr>
                             <td>{{ forloop.counter }}</td>
-                            <td>{{ service.service_name }}</td>
-                            <td>${{ service.charge }}</td>
-                            <td>{{ service.description }}</td>
-                            <td>{{ service.vat }}%</td>
+                            <td class="text-center">{{ service.service_name }}</td>
+                            <td class="text-center text-green-700">{{ service.charge }} <small class="text-black">BDT</small></td>
+                            <td class="text-center">{{ service.description }}</td>
+                            <td class="text-center">{{ service.vat }}%</td>
 
                             <td class="text-center">
                                 <button>
