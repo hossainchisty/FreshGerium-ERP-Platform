@@ -44,7 +44,7 @@ class DownloadServiceEXCLE(LoginRequiredMixin, View):
         # Sheet body, remaining rows
         font_style = xlwt.XFStyle()
 
-        # Get all purchase data
+        # Get all service data
         rows = Service.objects.all().values_list('service_name', 'charge', 'description', 'vat')
         for row in rows:
             row_num += 1
