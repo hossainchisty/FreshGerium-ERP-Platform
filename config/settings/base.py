@@ -176,8 +176,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 # Session configuration
-SESSION_COOKIE_AGE = 31449600 # (52 weeks, in seconds)
+SESSION_COOKIE_AGE = 31449600 # (1 year - 52 weeks in seconds)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+# https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-SESSION_SAVE_EVERY_REQUEST
+SESSION_SAVE_EVERY_REQUEST = True
 
 # Celery Configurations
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
