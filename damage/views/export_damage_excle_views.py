@@ -50,7 +50,7 @@ class DownloadDamageEXCLE(LoginRequiredMixin, View):
         # Sheet body center alignment
         font_style.alignment.horz = xlwt.Alignment.VERT_CENTER
 
-        # Get all purchase data
+        # Get all damage data
         rows = Damage.objects.all().values_list('product', 'customer', 'supplier', 'damaged_date', 'damaged_reason')
         for row in rows:
             row_num += 1
