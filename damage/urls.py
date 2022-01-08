@@ -4,6 +4,7 @@ from damage.views.damange_manage_views import DamageList
 from damage.views.delete_damage_views import DeleteDamage
 from damage.views.download_damage_pdf import DownloadDamagePDF
 from damage.views.export_damage_csv_views import DownloadDamageCSV
+from damage.views.export_damage_excle_views import DownloadDamageEXCLE
 from damage.views.update_damage_views import UpdateDamage
 from django.urls import path
 
@@ -12,7 +13,8 @@ urlpatterns = [
     path('add/', CreateDamage.as_view(), name='add_damage'),
     path('update/<int:pk>/', UpdateDamage.as_view(), name='update_damage'),
     path('delete/<int:pk>/', DeleteDamage.as_view(), name='delete_damage'),
-    path('export/', DownloadDamageCSV.as_view(), name='download_damage_csv'),
+    path('export/excle/', DownloadDamageEXCLE.as_view(), name='download_damage_excle'),
+    path('export/csv/', DownloadDamageCSV.as_view(), name='download_damage_csv'),
     path('pdf/', ViewDamagePDF.as_view(), name='view_damage_pdf'),
     path('pdf/download/', DownloadDamagePDF.as_view(), name='download_damage_pdf'),
 ]
