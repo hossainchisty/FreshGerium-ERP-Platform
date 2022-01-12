@@ -6,18 +6,39 @@ Contact: hossain.chisty11@gmail.com
 Github: https://github.com/hossainchisty
 
 """
+import re
 
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
+
+import os
 from pathlib import Path
 
-from .env import private_ip, serect_key
+import cloudinary
+import cloudinary.api
+import cloudinary.uploader
+
+
+# This is defined here as a do-nothing function because we can't import
+# django.utils.translation -- that module depends on the settings.
+def gettext_noop(s):
+    return s
+
+
+# Cloudinary configration
+cloudinary.config(cloud_name=os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
+                  api_secret=os.getenv('API_SECRET'))
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = serect_key
 
-DEBUG = True
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', private_ip]
+DEBUG = os.getenv('DEBUG')
+
+ALLOWED_HOSTS = ['*']
 
 
 DEFAULT_APPS = [
@@ -74,6 +95,7 @@ INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 SITE_ID = 1
 
+# Thousand separator symbol
 THOUSAND_SEPARATOR = ','
 PHONENUMBER_DEFAULT_REGION = 'BD'
 ROOT_URLCONF = 'config.urls'
@@ -81,9 +103,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
-# Password reset time limit⏳:
-PASSWORD_RESET_TIMEOUT = 259200 # 3 days - 72 hour, in (seconds)
+##################
+# REST FRAMEWORK #
+##################
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': [    
@@ -116,6 +138,10 @@ REST_FRAMEWORK = {
     # }
 }
 
+##############
+# MIDDLEWARE #
+##############
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -128,6 +154,9 @@ MIDDLEWARE = [
     # Third party middleware📌
     'corsheaders.middleware.CorsMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    # Custom middleware📌
+    'core.middleware.FetchUserData',
+    'core.middleware.TrackUserDevice',
 ]
 
 
@@ -143,14 +172,58 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # Custom context processors📌
-                'expense.context_processors.get_total_expsense',
-                'expense.context_processors.get_total_expsense_by_month',
-                'expense.context_processors.get_total_expsense_by_year',
-                'sales.context_processors.march_sales',
+                # Each context processor must return a dictionary
+                # 'expense.context_processors.get_total_expsense',
+                # 'expense.context_processors.get_total_expsense_by_month',
+                # 'expense.context_processors.get_total_expsense_by_year',
+                # 'sales.context_processors.march_sales',
             ],
         },
     },
 ]
+
+
+
+# Mail configrations
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+############
+# SESSIONS #
+############
+
+# Cookie name. This can be whatever you want.
+# SESSION_COOKIE_NAME = 'DUMMY_SESSION'
+
+# Age of cookie, in seconds 52 weeks
+SESSION_COOKIE_AGE = 31449600
+
+# Whether to save the session data on every request.
+SESSION_SAVE_EVERY_REQUEST = False
+
+# Whether a user's session cookie expires when the web browser is closed.
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+
+##################
+# AUTHENTICATION #
+##################
+
+AUTH_USER_MODEL = 'auth.User'
+
+LOGIN_REDIRECT_URL = '/accounts/profile/'
+
+LOGIN_URL = '/accounts/login/'
+
+LOGOUT_REDIRECT_URL = '/'
+
+# The number of seconds a password reset link is valid for (default: 3 days).
+PASSWORD_RESET_TIMEOUT = 60 * 60 * 24 * 3
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -167,19 +240,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Mail configrations
-# EMAIL_HOST = "smtp.zoho.com"
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = "hossain.chisty@zohomail.com"
-# EMAIL_HOST_PASSWORD = "#2#3B399TiU@aBC"
-# EMAIL_USE_SSL = True
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+IGNORABLE_404_URLS = [
+    re.compile(r'^/apple-touch-icon.*\.png$'),
+    re.compile(r'^/favicon.ico$'),
+    re.compile(r'^/robots.txt$'),
+    re.compile(r'^/phpmyadmin/'),
+]
 
-# Session configuration
-SESSION_COOKIE_AGE = 31449600 # (1 year - 52 weeks in seconds)
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-# https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-SESSION_SAVE_EVERY_REQUEST
-SESSION_SAVE_EVERY_REQUEST = True
 
 # Celery Configurations
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
@@ -196,15 +263,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'database/freshdesh-db.sqlite3',
     },
-    'expense_db' : {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'database/expense-db.sqlite3',
-    },
 
 }
 
 # The list of routers that will be used to determine which database to use when performing a database query.
-DATABASE_ROUTERS = ['database.routers.db_routers.ExpenseRouter']
+# DATABASE_ROUTERS = ['database.routers.db_routers.ExpenseRouter']
 
 # CACHES = {
 #     'default': {
@@ -215,7 +278,7 @@ DATABASE_ROUTERS = ['database.routers.db_routers.ExpenseRouter']
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Dhaka'
+TIME_ZONE = os.getenv('TIME_ZONE')
 
 USE_I18N = True
 
@@ -224,11 +287,29 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Languages we provide translations for, out of the box.
+LANGUAGES = [
+    ('bn', gettext_noop('Bengali')),
+    ('en', gettext_noop('English')),
+]
+
+# Languages using BiDi (right-to-left) layout
+LANGUAGES_BIDI = ["he", "ar", "ar-dz", "fa", "ur"]
+
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
+
+
+# Maximum size, in bytes, of a request before it will be streamed to the
+# file system instead of into memory.
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
+
+# Maximum size in bytes of request data (excluding file uploads) that will be
+# read before a SuspiciousOperation (RequestDataTooBig) is raised.
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # A list of origins that are authorized to make cross-site HTTP requests.
@@ -238,3 +319,5 @@ CORS_ALLOWED_ORIGINS = [
 # CORS_ALLOW_ALL_ORIGINS = True
 
 
+# Whether to append trailing slashes to URLs.
+APPEND_SLASH = True
