@@ -1,10 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views.generic import View
 from returns.models import Return
+from utils.helper.decorators.filter import _currentUser
 
 
-class StockReturnView(View):
+class StockReturnView(LoginRequiredMixin, View):
+
+    @method_decorator(_currentUser())
     def get(self, request):
         '''
         This will reutrn list of stock return items
