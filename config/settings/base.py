@@ -88,6 +88,7 @@ LOCAL_APPS = [
     'purchase.apps.PurchaseConfig',
     'suppliers.apps.SuppliersConfig',
     'customers.apps.CustomersConfig',
+    'authenticator.apps.AuthenticatorConfig',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -213,7 +214,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 # AUTHENTICATION #
 ##################
 
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'authenticator.User'
 
 LOGIN_REDIRECT_URL = '/accounts/profile/'
 

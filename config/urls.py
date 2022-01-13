@@ -30,4 +30,5 @@ urlpatterns = [
     path('stock/', include('stock.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts-user/', include('allauth.urls')),
+    path('auth/', include('authenticator.urls')),
 ]
