@@ -31,4 +31,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts-user/', include('allauth.urls')),
     path('auth/', include('authenticator.urls')),
+    path('notifications/', include('notifications.urls')),
 ]

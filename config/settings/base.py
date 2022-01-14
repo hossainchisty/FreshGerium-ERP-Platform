@@ -6,18 +6,16 @@ Contact: hossain.chisty11@gmail.com
 Github: https://github.com/hossainchisty
 
 """
-import re
-
-from dotenv import load_dotenv
-
-load_dotenv()  # take environment variables from .env.
-
 import os
+import re
 from pathlib import Path
 
 import cloudinary
 import cloudinary.api
 import cloudinary.uploader
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
 
 
 # This is defined here as a do-nothing function because we can't import
@@ -89,6 +87,7 @@ LOCAL_APPS = [
     'suppliers.apps.SuppliersConfig',
     'customers.apps.CustomersConfig',
     'authenticator.apps.AuthenticatorConfig',
+    'notifications.apps.NotificationsConfig',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -109,7 +108,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ##################
 
 # REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [    
+#     'DEFAULT_PERMISSION_CLASSES': [
 #         # 'rest_framework.permissions.IsAuthenticated',
 #         'rest_framework.permissions.AllowAny',
 #     ],
@@ -156,7 +155,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django_otp.middleware.OTPMiddleware',
     # Custom middleware📌
-    'core.middleware.FetchUserData',
+    'authenticator.middleware.FetchUserData',
     'core.middleware.TrackUserDevice',
 ]
 
@@ -182,7 +181,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 
 # Mail configrations
