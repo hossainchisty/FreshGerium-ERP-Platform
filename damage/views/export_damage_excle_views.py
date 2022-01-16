@@ -38,7 +38,7 @@ class DownloadDamageEXCLE(LoginRequiredMixin, View):
         font_style.alignment.horz = xlwt.Alignment.HORZ_CENTER
 
         # column header name.
-        columns = ["Product", "Customer", "Supplier", "Damaged Date", "Damaged Reason"]
+        columns = ["Product", "Customer", "Supplier", "Damaged Date", "Damaged Reason", "Note"]
 
         # write column headers in sheet
         for col_num in range(len(columns)):
@@ -51,7 +51,7 @@ class DownloadDamageEXCLE(LoginRequiredMixin, View):
         font_style.alignment.horz = xlwt.Alignment.VERT_CENTER
 
         # Get all damage data
-        rows = Damage.objects.all().values_list('product', 'customer', 'supplier', 'damaged_date', 'damaged_reason')
+        rows = Damage.objects.all().values_list('product', 'customer', 'supplier', 'damaged_date', 'damaged_reason', 'note')
         for row in rows:
             row_num += 1
             for col_num in range(len(row)):

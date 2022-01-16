@@ -71,7 +71,8 @@
                             {% elif damage.damaged_reason|title == 'Missing' %}
                             <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-yellow-500 text-white rounded-full">{{ damage.damaged_reason|title }}</span></td>
                             {% endif %}
-
+                            <td class="text-center">{{ damage.note }}</td>
+                            
                             <td class="text-center">
                                 <button>
                                     <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="{% url 'delete_damage' damage.pk %}">

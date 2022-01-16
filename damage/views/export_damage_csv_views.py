@@ -16,9 +16,9 @@ class DownloadDamageCSV(LoginRequiredMixin, View):
     def get(self, request):
         response = HttpResponse(content_type="text/csv")
         write = csv.writer(response)
-        write.writerow(["Product", "Customer", "Supplier", "Damaged Date", "Damaged Reason"])
+        write.writerow(["Product", "Customer", "Supplier", "Damaged Date", "Damaged Reason", "Note"])
 
         for items in Damage.objects.all():
-            write.writerow([items.product, items.customer, items.supplier, items.damaged_date, items.damaged_reason])
+            write.writerow([items.product, items.customer, items.supplier, items.damaged_date, items.damaged_reason, items.note])
             response["Content-Disposition"] = "attachment; filename=Damage-data.csv"
             return response

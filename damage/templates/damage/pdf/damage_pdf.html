@@ -34,15 +34,17 @@
             <th>Supplier</th>
             <th>Damaged Date</th>
             <th>Damaged Reason</th>
+            <th>Note</th>
         </tr>
         {% for items in damage %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ items.product}} </td>
-            <td>{{ items.customer}} </td>
-            <td>{{ items.supplier}} </td>
-            <td>{{ items.damaged_date}} </td>
-            <td>{{ items.damaged_reason}} </td>
+            <td>{{ items.product }} </td>
+            <td>{{ items.customer }} </td>
+            <td>{{ items.supplier }} </td>
+            <td>{{ items.damaged_date }} </td>
+            <td>{{ items.damaged_reason }} </td>
+            <td>{{ items.note }} </td>
         </tr>
         {% endfor %}
     </table>
