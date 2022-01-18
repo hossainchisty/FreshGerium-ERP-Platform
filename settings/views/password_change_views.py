@@ -13,9 +13,10 @@ def passwordChangeView(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = PasswordChangeForm(user=request.user, data=request.POST)
+            request.user.is_verified = True
             if form.is_valid():
                 form.save()
-                # update the session hash
+                # Update the session hash to prevent session fixation attacks.
                 update_session_auth_hash(request, form.user)
                 messages.success(request, 'Password Change Successfully!')
                 return redirect('/')
