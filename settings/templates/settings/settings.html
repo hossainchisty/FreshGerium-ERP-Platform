@@ -1,193 +1,95 @@
 {% extends 'core/_base.html' %}
-{% load static %}
-{% block title %} Settings {% endblock title %}⚙
-{% load humanize %}
-{% load cache %}
+{% block title %} Company Profile Settings {% endblock title %}
 {% block body %}
-<!-- component -->
-<section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20">
-    <h1 class="text-xl font-bold text-white capitalize dark:text-white">Account settings</h1>
-    <form>
-        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-            <div>
-                <label class="text-white dark:text-gray-200" for="username">Username</label>
-                <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
+<style>
+    .required:after {
+        content:" *";
+        color: red;
+    }
+</style>
 
-            <div>
-                <label class="text-white dark:text-gray-200" for="emailAddress">Email Address</label>
-                <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-
-            <div>
-                <label class="text-white dark:text-gray-200" for="password">Password</label>
-                <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-
-            <div>
-                <label class="text-white dark:text-gray-200" for="passwordConfirmation">Password Confirmation</label>
-                <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-            <div>
-                <label class="text-white dark:text-gray-200" for="passwordConfirmation">Color</label>
-                <input id="color" type="color" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-            <div>
-                <label class="text-white dark:text-gray-200" for="passwordConfirmation">Select</label>
-                <select class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                    <option>Surabaya</option>
-                    <option>Jakarta</option>
-                    <option>Tangerang</option>
-                    <option>Bandung</option>
-                </select>
-            </div>
-            <div>
-                <label class="text-white dark:text-gray-200" for="passwordConfirmation">Range</label>
-                <input id="range" type="range" class="block w-full py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-            <div>
-                <label class="text-white dark:text-gray-200" for="passwordConfirmation">Date</label>
-                <input id="date" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-            <div>
-                <label class="text-white dark:text-gray-200" for="passwordConfirmation">Text Area</label>
-                <textarea id="textarea" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-white">
-                Image
-              </label>
-              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                <div class="space-y-1 text-center">
-                  <svg class="mx-auto h-12 w-12 text-white" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <div class="flex text-sm text-gray-600">
-                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                      <span class="">Upload a file</span>
-                      <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                    </label>
-                    <p class="pl-1 text-white">or drag and drop</p>
-                  </div>
-                  <p class="text-xs text-white">
-                    PNG, JPG, GIF up to 10MB
-                  </p>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="flex justify-end mt-6">
-            <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">Save</button>
-        </div>
-    </form>
-</section>
-
- <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20">
-    <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Account settings</h2>
-    
-    <form>
-        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-            <div>
-                <label class="text-gray-700 dark:text-gray-200" for="username">Username</label>
-                <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-
-            <div>
-                <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Email Address</label>
-                <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-
-            <div>
-                <label class="text-gray-700 dark:text-gray-200" for="password">Password</label>
-                <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-
-            <div>
-                <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Password Confirmation</label>
-                <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-        </div>
-
-        <div class="flex justify-end mt-6">
-            <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
-        </div>
-    </form>
-</section>
-
-
-<!-- component -->
-<!-- component -->
-<div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
-    <div class="container mx-auto">
-        <div class="inputs w-full max-w-2xl p-6 mx-auto">
-            <h2 class="text-2xl text-gray-900">Account Setting</h2>
-            <form class="mt-6 border-t border-gray-400 pt-4">
-                <div class='flex flex-wrap -mx-3 mb-6'>
-                    <div class='w-full md:w-full px-3 mb-6'>
-                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>email address</label>
-                        <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='grid-text-1' type='text' placeholder='Enter email'  required>
-                    </div>
-                    <div class='w-full md:w-full px-3 mb-6 '>
-                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>password</label>
-                        <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md ">change your password</button>
-                    </div>
-                    <div class='w-full md:w-full px-3 mb-6'>
-                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>pick your country</label>
-                        <div class="flex-shrink w-full inline-block relative">
-                            <select class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
-                                <option>choose ...</option>
-                                <option>USA</option>
-                                <option>France</option>
-                                <option>Spain</option>
-                                <option>UK</option>
-                            </select>
-                            <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='w-full md:w-full px-3 mb-6'>
-                        <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>fav language</label>
-                        <div class="flex-shrink w-full inline-block relative">
-                            <select class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded">
-                                <option>choose ...</option>
-                                <option>English</option>
-                                <option>France</option>
-                                <option>Spanish</option>
-                            </select>
-                            <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="personal w-full border-t border-gray-400 pt-4">
-                        <h2 class="text-2xl text-gray-900">Personal info:</h2>
-                        <div class="flex items-center justify-between mt-4">
-                            <div class='w-full md:w-1/2 px-3 mb-6'>
-                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >first name</label>
-                                <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
-                            </div>
-                            <div class='w-full md:w-1/2 px-3 mb-6'>
-                                <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >last name</label>
-                                <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
-                            </div>
-                        </div>
-                        <div class='w-full md:w-full px-3 mb-6'>
-                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>user name</label>
-                            <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
-                        </div>
-                        <div class='w-full md:w-full px-3 mb-6'>
-                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' >Bio</label>
-                            <textarea class='bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium placeholder-gray-700 focus:outline-none focus:bg-white'  required></textarea>
-                        </div>
-                        <div class="flex justify-end">
-                            <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit">save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+{% if messages %}
+{% comment %} TODO: nEED TO FIX TOAST RESPONSIVENESS {% endcomment %}
+<div class="flex flex-col jusctify-center">
+    <!-- Toast Notification Success-->
+    <div class="flex items-center bg-green-500 border-l-2 border-green-700 py-2 px-3 shadow-md mb-2">
+       <!-- icons -->
+      <div class="text-green-500 rounded-full bg-white mr-3">
+        <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+        </svg>
+      </div>
+      <!-- message -->
+      <div class="text-white max-w-xs">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+      </div>
     </div>
 </div>
+{% endif %}
+<section class="max-w-4xl p-6 mx-auto bg-purple-500 rounded-md shadow-md dark:bg-purple-500 mt-20">
+    <h1 class="text-xl font-bold text-white capitalize dark:text-white">Company Profile Settings</h1>
+    <form method="POST">
+        <!-- Security token -->
+            {% csrf_token %}
+        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 text-white">
+            <div>
+                <label class="text-white dark:text-black" for="emailAddress">Email Address</label>
+                <input name="email" id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md dark:bg-black dark:text-black dark:border-black focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" value="{{ request.user.email }}">
+            </div>
+            
+            <div>
+                <label class="text-white dark:text-black required" for="Ownername">Owner name</label>
+                <input name="owner_name" id="Ownername" type="text" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md dark:bg-black dark:text-black dark:border-black focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" value="{{ request.user.owner_name }}">
+            </div>
+
+            <div>
+                <label class="text-white dark:text-black" for="Mobilenumber">Mobile number</label>
+                <input name="mobile_number" id="Mobilenumber" type="text" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md dark:bg-black dark:text-black dark:border-black focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" value="{{ request.user.mobile_number }}">
+            </div>
+            
+            <div>
+                <label class="text-white dark:text-black required" for="Organizationname">Organization name</label>
+                <input name="organization_name" id="Organizationname" type="text" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md dark:bg-black dark:text-black dark:border-black focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" value="{{ request.user.organization_name }}">
+            </div>
+
+            <div>
+                <label class="text-white dark:text-black required" for="business">Business</label>
+                <input name="business" id="business" type="text" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md dark:bg-black dark:text-black dark:border-black focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" value="{{ request.user.business }}">
+            </div>
+
+            <div>
+                <label class="text-white dark:text-black" for="Businessmanagername">Business manager name</label>
+                <input name="business_manager_name" id="Businessmanagername" type="text" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-black rounded-md dark:bg-black dark:text-black dark:border-black focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" value="{{ request.user.business_manager_name }}">
+            </div>
+
+        <div>
+            <label class="block text-sm font-medium text-white">
+            Brand Logo
+            </label>
+            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-white border-dashed rounded-md">
+                <div class="space-y-1 text-center">
+                <svg class="mx-auto h-12 w-12 text-white" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <div class="flex text-sm text-black">
+                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                    <span class="">Upload Brand Logo</span>
+                    <input id="file-upload" name="brand_logo_file" type="file" class="sr-only">
+                    </label>
+                    <p class="pl-1 text-white">or drag and drop</p>
+                </div>
+                <p class="text-xs text-white">
+                    PNG, JPG, GIF up to 2.5 MB
+                </p>
+                </div>
+            </div>
+            <div class="flex justify-start mt-6">
+                <button type="submit" class="m-1 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-black rounded-md hover:bg-black focus:outline-none focus:bg-black">Save Changes</button>
+                <a class="m-1 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-black rounded-md hover:bg-black focus:outline-none focus:bg-black hover:no-underline" href="{% url 'password_change' %}">Change Password</a>
+            </div>
+        </div>
+    </form>
+</section>
 {% endblock body %}
