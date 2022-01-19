@@ -19,7 +19,7 @@ def passwordChangeView(request):
                 # Update the session hash to prevent session fixation attacks.
                 update_session_auth_hash(request, form.user)
                 messages.success(request, 'Password Change Successfully!')
-                return redirect('/')
+                return redirect('settings')
         else:
             form = PasswordChangeForm(user=request.user)
         return render(request, 'settings/password_change.html', {'form': form})
