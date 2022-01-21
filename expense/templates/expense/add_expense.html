@@ -10,17 +10,29 @@
         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
                 <label class="text-gray-700 dark:text-gray-200" for="expense_type">Expense Type</label>
-                <input id="expense_type" type="text" name="expense_type" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="expense_type" type="text" name="expense_type" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Expense Name">
+
+
+                <label class="text-gray-700 dark:text-gray-200 pt-3" for="expense_amount">Amount</label>
+                <input id="expense_amount" type="number" name="expense_amount" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Enter Expense Amount">
+
+                <div class="dropdown">
+                    <label class="text-gray-700 dark:text-gray-200 pt-3" for="expense_amount">Expense Category</label>
+                    <button class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Category
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for category in categories %}
+                      <a class="dropdown-item">Select Category</a>
+                      <a class="dropdown-item" href="{{ category.name }}" name="categories">{{ category.name }}</a>
+                    {% endfor %}
+                    </div>
+                </div>
             </div>
 
             <div>
-                <label class="text-gray-700 dark:text-gray-200" for="expense_amount">Amount</label>
-                <input id="expense_amount" type="number" name="expense_amount" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-            </div>
-
-            <div>
-                <label class="text-white dark:text-gray-200" for="passwordConfirmation">Date</label>
-                <input id="date" type="date" name="expense_date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <label class="text-gray-700 dark:text-gray-200" for="expense_date">Date</label>
+                <input id="datePicker" type="date" name="expense_date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
         </div>
 
