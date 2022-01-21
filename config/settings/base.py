@@ -157,6 +157,7 @@ MIDDLEWARE = [
     # Custom middleware📌
     'authenticator.middleware.FetchUserData',
     'core.middleware.TrackUserDevice',
+    'core.middleware.RequestMiddleware',
 ]
 
 
