@@ -1,8 +1,10 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from settings.forms.user_settings_form import UserSettingsForm
 
 
+@login_required
 def settings(request):
     user = request.user
     if request.method == 'POST':
