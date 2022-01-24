@@ -13,5 +13,9 @@ class BankAdmin(admin.ModelAdmin):
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
     list_display = ('account_name', 'country')
-    search_fields = ('account_name', 'country', 'organization_industry')
-    list_filter = ('organization_industry',)
+    search_fields = ('account_name', 'country', 'industry')
+    list_filter = ('industry',)
+
+    @admin.display(boolean=True, description='Is Opend?')
+    def is_opend(self, obj):
+        return obj.status is not None
