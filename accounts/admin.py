@@ -12,8 +12,8 @@ class BankAdmin(admin.ModelAdmin):
 
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
-    list_display = ('account_name', 'country')
-    search_fields = ('account_name', 'country', 'industry')
+    list_display = ('name', 'country')
+    search_fields = ('name', 'country', 'industry')
     list_filter = ('industry',)
 
     @admin.display(boolean=True, description='Is Opend?')
