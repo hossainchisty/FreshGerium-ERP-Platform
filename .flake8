@@ -5,4 +5,5 @@ exclude =
     *env, 
     config/settings/*.py
     __pycache__
+    apps.py
 ; ignore = E501,F841
