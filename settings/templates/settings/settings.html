@@ -1,13 +1,9 @@
 {% extends 'core/_base.html' %}
 {% block title %} Company Profile Settings {% endblock title %}
+{% load static %}
 {% block body %}
-<style>
-    .required:after {
-        content:" *";
-        color: red;
-    }
-</style>
-
+<!-- Additional asteriskStyle  -->
+<link href="{% static 'css/asteriskStyle.css' %}" rel="stylesheet">
 <!--- Toast notification start -->
 {% include 'core/info/backend_message.html' %}
 <!--- Toast notification end -->
