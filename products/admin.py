@@ -7,7 +7,16 @@ from .models import Category, Product, Unit
 
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin):
-    list_display = ('product_name', 'product_code', 'product_model','price', 'supplier_price', 'unit', 'category', 'supplier')
+    list_display = (
+        'product_name',
+        'product_code',
+        'product_model',
+        'price',
+        'supplier_price',
+        'unit',
+        'category',
+        'supplier'
+    )
     list_filter = ('category', 'unit')
     search_fields = ('name', 'category__name', 'unit__name')
 
