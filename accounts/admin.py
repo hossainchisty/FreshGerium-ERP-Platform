@@ -15,7 +15,3 @@ class AccountAdmin(admin.ModelAdmin):
     list_display = ('name', 'country')
     search_fields = ('name', 'country', 'industry')
     list_filter = ('industry',)
-
-    @admin.display(boolean=True, description='Is Opend?')
-    def is_opend(self, obj):
-        return obj.status is not None
