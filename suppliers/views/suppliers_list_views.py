@@ -7,7 +7,7 @@ from suppliers.models import Supplier
 class SupplierList(View):
     def get(self, request):
         '''List of suppliers'''
-        supplier_list = Supplier.objects.all()
+        supplier_list = Supplier.objects.all().order_by('-id')
         paginator = Paginator(supplier_list, 25)
         page_number = request.GET.get('page')
         suppliers = paginator.get_page(page_number)
