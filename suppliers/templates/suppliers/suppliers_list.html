@@ -14,13 +14,13 @@
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Supplier Name</th>
-                            <th>Address</th>
-                            <th>Mobile No</th>
-                            <th>Email</th>
-                            <th>Zip code</th>
-                            <th>Country</th>
-                            <th>Balance</th>
+                            <th class="text-center">Supplier Name</th>
+                            <th class="text-center">Address</th>
+                            <th class="text-center">Mobile No</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Zip code</th>
+                            <th class="text-center">Country</th>
+                            <th class="text-center">Balance</th>
                         </tr>
                     </thead>
 
@@ -28,13 +28,13 @@
                     <tbody>
                         <tr>
                             <td>{{ forloop.counter }}</td>
-                            <td>{{ supplier.supplier_full_name }}</td>
-                            <td>{{ supplier.supplier_address }}</td>
-                            <td>{{ supplier.supplier_phone }}</td>
-                            <td>{{ supplier.supplier_email }}</td>
-                            <td>{{ supplier.supplier_zip_code }}</td>
-                            <td>{{ supplier.supplier_country }}</td>
-                            <td>{{ supplier.supplier_previous_balance }}</td>
+                            <td class="text-center">{{ supplier.supplier_full_name }}</td>
+                            <td class="text-center">{{ supplier.supplier_address }}</td>
+                            <td class="text-center">{{ supplier.supplier_phone }}</td>
+                            <td class="text-center">{{ supplier.supplier_email }}</td>
+                            <td class="text-center">{{ supplier.supplier_zip_code }}</td>
+                            <td class="text-center">{{ supplier.supplier_country }}</td>
+                            <td class="text-center">{{ supplier.supplier_previous_balance }}</td>
                         </tr>
                     </tbody>
                     {% endfor %}
