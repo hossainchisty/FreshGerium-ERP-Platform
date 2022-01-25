@@ -1,0 +1,11 @@
+.asteriskField {
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.required:after {
+    content:" *";
+    color: red;
+    font-size: medium;
+    font-weight: bold;
+}
