@@ -24,12 +24,18 @@
                 </button>
             </div>
             <div class="pb-3">
-                <button type="button" class="btn btn-primary">
+                <a href="{% url 'create_product' %}">
+                    <button type="button" class="btn btn-primary">
                     <i class="fa fa-plus"></i>
-                    Add Product</button>
-                <button type="button" class="btn btn-success">
-                    <i class="fa fa-plus">
-                    </i>Add Product(CSV)</button>
+                        Add Product
+                    </button>
+                </a>
+                <a href="">
+                    <button type="button"  class="btn btn-success">
+                    <i class="fa fa-plus"></i>
+                        Add Product(CSV)
+                    </button>
+                </a>
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
