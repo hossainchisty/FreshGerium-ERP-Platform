@@ -16,6 +16,8 @@ class AddSupplier(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         ''' Create a new suppliers '''
         form = SupplierForm(request.POST)
+        # Automatically set to the currently logged-in user
+        form.instance.user = request.user
         if form.is_valid():
             form.save()
             '''Provide a redirect on GET request.'''
