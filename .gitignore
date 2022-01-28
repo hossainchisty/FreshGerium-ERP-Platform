@@ -68,8 +68,6 @@ docs/
 Procfile
 README1.md
 README2.md
-config/settings/development.py
-config/settings/production.py
 requirements-dev.txt
 requirements.txt
 .gitignore
@@ -78,11 +76,9 @@ setup.py
 requirements.txt
 config/settings.py
 ERP-Software-Requirement.md
-.circleci/config.yml
 .github/FUNDING.yml
 db.sqlite3
 .github/workflows/ci-pipeline.yml
-.github/workflows/linters.yml
 .github/workflows/coverage.yml
 db.sqlite3
 .flake8
@@ -92,6 +88,20 @@ product_images/-ee4d3821356896d564818b4565b974c0f42a64f7.png
 .github/workflows/docker-image-build.yml
 staticfiles/
 testAPI.html
-auth/
+auth/Email verification/
 product_images/Hossain_Chisty.png
 analytics/
+config/settings/env.py
+command.md
+.github/workflows/docker-publish.yml
+start.bat
+
+expense/migrations/
+quotation
+public/
+report/
+
+tests/
+static/js/reactjs/greeting.jsx
+database/routers/
+assets/
