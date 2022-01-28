@@ -24,6 +24,7 @@ class User(AbstractUser):
     is_verified = models.BooleanField(default=False)
     ip_address = models.GenericIPAddressField(blank=True, null=True)
     session = models.OneToOneField(Session, on_delete=models.CASCADE, blank=True, null=True)
+    # skype_ID = models.CharField(max_length=50)
 
     is_founder = models.BooleanField(default=False)
     is_ceo = models.BooleanField(default=False)
