@@ -10,7 +10,7 @@
 
 <section class="max-w-4xl p-6 mx-auto bg-purple-500 rounded-md shadow-md dark:bg-purple-500 mt-20">
     <h1 class="text-xl font-bold text-white capitalize dark:text-white">Company Profile Settings</h1>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <!-- Security token -->
             {% csrf_token %}
         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 text-white">
