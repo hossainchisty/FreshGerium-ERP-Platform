@@ -174,9 +174,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # Custom context processors📌
                 # Each context processor must return a dictionary
-                # 'expense.context_processors.get_total_expsense',
-                # 'expense.context_processors.get_total_expsense_by_month',
-                # 'expense.context_processors.get_total_expsense_by_year',
+                'expense.context_processors.get_total_expsense',
+                'expense.context_processors.get_total_expsense_by_month',
+                'expense.context_processors.get_total_expsense_by_year',
                 # 'sales.context_processors.march_sales',
             ],
         },
