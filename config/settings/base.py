@@ -319,6 +319,15 @@ CORS_ALLOWED_ORIGINS = [
 ]
 # CORS_ALLOW_ALL_ORIGINS = True
 
+# HTTP verbs that are allowed
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 
 # Whether to append trailing slashes to URLs.
 APPEND_SLASH = True
