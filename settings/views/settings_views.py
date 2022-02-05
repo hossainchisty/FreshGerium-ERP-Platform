@@ -3,10 +3,12 @@ import pyshorteners
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
+from django.views.decorators.cache import cache_page
 from settings.forms.user_settings_form import UserSettingsForm
 
 
 @login_required
+@cache_page(60 * 15)
 def settings(request):
     user = request.user
     if request.method == 'POST':

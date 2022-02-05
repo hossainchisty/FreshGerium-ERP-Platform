@@ -63,7 +63,10 @@
                 <p class="text-xs text-white">
                     PNG, JPG, GIF up to 2.5 MB
                     <br>
+                    {% load cache %}
+                    {% cache 500 brand_logo_short %}
                     Current Brand Logo <a class="font-mono italic text-white" href="{{ brand_logo_short }}" target="_blank">{{ brand_logo_short }}</a>
+                    {% endcache %}
                 </p>
                 </div>
             </div>
