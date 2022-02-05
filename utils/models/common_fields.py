@@ -4,6 +4,7 @@ from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 from utils import random
 
+__author__ = "Hossain Chisty"
 
 class Timestamp(models.Model):
     """ Abstract base model for create and update timestamp and user for all models. """
