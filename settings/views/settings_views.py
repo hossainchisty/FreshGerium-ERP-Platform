@@ -1,3 +1,5 @@
+import pyshorteners
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
@@ -28,4 +30,12 @@ def settings(request):
         messages.success(request, 'Settings updated successfully')
         return redirect('settings')
     else:
-        return render(request, 'settings/settings.html', {'form': UserSettingsForm()})
+        s = pyshorteners.Shortener()
+        # short brand logo url
+        brand_logo_short = s.tinyurl.short(request.user.brand_logo.url)
+
+        context = {
+            'form': UserSettingsForm(),
+            'brand_logo_short': brand_logo_short,
+        }
+        return render(request, 'settings/settings.html', context)
