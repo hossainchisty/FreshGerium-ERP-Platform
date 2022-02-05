@@ -1,6 +1,7 @@
 from django.db import models
 from utils.models.common_fields import Timestamp
 
+__author__ = "Hossain Chisty"
 
 class Category(Timestamp):
     name = models.CharField(max_length=100)

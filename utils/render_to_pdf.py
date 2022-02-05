@@ -5,6 +5,7 @@ from xhtml2pdf import pisa
 from django.http import HttpResponse
 from django.template.loader import get_template
 
+__author__ = "Hossain Chisty"
 
 def generate_pdf(template_src, context_dict={}):
     '''

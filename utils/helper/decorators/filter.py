@@ -7,6 +7,7 @@ from expense.models import Category, Expense
 from purchase.models import Purchase
 from service.models import Service
 
+__author__ = "Hossain Chisty"
 
 def _currentUser():
     '''
