@@ -3,6 +3,7 @@ from accounts.models.bank_account_model import Bank
 from customers.models import Customer
 from django.shortcuts import render
 
+__author__ = "Hossain Chisty"
 
 def _currentUser():
     '''
