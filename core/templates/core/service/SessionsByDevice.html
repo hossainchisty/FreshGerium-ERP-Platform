@@ -11,7 +11,7 @@
                     datasets: [
                         {
                             label: "Track Device Type",
-                            data: [{{ desktop_device }}, {{mobile_device}}, {{tablet_device}}],	
+                            data: [{{ request.session.pc_visit }}, {{ request.session.mobile_visit }}, {{ request.session.tablet_visit }}],
                             backgroundColor: [
                                 "rgb(99 102 241)",
                                 "rgb(56 189 248)",
