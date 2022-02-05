@@ -1,0 +1,80 @@
+{% extends 'core/_base.html' %}
+{% block title %}Privacy and Security{% endblock title %}
+{% block body %}
+<div class="w-10/12 md:w-7/12 lg:6/12 mx-auto relative py-20 bg-white">
+  <h1 class="text-3xl text-center font-bold text-gray-800">Account Privacy</h1>
+  <div class="border-l-2 mt-10">
+
+    <!-- Account Data -->
+    <div
+      class="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4 bg-purple-600 text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0">
+      <!-- Dot Follwing the Left Vertical Line -->
+      <div class="w-5 h-5 bg-purple-600 absolute -left-10 transform -translate-x-2/4 rounded-full z-10 mt-2 md:mt-0">
+      </div>
+
+      <!-- Line that connecting the box with the vertical line -->
+      <div class="w-10 h-1 bg-purple-300 absolute -left-10 z-0"></div>
+
+      <!-- Content that showing in the box -->
+      <div class="flex-auto">
+        <h1 class="text-lg">Account Data</h1>
+        <a class="text-xl font-bold text-white hover:no-underline" href="">View Account Data</a>
+      </div>
+    </div>
+
+    <!-- Data Download -->
+    <div
+      class="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4 bg-pink-600 text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0">
+      <!-- Dot Follwing the Left Vertical Line -->
+      <div class="w-5 h-5 bg-pink-600 absolute -left-10 transform -translate-x-2/4 rounded-full z-10 mt-2 md:mt-0">
+      </div>
+
+      <!-- Line that connecting the box with the vertical line -->
+      <div class="w-10 h-1 bg-pink-300 absolute -left-10 z-0"></div>
+
+      <!-- Content that showing in the box -->
+      <div class="flex-auto">
+        <h1 class="text-lg">Data Download</h1>
+        <a class="text-xl font-bold text-white hover:no-underline" href="">Request Download</a>
+      </div>
+    </div>
+
+    <!-- Two-Factor Authentication -->
+    <div
+      class="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4 bg-green-600 text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0">
+      <!-- Dot Follwing the Left Vertical Line -->
+      <div class="w-5 h-5 bg-green-600 absolute -left-10 transform -translate-x-2/4 rounded-full z-10 mt-2 md:mt-0">
+      </div>
+
+      <!-- Line that connecting the box with the vertical line -->
+      <div class="w-10 h-1 bg-green-300 absolute -left-10 z-0"></div>
+
+      <!-- Content that showing in the box -->
+      <div class="flex-auto">
+        <h1 class="text-lg">Two-Factor Authentication</h1>
+        <a class="text-xl font-bold text-white hover:no-underline" href="">Edit Two-Factor Authentication Setting</a>
+      </div>
+    </div>
+
+    <!-- Privacy and Security Help -->
+    <div
+      class="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4 bg-blue-600 text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0">
+      <!-- Dot Follwing the Left Vertical Line -->
+      <div class="w-5 h-5 bg-blue-600 absolute -left-10 transform -translate-x-2/4 rounded-full z-10 mt-2 md:mt-0">
+      </div>
+
+      <!-- Line that connecting the box with the vertical line -->
+      <div class="w-10 h-1 bg-blue-300 absolute -left-10 z-0"></div>
+
+      <!-- Content that showing in the box -->
+      <div class="flex-auto">
+        <h1 class="text-lg">Privacy and Security Help</h1>
+        <a class="text-xl font-bold text-white hover:no-underline" href="">Support</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+{% endblock body %}
