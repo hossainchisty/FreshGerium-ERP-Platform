@@ -1,9 +1,12 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.views.generic import View
 from suppliers.models import Supplier
 
 
+@method_decorator(cache_page(60 * 5), name='dispatch')
 class SupplierList(View):
     def get(self, request):
         '''List of suppliers'''
