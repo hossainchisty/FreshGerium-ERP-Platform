@@ -1,14 +1,18 @@
 {% extends 'core/_base.html' %}
+{% load total_sale_balance %}
+{% load total_expense %}
+{% load total_purchase %}
 {% block body %}
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 bg-indigo-100 opacity-100 p-4">
+         <h4 class="text-gray-800 font-bold text-center">
+            <p id="greeting"></p>
+        </h4>
+            
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
 
     <!-- Content Row -->
     <div class="row">
@@ -17,26 +21,35 @@
         {% include 'core/components/TotalCustomerCard.html' %}
         <!-- End  -->
 
-        <!-- TOTAL PURCHASE COST -->
-        {% include 'core/components/TotalPurchaseCostCard.html' %}
-        <!-- End  -->
-
-        <!-- TOTAL PROFIT -->
-        {% include 'core/components/ProfitCard.html' %}
+        <!-- Total Supplier Card  -->
+        {% include 'core/components/TotalSupplierCard.html' %}
         <!-- End  -->
 
         <!-- Total Sale-->
         {% include 'core/components/TotalSaleCard.html' %}
         <!-- End  -->
 
-        <!-- TODAY EXPENSE -->
-        {% include 'core/components/TodayExpenseCard.html' %}
-        <!-- End  -->
-
         <!-- TOTAL EXPENSE -->
         {% include 'core/components/TotalExpenseCard.html' %}
         <!-- End  -->
 
+        <!-- TOTAL PURCHASE COST -->
+        {% include 'core/components/TotalPurchaseCostCard.html' %}
+        <!-- End  -->
+
+        <!-- TOTAL PROFIT -->
+        {% include 'core/components/TotalProfitCard.html' %}
+        <!-- End  -->
+
+
+
+        <!-- TODAY EXPENSE -->
+        {% include 'core/components/TodayExpenseCard.html' %}
+        <!-- End  -->
+
+
+
+        {% comment %}
         <!-- Total orders -->
         {% include 'core/components/TotalOrderCard.html' %}
         <!-- End  -->
@@ -52,7 +65,7 @@
 
         <!-- Orders Delivered -->
         {% include 'core/components/OrdersDelivered.html' %}
-        <!-- End  -->
+        <!-- End  --> {% endcomment %}
 
         <!-- Total Product -->
         {% include 'core/components/TotalProduct.html' %}
@@ -62,9 +75,7 @@
         {% comment %} {% include 'core/components/PendingRequestCard.html' %} {% endcomment %}
         <!-- End  -->
 
-        <!-- Total Supplier Card  -->
-        {% include 'core/components/TotalSupplierCard.html' %}
-        <!-- End  -->
+
     </div>
 
     <!-- Content Row -->
@@ -77,144 +88,239 @@
 
         <!-- Expense Pie Chart Start -->
         {% include 'core/graph/ExpenseSummary.html' %}
-        <!-- Expense Pie Chart End -->        
-        
-        
+        <!-- Expense Pie Chart End -->
 
-    <!-- Content Row -->
-    <div class="row">
-        <!-- Content Column -->
-        <div class="col-lg-6 mb-4">
-            <!-- Bar Chart -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-bar">
-                        <canvas id="myBarChart"></canvas>
+        <!-- Today Status - Start -->
+        <div class="flex space-x-4">
+            <div class="justify-between rounded-xl mt-4 p-4 bg-white shadow-lg">
+                <h1 class="text-xl font-bold text-gray-800 mt-4">Today’s Status</h1>
+                <div class="flex justify-between space-x-4 text-center mt-6">
+                    <div class="bg-indigo-50 rounded-xl p-10">
+                        <div id="app">{% total_balance %}</div>
+                        <span>Total Sales(Tk)</span>
                     </div>
-                    <hr>
-                    Styling for the bar chart can be found in the
-                    <code>/js/demo/chart-bar-demo.js</code> file.
+                    <div class="bg-indigo-50 rounded-xl p-10">
+                        <h3>{% get_total_purchase %}</h3>
+                        <span>Total Purchase(Tk)</span>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-10">
+                        <h3>{% get_total_expsense %}</h3>
+                        <span>Expense Total(Tk)</span>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-10">
+                        <h3>30</h3>
+                        <span>Supplier Due(Tk)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--- Top Selling Products Start -->
+            {% include 'core\service\TopSellingProduct.html' %}
+            <!--- Top Selling Products End -->
+        </div>
+        <!-- Today Status - Start -->
+
+        <!-- Start Sessions By Device Chart -->
+        {% include 'core\service\SessionsByDevice.html' %}
+        <!-- End Sessions By Device Chart -->
+
+        <!-- Top Selling Products Start -->
+        <div class="flex space-x-4">
+            <div class="justify-between rounded-xl mt-4 p-4">
+                <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+                    <header class="px-4 py-3 border-b border-gray-100">
+                        <h5 class="font-semibold text-gray-800">Top Selling Products</h5>
+                    </header>
+                    <div class="p-3">
+                        <div class="overflow-x-auto">
+                            <table class="table-auto w-full">
+                                <thead class="text-xs font-semibold text-gray-400 bg-gray-50">
+                                    <tr>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="text-black font-semibold text-left">Rank</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="text-black font-semibold text-left">Item</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="text-black font-semibold text-left">Quantity(pcs)</div>
+                                        </th>
+                                        <th class="p-2 whitespace-nowrap">
+                                            <div class="text-black font-semibold text-center">Amount(BDT)</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm divide-y divide-gray-100">
+                                    <tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img
+                                                        class="rounded-full"
+                                                        src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg"
+                                                        width="40" height="40" alt="Alex Shatov"></div>
+                                                <div class="font-medium text-gray-800">Alex Shatov</div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left">F9 Buds</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-lg text-center">500</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left font-medium text-green-500">$2,890.66</div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- Top Selling Products End -->
 
-</div>
-<!-- /.container-fluid -->
 
-{% comment %} <!-- Start Graph -->
-<div class="flex flex-row flex-wrap flex-grow mt-2">
 
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-        <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg">
-            <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                <h5 class="font-bold uppercase text-gray-600">Markting Summary</h5>
+
+
+
+        {% comment %} <div class="row">
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+                <!-- Bar Chart -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-bar">
+                            <canvas id="myBarChart"></canvas>
+                        </div>
+                        <hr>
+                        Styling for the bar chart can be found in the
+                        <code>/js/demo/chart-bar-demo.js</code> file.
+                    </div>
+                </div>
             </div>
-            <div class="p-5">
-                <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
-                <script>
-                    new Chart(document.getElementById("chartjs-7"), {
-                        "type": "bar",
-                        "data": {
-                            "labels": ["January", "February", "March", "April"],
-                            "datasets": [{
-                                "label": "Page Impressions",
-                                "data": [10, 20, 30, 40],
-                                "borderColor": "rgb(255, 99, 132)",
-                                "backgroundColor": "rgba(255, 99, 132, 0.2)"
-                            }, {
-                                "label": "Adsense Clicks",
-                                "data": [5, 15, 10, 30],
-                                "type": "line",
-                                "fill": false,
-                                "borderColor": "rgb(54, 162, 235)"
-                            }]
-                        },
-                        "options": {
-                            "scales": {
-                                "yAxes": [{
-                                    "ticks": {
-                                        "beginAtZero": true
+        </div> {% endcomment %}
+
+
+        <!-- /.container-fluid -->
+
+
+        <!-- Start Graph -->
+        <div class="flex flex-row flex-wrap flex-grow mt-2">
+
+            <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                <!--Graph Card-->
+                <div class="bg-white border-transparent rounded-lg">
+                    <div
+                        class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                        <h5 class="font-bold uppercase text-gray-600">Markting Summary</h5>
+                    </div>
+                    <div class="p-5">
+                        <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
+                        <script>
+                            new Chart(document.getElementById("chartjs-7"), {
+                                "type": "bar",
+                                "data": {
+                                    "labels": ["January", "February", "March", "April"],
+                                    "datasets": [{
+                                        "label": "Page Impressions",
+                                        "data": [10, 20, 30, 40],
+                                        "borderColor": "rgb(255, 99, 132)",
+                                        "backgroundColor": "rgba(255, 99, 132, 0.2)"
+                                    }, {
+                                        "label": "Adsense Clicks",
+                                        "data": [5, 15, 10, 30],
+                                        "type": "line",
+                                        "fill": false,
+                                        "borderColor": "rgb(54, 162, 235)"
+                                    }]
+                                },
+                                "options": {
+                                    "scales": {
+                                        "yAxes": [{
+                                            "ticks": {
+                                                "beginAtZero": true
+                                            }
+                                        }]
                                     }
-                                }]
-                            }
-                        }
-                    });
-                </script>
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+                <!--/Graph Card-->
+            </div>
+
+            <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                <!--Graph Card-->
+                <div class="bg-white border-transparent rounded-lg">
+                    <div
+                        class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                        <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                    </div>
+                    <div class="p-5">
+                        <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
+                        <script>
+                            new Chart(document.getElementById("chartjs-0"), {
+                                "type": "line",
+                                "data": {
+                                    "labels": ["January", "February", "March", "April", "May", "June", "July"],
+                                    "datasets": [{
+                                        "label": "Views",
+                                        "data": [65, 59, 80, 81, 56, 55, 40],
+                                        "fill": false,
+                                        "borderColor": "rgb(75, 192, 192)",
+                                        "lineTension": 0.1
+                                    }]
+                                },
+                                "options": {}
+                            });
+                        </script>
+                    </div>
+                </div>
+                <!--/Graph Card-->
+            </div>
+
+            <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                <!--Graph Card-->
+                <div class="bg-white border-transparent rounded-lg">
+                    <div
+                        class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                        <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                    </div>
+                    <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined"
+                            height="undefined"></canvas>
+                        <script>
+                            new Chart(document.getElementById("chartjs-4"), {
+                                "type": "bar",
+                                "data": {
+                                    "labels": ["P1", "P2", "P3"],
+                                    "datasets": [{
+                                        "label": "Issues",
+                                        "data": [300, 50, 100],
+                                        "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"]
+                                    }]
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+                <!--/Graph Card-->
             </div>
         </div>
-        <!--/Graph Card-->
+        <!-- End Graph -->
+
     </div>
+    <!-- End of Main Content -->
 
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-        <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg">
-            <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                <h5 class="font-bold uppercase text-gray-600">Graph</h5>
-            </div>
-            <div class="p-5">
-                <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
-                <script>
-                    new Chart(document.getElementById("chartjs-0"), {
-                        "type": "line",
-                        "data": {
-                            "labels": ["January", "February", "March", "April", "May", "June", "July"],
-                            "datasets": [{
-                                "label": "Views",
-                                "data": [65, 59, 80, 81, 56, 55, 40],
-                                "fill": false,
-                                "borderColor": "rgb(75, 192, 192)",
-                                "lineTension": 0.1
-                            }]
-                        },
-                        "options": {}
-                    });
-                </script>
-            </div>
-        </div>
-        <!--/Graph Card-->
-    </div>
+    <!-- Footer -->
 
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-        <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg">
-            <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                <h5 class="font-bold uppercase text-gray-600">Graph</h5>
-            </div>
-            <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined" height="undefined"></canvas>
-                <script>
-                    new Chart(document.getElementById("chartjs-4"), {
-                        "type": "bar",
-                        "data": {
-                            "labels": ["P1", "P2", "P3"],
-                            "datasets": [{
-                                "label": "Issues",
-                                "data": [300, 50, 100],
-                                "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"]
-                            }]
-                        }
-                    });
-                </script>
-            </div>
-        </div>
-        <!--/Graph Card-->
-    </div>
-</div>
-<!-- End Graph --> {% endcomment %}
-
-</div>
-<!-- End of Main Content -->
-
-<!-- Footer -->
-
-<!-- End of Footer -->
+    <!-- End of Footer -->
 
 </div>
 <!-- End of Content Wrapper -->
@@ -222,6 +328,25 @@
 </div>
 <!-- End of Page Wrapper -->
 
+<script type="text/babel">
+    class Greeting extends React.Component {
+      render() {
+        const currentTime = new Date().getHours();
+        return (
+            <>
+            {% load cache %}
+            {% cache 700 owner_name %} 👋 {{ request.user.owner_name }} {% endcache %}, Good{" "} 
+              {currentTime >= 12
+                ? currentTime >= 16
+                  ? "Evening🌇"
+                  : "Afternoon🌆"
+                : "Morning​​🌅"}
+            </>
+        );
+      }
+    }
 
+    ReactDOM.render(<Greeting />, document.getElementById("greeting"));
+  </script>
 
 {% endblock body %}
