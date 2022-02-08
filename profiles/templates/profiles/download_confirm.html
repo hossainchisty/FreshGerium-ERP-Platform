@@ -1,0 +1,26 @@
+{% extends 'core/_base.html' %}
+{% block title %} Your Freshdesk Data {% endblock title %}
+{% load cache %}
+{% block body %}
+{% cache 700 profile %}
+<div class="flex items-center justify-center">
+  <div class="max-w-md py-8 px-10 bg-white shadow-lg rounded-lg my-20">
+    <h1 class="text-2xl font-bold text-left">Your Freshdesk Information</h1>
+    <div class="flex flex-col items-center">
+      <div class="w-full max-w-xs">
+        <p>
+          Here is the file you requested with the information about your account {{ request.user.email }}.
+        </p>
+        <p>This link will only work for 4 days after we send it. Because it may contain personal information, be sure to keep the link private and only download the file to your own computer.</p>
+        <p>You can download it by clicking the button below.</p>
+      </div>
+      <p class="text-center">
+        <button class="bg-black hover:bg-purple-500 font-bold py-1 px-3 rounded-full">
+          {% comment %} TODO: Need to add link for download data. {% endcomment %}
+          <a class="text-sm text-white hover:no-underline" href="">Download Information</a>
+        </button>
+      </p>
+    </div>
+</div>
+{% endcache %}
+{% endblock body %}
