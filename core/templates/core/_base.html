@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load cache %}
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -180,7 +181,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
-        <li class="nav-item active">
+        {% comment %} <li class="nav-item active">
           <a
             class="nav-link collapsed"
             href="#"
@@ -207,7 +208,7 @@
               >
             </div>
           </div>
-        </li>
+        </li> {% endcomment %}
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
           <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -247,6 +248,7 @@
 
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
+                {% cache 700 nav_info %} 
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -264,6 +266,7 @@
                     src="{{ request.user.brand_logo.url }}"
                   />
                 </a>
+                {% endcache %}
                 <!-- Dropdown - User Information -->
                 <div
                   class="
