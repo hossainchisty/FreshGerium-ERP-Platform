@@ -2,11 +2,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.views.generic import View
-from expense.models import Expense
+from expense.models import Category, Expense
 from utils.helper.decorators.filter import _currentUser
 
 
+@method_decorator(cache_page(60 * 3), name='dispatch')
 class ManageExpense(LoginRequiredMixin, View):
     '''
     List all Expense date expense type and amount.
@@ -50,3 +52,18 @@ class ExpenseItem(LoginRequiredMixin, View):
             'expenses': expenses
         }
         return render(request, 'expense/expense_item.html', context)
+
+
+class ExpenseCategory(LoginRequiredMixin, View):
+    ''' Expense category list '''
+    # @method_decorator(_currentUser())
+
+    def get(self, request):
+        category_list = Category.objects.all().order_by('-id')
+        paginator = Paginator(category_list, 20)
+        page_number = request.GET.get('page')
+        categories = paginator.get_page(page_number)
+        context = {
+            'categories': categories
+        }
+        return render(request, 'expense/category_item.html', context)
