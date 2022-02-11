@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 
 @login_required
@@ -9,7 +9,7 @@ def password_verification(request):
     if request.method == "POST":
         valid_password = request.POST.get('password')
         if request.user.check_password(valid_password):
-            return render(request, 'profiles/download_requested.html')
+            return redirect('download_requested')
         else:
             messages.error(request, 'The password you entered is incorrect.')
             return render(request, 'profiles/password_verification.html')
