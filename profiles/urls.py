@@ -1,7 +1,7 @@
 from django.urls import path
 from profiles.views.data_download_views import data_download
 from profiles.views.download_confirm_views import download_confirm
-from profiles.views.download_requested import download_requested
+from profiles.views.download_requested_views import download_requested
 from profiles.views.password_verification_views import password_verification
 from profiles.views.profile_views import profile
 
