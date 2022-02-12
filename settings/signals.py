@@ -5,7 +5,10 @@ from django.core.mail import EmailMessage
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.template.loader import render_to_string
+from django.utils import timezone
 from utils.email_thread import EmailThread
+
+localtimezone = timezone.now()
 
 
 @receiver(pre_save, sender=User)
@@ -20,6 +23,9 @@ def detect_password_change(sender, instance, **kwargs):
         # Get current request object
         request = RequestMiddleware(get_response=None)
         request = request.thread_local.current_request
+        # Track user password change datetime
+        request.user.password_changes_datatime = localtimezone
+        request.user.save()
         user_ip_address = request.session['user_ip']
         timezone = request.session['timezone']
 
