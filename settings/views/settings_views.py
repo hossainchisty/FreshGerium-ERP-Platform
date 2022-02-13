@@ -29,7 +29,7 @@ def settings(request):
         user.is_verified = True
         user.brand_logo = brand_logo
         user.save()
-        messages.success(request, 'Settings updated successfully')
+        messages.success(request, 'Your Settings has been updated. It may take a few moments to update across the site.')
         return redirect('settings')
     else:
         s = pyshorteners.Shortener()
