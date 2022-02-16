@@ -3,6 +3,7 @@ from django_otp.admin import OTPAdminSite
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from profiles.views.account_data_views import account_data
 
 # admin.site.__class__ = OTPAdminSite
 
@@ -15,6 +16,7 @@ admin.site.site_header = 'Freshdesk CRM Platform'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('__debug__/', include('debug_toolbar.urls')),
     path('', include('core.urls')),
     path('customers/', include('customers.urls')),
     path('profile/', include('profiles.urls')),
@@ -32,4 +34,6 @@ urlpatterns = [
     path('accounts-user/', include('allauth.urls')),
     path('auth/', include('authenticator.urls')),
     path('notifications/', include('notifications.urls')),
+    path('accounts/access_tool/', account_data, name='account_data'),
+    path('admin/defender/', include('defender.urls')),
 ]

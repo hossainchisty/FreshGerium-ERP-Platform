@@ -47,6 +47,7 @@ DEFAULT_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sessions',
+    # 'django.contrib.gis',
 ]
 
 THIRD_PARTY_APPS = [
@@ -68,6 +69,8 @@ THIRD_PARTY_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'django_otp.plugins.otp_static',
+    'debug_toolbar',
+    'defender',
 ]
 
 LOCAL_APPS = [
@@ -149,11 +152,14 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # Third party middleware📌
+    'defender.middleware.FailedLoginMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Third party middleware📌
     'corsheaders.middleware.CorsMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # Custom middleware📌
     'authenticator.middleware.FetchUserData',
     'core.middleware.TrackUserDevice',
@@ -242,7 +248,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 IGNORABLE_404_URLS = [
-    re.compile(r'^/apple-touch-icon.*\.png$'),
+    re.compile(r'^/apple-touch-icon.*/.png$'),
     re.compile(r'^/favicon.ico$'),
     re.compile(r'^/robots.txt$'),
     re.compile(r'^/phpmyadmin/'),
@@ -258,14 +264,43 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Dhaka'
 
-
+'''
+sqlite3
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'database/freshdesh-db.sqlite3',
+        'NAME': BASE_DIR / 'database/freshdeshdb.sqlite3',
     },
 
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'crmdb',
+#     }
+# }
+
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': '<db_name>',
+
+#         'USER': '<db_username>',
+
+#         'PASSWORD': '<password>',
+
+#         'HOST': '<db_hostname_or_ip>',
+
+#         'PORT': '<db_port>',
+
+#     }
+
+# }
 
 # The list of routers that will be used to determine which database to use when performing a database query.
 # DATABASE_ROUTERS = ['database.routers.db_routers.ExpenseRouter']
@@ -276,6 +311,13 @@ DATABASES = {
 #         'LOCATION': 'redis://127.0.0.1:6379',
 #     }
 # }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'C:/Users/laptop house/Desktop/Freshdesk-CRM-Platform/cache/',
+    }
+}
 
 LANGUAGE_CODE = 'en-us'
 
@@ -331,3 +373,7 @@ CORS_ALLOW_METHODS = [
 
 # Whether to append trailing slashes to URLs.
 APPEND_SLASH = True
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
