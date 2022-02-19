@@ -71,6 +71,7 @@ THIRD_PARTY_APPS = [
     'django_otp.plugins.otp_static',
     'debug_toolbar',
     'defender',
+    'zxcvbn_password',
 ]
 
 LOCAL_APPS = [
@@ -245,6 +246,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'zxcvbn_password.ZXCVBNValidator',
+        'OPTIONS': {
+            'min_score': 3,
+            'user_attributes': ('email', 'first_name', 'last_name')
+        }
+    }
 ]
 
 IGNORABLE_404_URLS = [
@@ -285,32 +293,24 @@ DATABASES = {
 # DATABASES = {
 
 #     'default': {
-
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-#         'NAME': '<db_name>',
-
-#         'USER': '<db_username>',
-
-#         'PASSWORD': '<password>',
-
-#         'HOST': '<db_hostname_or_ip>',
-
-#         'PORT': '<db_port>',
-
+#         'NAME': 'freshdesk',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
 #     }
-
 # }
 
 # The list of routers that will be used to determine which database to use when performing a database query.
 # DATABASE_ROUTERS = ['database.routers.db_routers.ExpenseRouter']
 
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-#         'LOCATION': 'redis://127.0.0.1:6379',
-#     }
-# }
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379',
+    }
+}
 
 CACHES = {
     'default': {
