@@ -6,6 +6,7 @@ from utils import random
 
 __author__ = "Hossain Chisty"
 
+
 class Timestamp(models.Model):
     """ Abstract base model for create and update timestamp and user for all models. """
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('User'), null=True, blank=True)
