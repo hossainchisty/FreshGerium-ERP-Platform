@@ -52,6 +52,7 @@
                     <thead>
                         <tr>
                             <th>SL.</th>
+                            <th class="text-center">Customer</th>
                             <th class="text-center">Service Name</th>
                             <th class="text-center">Charge</th>
                             <th class="text-center">Description</th>
@@ -64,6 +65,7 @@
                     <tbody>
                         <tr>
                             <td>{{ forloop.counter }}</td>
+                            <td class="text-center">{{ service.customer }}</td>
                             <td class="text-center">{{ service.service_name }}</td>
                             <td class="text-center text-green-700">{{ service.charge }} <small class="text-black">BDT</small></td>
                             <td class="text-center">{{ service.description }}</td>
