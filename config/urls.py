@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from profiles.views.account_data_views import account_data
+from settings.views.login_activity_views import LoginActivityView
 
 # admin.site.__class__ = OTPAdminSite
 
@@ -36,4 +37,5 @@ urlpatterns = [
     path('notifications/', include('notifications.urls')),
     path('accounts/access_tool/', account_data, name='account_data'),
     path('admin/defender/', include('defender.urls')),
+    path('session/login_activity/', LoginActivityView.as_view(), name='login_activity'),
 ]
