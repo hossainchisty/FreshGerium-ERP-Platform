@@ -7,5 +7,6 @@ class ServiceAdmin(admin.ModelAdmin):
     search_fields = ('service_name',)
     list_filter = ('customer',)
     ordering = ('customer',)
-    
+
+
 admin.site.register(Service, ServiceAdmin)
