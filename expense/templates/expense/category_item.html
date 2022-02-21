@@ -1,0 +1,84 @@
+{% extends 'core/_base.html' %}
+{% block title %} Expense Category {% endblock title %}
+{% block body %}
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+    <!-- Category Table -->
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Expense Category</h6>
+        </div>
+        
+        {% if categories %}
+        <div class="card-body">
+            <div class="pb-3">
+                <a href="{% url 'add_category' %}">
+                    <button type="button" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                    Add Category</button>
+                </a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="text-center">SL.</th>
+                            <th class="text-center">Category Name</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    {% for category in categories %}
+                    <tbody>
+                        <tr>
+                            <td class="text-center">{{ forloop.counter }}</td>
+                            <td class="text-center">{{ category.name }}</td>
+                            <td class="text-center">
+                                <button>
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                    </button>
+
+                                    <button>
+                                        <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block" href="">
+                                            <i class="fa fa-edit" style="font-size:20px"></i>
+                                        </a>
+                                    </button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- expense delete modal start -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <form action="" method="post">
+                            <!-- Security token -->
+                            {% csrf_token %}
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Are you sure you want to delete this? 
+                                        <br>This action cannot be undone.</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <input class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" type="submit" value="Yes">
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    <!-- Category delete modal end -->
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        {% else %}
+        {% include 'core/info/message.html' %}
+        {% endif %}
+    </div>
+    <!-- Category Table -->
+</div>
+{% endblock body %}
