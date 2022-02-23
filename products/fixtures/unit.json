@@ -1,0 +1,44 @@
+[
+    {
+        "model": "products.unit",
+        "pk": 1,
+        "fields": {
+            "name": "Kilogram"
+        }
+    },
+    {
+        "model": "products.unit",
+        "pk": 2,
+        "fields": {
+            "name": "Pieces"
+        }
+    },
+    {
+        "model": "products.unit",
+        "pk": 3,
+        "fields": {
+            "name": "Milligram"
+        }
+    },
+    {
+        "model": "products.unit",
+        "pk": 4,
+        "fields": {
+            "name": "Quintal"
+        }
+    },
+    {
+        "model": "products.unit",
+        "pk": 5,
+        "fields": {
+            "name": "Tonne"
+        }
+    },
+    {
+        "model": "products.unit",
+        "pk": 6,
+        "fields": {
+            "name": "Milliliter"
+        }
+    }
+]
