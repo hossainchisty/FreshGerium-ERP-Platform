@@ -1,0 +1,152 @@
+[
+    {
+        "model": "customers.customer",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "customer_name": "John Doe",
+            "customer_email": "john@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "New York",
+            "balance": 56.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "customer_name": "Julie Doe",
+            "customer_email": "julie@gmail.com",
+            "gender": "Female",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "US",
+            "balance": 16.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "customer_name": "Doe John",
+            "customer_email": "doe@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "Bangladesh",
+            "balance": 16.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 4,
+        "fields": {
+            "user": 1,
+            "customer_name": "Jonny Doe",
+            "customer_email": "jonny@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "Canada",
+            "balance": 164.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 5,
+        "fields": {
+            "user": 1,
+            "customer_name": "Arun Doe",
+            "customer_email": "arun@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "Bangladesh",
+            "balance": 64.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 6,
+        "fields": {
+            "user": 1,
+            "customer_name": "Bob Doe",
+            "customer_email": "bob@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "Bangladesh",
+            "balance": 94.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 7,
+        "fields": {
+            "user": 1,
+            "customer_name": "Arab Khan",
+            "customer_email": "arab@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "Bangladesh",
+            "balance": 95.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 8,
+        "fields": {
+            "user": 1,
+            "customer_name": "Arijit Singh",
+            "customer_email": "arijit@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "India",
+            "balance": 950.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 9,
+        "fields": {
+            "user": 1,
+            "customer_name": "Amitabh Bachchan",
+            "customer_email": "amit@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "India",
+            "balance": 95.78,
+            "previous_balance": 0.00
+        }
+    },
+    {
+        "model": "customers.customer",
+        "pk": 10,
+        "fields": {
+            "user": 1,
+            "customer_name": "Shahrukh Khan",
+            "customer_email": "khan@gmail.com",
+            "gender": "Male",
+            "customer_address": "123 Main St",
+            "mobile_no": "1234567890",
+            "city": "India",
+            "balance": 94.78,
+            "previous_balance": 0.00
+        }
+    }
+]
