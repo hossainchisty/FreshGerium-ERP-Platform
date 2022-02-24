@@ -1,0 +1,82 @@
+[
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "category": 1,
+            "supplier": 1,
+            "product_name": "Garden Cart",
+            "product_model": "Nope",
+            "product_code": "0023",
+            "product_description": "15 gallon capacity rolling garden cart",
+            "price": 32.99,
+            "supplier_price": 54.99,
+            "unit": "pcs",
+            "image": "garden_cart.jpg",
+            "in_stock": 6444,
+            "quantity": 0,
+            "country": "USA"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "category": 1,
+            "supplier": 1,
+            "product_name": "Hammer",
+            "product_model": "Nope",
+            "product_code": "0024",
+            "product_description": "Curved claw steel hammer",
+            "price": 82.99,
+            "supplier_price": 94.99,
+            "unit": "pcs",
+            "image": "garden_cart.jpg",
+            "in_stock": 62,
+            "quantity": 0,
+            "country": "BD"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "user": 1,
+            "category": 1,
+            "supplier": 1,
+            "product_name": "Paint Brush",
+            "product_model": "Nope",
+            "product_code": "0025",
+            "product_description": "paint brush with a blade of steel and a wooden handle",
+            "price": 42.99,
+            "supplier_price": 45.99,
+            "unit": "pcs",
+            "image": "garden_cart.jpg",
+            "in_stock": 643,
+            "quantity": 0,
+            "country": "BD"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "user": 1,
+            "category": 1,
+            "supplier": 1,
+            "product_name": "Bucket",
+            "product_model": "Nope",
+            "product_code": "0026",
+            "product_description": "wooden bucket with a lid",
+            "price": 442.99,
+            "supplier_price": 445.99,
+            "unit": "pcs",
+            "image": "garden_cart.jpg",
+            "in_stock": 343,
+            "quantity": 0,
+            "country": "UK"
+        }
+    }
+]
