@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import redirect, render
 from django.views.generic import View
 from products.forms.product_form import ProductForm
@@ -17,6 +19,7 @@ class CreateProduct(View):
         # Automatically set to the currently logged-in user
         form.instance.user = request.user
         if form.is_valid():
+            form.instance.recently_added = datetime.now()
             form.save()
             """Provide a redirect on GET request."""
             return redirect('product_list')
