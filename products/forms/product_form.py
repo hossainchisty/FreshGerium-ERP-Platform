@@ -7,4 +7,4 @@ class ProductForm(ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
-        exclude = ['user', ]
+        exclude = ['user', 'product_code', 'quantity', 'count_sold', 'out_of_stock', 'status', 'recently_sold', 'recently_added', 'recently_viewed', 'recently_updated']
