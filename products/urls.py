@@ -4,6 +4,7 @@ from products.views.add_product_views import CreateProduct
 from products.views.add_unit_views import CreateUnit
 from products.views.product_views import CategoryListView, ProductListView
 from products.views.update_category_views import UpdateCategory
+from products.views.update_product_views import UpdateProductView
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='product_list'),
@@ -12,4 +13,5 @@ urlpatterns = [
     path('add/catetory', CreateCategory.as_view(), name='create_category'),
     path('add/unit', CreateUnit.as_view(), name='create_unit'),
     path('add/', CreateProduct.as_view(), name='create_product'),
+    path('update/<str:product_name>/<str:category>/<int:product_code>/<int:pk>', UpdateProductView.as_view(), name='update_product'),
 ]
