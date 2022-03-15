@@ -15,7 +15,7 @@ class BankAccountList(LoginRequiredMixin, View):
         object_list = Bank.objects.all().order_by('-id')
 
         page_number = request.GET.get('page')
-        paginator = Paginator(object_list, 3)
+        paginator = Paginator(object_list, 10)
         try:
             page_object = paginator.page(page_number)
         except PageNotAnInteger:
