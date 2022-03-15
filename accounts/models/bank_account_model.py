@@ -1,5 +1,6 @@
 from common.utils import ACCOUNT_TYPE
 from django.db import models
+from django.urls import reverse
 from utils.models.common_fields import Timestamp
 
 
@@ -18,6 +19,9 @@ class Bank(Timestamp):
         '''Meta definition for Bank.'''
         verbose_name = 'Bank Account'
         verbose_name_plural = 'Bank Accounts'
+
+    def get_details_url(self):
+        return reverse('bank_account_details', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
         '''
