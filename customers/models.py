@@ -2,12 +2,13 @@ from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from utils.models.common_fields import Ledger, Timestamp
+from utils.models.common_fields import Timestamp
 
 
 class Customer(Timestamp):
-    customer_name = models.CharField(max_length=200)
+    customer_name = models.CharField(db_index=True, max_length=200)
     customer_email = models.EmailField()
     GENDER_SELECT = (
         ("Male", "Male"),
@@ -21,7 +22,14 @@ class Customer(Timestamp):
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     previous_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
-    customer_ledger = models.ManyToManyField(Ledger)
+    def get_customer_url(self):
+        return reverse('customer_detail',  kwargs={"pk": self.pk})
+
+    def get_update_url(self):
+        return reverse('update_customer',  kwargs={"pk": self.pk})
+
+    def get_delete_url(self):
+        return reverse('delete_customer',  kwargs={"pk": self.pk})
 
     def save(self, *args, **kwargs):
         '''
@@ -36,5 +44,8 @@ class Customer(Timestamp):
         return self.customer_name
 
     class Meta:
+        indexes = [
+            models.Index(fields=['customer_name']),
+        ]
         verbose_name = _('Customer')
         verbose_name_plural = _('Customers')
