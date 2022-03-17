@@ -18,7 +18,7 @@ class CustomerList(LoginRequiredMixin, View):
         This will reutrn list of customer
         '''
         customer_list = Customer.objects.all().order_by('-id')
-        paginator = Paginator(customer_list, 10)  # Show 25 customers per page
+        paginator = Paginator(customer_list, 10)
         page_number = request.GET.get('page')
 
         try:
