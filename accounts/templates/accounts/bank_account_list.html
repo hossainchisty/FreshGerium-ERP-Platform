@@ -110,9 +110,13 @@
                         {% endif %}
                     </div>
                     <div class="sm:flex hidden">
-                        <p
-                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
-                            1</p>
+                   {% for i in bank_account_list.paginator.page_range %}
+                        {% if bank_account_list.number == i %}
+                            <a class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2" href="#">{{ i }} </a>
+                        {% else %}
+                            <a class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2" href="?page={{ i }}">{{ i }}</a>
+                        {% endif %}
+                    {% endfor %}
                     </div>
                     {% if bank_account_list.has_next %}
                     <div class="flex items-center pt-3 text-gray-600 hover:text-indigo-700 cursor-pointer">
