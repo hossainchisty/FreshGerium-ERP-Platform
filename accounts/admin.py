@@ -6,8 +6,9 @@ from django.contrib import admin
 @admin.register(Bank)
 class BankAdmin(admin.ModelAdmin):
     list_display = ('bank_account_name', 'bank_account_number', 'account_type', 'bank_name', 'bank_short_name', 'bank_branch')
-    search_fields = ('bank_account_name', 'bank_account_number', 'account_type', 'bank_name', 'bank_short_name', 'bank_branch')
+    search_fields = ('bank_account_name', 'bank_account_number')
     list_filter = ('account_type', 'bank_name', 'bank_short_name', 'bank_branch')
+    list_per_page = 10
 
 
 @admin.register(Account)
