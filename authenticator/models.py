@@ -16,11 +16,30 @@ from .manager import UserManager
 class User(AbstractUser):
     """ Customize default User model """
     email = models.EmailField(unique=True)
-    owner_name = models.CharField(max_length=50)
-    mobile_number = models.CharField(max_length=11)
-    organization_name = models.CharField(max_length=50)
-    business = models.CharField(max_length=50, choices=INDUSTRYCHOICES)
-    business_manager_name = models.CharField(max_length=50,  null=True, blank=True)
+    owner_name = models.CharField(
+        verbose_name=_('Owner Name'),
+        max_length=50,
+    )
+    mobile_number = models.CharField(
+        verbose_name=_("Mobile Number"),
+        max_length=11,
+        help_text=_('Enter your mobile number'),
+    )
+    organization_name = models.CharField(
+        verbose_name=_("Organization Name"),
+        max_length=50
+    )
+    business = models.CharField(
+        verbose_name=_("Business"),
+        max_length=50,
+        choices=INDUSTRYCHOICES,
+        help_text=_("Select your business type:"),
+    )
+    business_manager_name = models.CharField(
+        verbose_name=_('Business Manager Name'),
+        max_length=50,
+        null=True, blank=True
+    )
     brand_logo = CloudinaryField('Brand Logo', null=True, blank=True)
 
     otp = models.SmallIntegerField(
@@ -28,12 +47,14 @@ class User(AbstractUser):
         null=True, blank=True
     )
     token = models.CharField(
+        verbose_name=_('Token'),
         max_length=100,
         unique=True,
         null=True, blank=True, editable=False,
         help_text='Token for authentication'
     )
     ip_address = models.GenericIPAddressField(
+        verbose_name=_('IP Address'),
         help_text='IP Address',
         blank=True, null=True
     )
@@ -143,11 +164,31 @@ class User(AbstractUser):
     )
 
     # Timestamps fields
-    otp_created_time = models.DateTimeField(default=now, editable=False)
-    password_changes_datatime = models.DateTimeField(blank=True, null=True)
-    login_datetime = models.DateTimeField(blank=True, null=True)
-    logout_datetime = models.DateTimeField(blank=True, null=True)
-    last_activity = models.DateTimeField(blank=True, null=True)
+    otp_created_time = models.DateTimeField(
+        default=now,
+        verbose_name=_('OTP created time'),
+        editable=False,
+    )
+    password_changes_datatime = models.DateTimeField(
+        verbose_name=_('Password changes datatime'),
+        blank=True,
+        null=True,
+    )
+    login_datetime = models.DateTimeField(
+        verbose_name=_('Login datetime'),
+        blank=True,
+        null=True,
+    )
+    logout_datetime = models.DateTimeField(
+        verbose_name=_('Logout datetime'),
+        blank=True,
+        null=True,
+    )
+    last_activity = models.DateTimeField(
+        verbose_name=_('Last activity'),
+        blank=True,
+        null=True,
+    )
     created_at = models.DateTimeField(default=now, editable=False)
 
     session = models.OneToOneField(Session, on_delete=models.CASCADE, blank=True, null=True)
