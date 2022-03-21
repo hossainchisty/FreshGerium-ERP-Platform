@@ -12,11 +12,13 @@
             "product_description": "15 gallon capacity rolling garden cart",
             "price": 32.99,
             "supplier_price": 54.99,
-            "unit": "pcs",
+            "unit": 1,
             "image": "garden_cart.jpg",
             "in_stock": 6444,
             "quantity": 0,
-            "country": "USA"
+            "country": "USA",
+            "mfg_date": "2021-4-21",
+            "exp_date": "2022-5-21"
         }
     },
     {
@@ -32,11 +34,13 @@
             "product_description": "Curved claw steel hammer",
             "price": 82.99,
             "supplier_price": 94.99,
-            "unit": "pcs",
+            "unit": 1,
             "image": "garden_cart.jpg",
             "in_stock": 62,
             "quantity": 0,
-            "country": "BD"
+            "country": "BD",
+            "mfg_date": "2021-4-21",
+            "exp_date": "2022-5-21"
         }
     },
     {
@@ -52,11 +56,13 @@
             "product_description": "paint brush with a blade of steel and a wooden handle",
             "price": 42.99,
             "supplier_price": 45.99,
-            "unit": "pcs",
+            "unit": 1,
             "image": "garden_cart.jpg",
             "in_stock": 643,
             "quantity": 0,
-            "country": "BD"
+            "country": "BD",
+            "mfg_date": "2021-4-21",
+            "exp_date": "2022-5-21"
         }
     },
     {
@@ -72,11 +78,13 @@
             "product_description": "wooden bucket with a lid",
             "price": 442.99,
             "supplier_price": 445.99,
-            "unit": "pcs",
+            "unit": 1,
             "image": "garden_cart.jpg",
             "in_stock": 343,
             "quantity": 0,
-            "country": "UK"
+            "country": "UK",
+            "mfg_date": "2021-4-21",
+            "exp_date": "2022-5-21"
         }
     }
 ]
