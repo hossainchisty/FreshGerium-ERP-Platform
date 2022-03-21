@@ -24,6 +24,7 @@ class Sale(Timestamp):
     invoice_subtotal = models.DecimalField(max_digits=10, decimal_places=2)
     invoice_tax = models.DecimalField(max_digits=10, decimal_places=2)
     invoice_total = models.DecimalField(max_digits=10, decimal_places=2)
+    pdf_file = models.FileField(upload_to='pdfs/')
     '''
 
     discount = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
