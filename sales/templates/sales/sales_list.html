@@ -10,18 +10,24 @@
         {% if sales %}
         <div class="card-body">
             <div class="text-center">
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                CSV
-                <i class="fas fa-file-excel"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                PDF
-                <i class="far fa-file-pdf"></i>
-                </button>
-                <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
-                Print
-                <i class="fas fa-print"></i>
-                </button>
+                <a class="hover:no-underline" href="{% url 'download_sale_csv' %}">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    CSV
+                    <i class="fas fa-file-excel"></i>
+                    </button>
+                </a>
+                <a class="hover:no-underline" href="{% url 'view_sale_pdf' %}" target="_blank">
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    PDF
+                    <i class="fas fa-file-pdf"></i>
+                    </button>
+                </a>
+                <a class="hover:no-underline" href="{% url 'download_sale_pdf' %}" >
+                    <button class="py-1 px-2 text-white rounded-lg bg-green-400 block md:inline-block">
+                    Print
+                    <i class="fas fa-print"></i>
+                    </button>
+                </a>
             </div>
             <div class="pb-3">
                 <button type="button" class="btn btn-primary">
@@ -35,12 +41,13 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>SL.</th>
-                            <th>Invoice No</th>
-                            <th>Sale By</th>
-                            <th>Customer Name</th>
-                            <th>Date</th>
-                            <th>Total Amount</th>
+                            <th class="text-center">SL.</th>
+                            <th class="text-center">Invoice No</th>
+                            <th class="text-center">Customer Name</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">Payment Method</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Total Amount</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -48,33 +55,68 @@
                     <tbody>
                         <tr>
                             <td>{{ forloop.counter }}</td>
-                            <td>{{ sale.invoice_number }}</td>
-                            <td>{{ sale.seller }}</td>
-                            <td>{{ sale.customer }}</td>
-                            <td>{{ sale.date }}</td>
-                            <td>{{ sale.total_sale }}</td>
+                            <td class="text-center text-green-500 font-bold">#{{ sale.invoice_number }}</td>
+                            <td class="text-center">{{ sale.customer }}</td>
+                            <td class="text-center">{{ sale.date }}</td>
+                            <td class="text-center">{{ sale.payment_method|title }}</td>
+                            {% if sale.is_paid == True %}
+                            <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-green-400 text-white rounded-full">{{ sale.status|title }}</span></td>
+                            {% else %}
+                            <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-400 text-white rounded-full">{{ sale.status|title }}</span></td>
+                            {% endif %}
+                            <td class="text-center text-green-700">
+                                {{ sale.total }} <small class="text-black">BDT</small>
+                            </td>
                             <td class="text-center">
-                                <button
-                                    class="py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal">
-                                    <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fas fa-trash-alt"></i></button>
-                                <button
-                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
-                                    <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fa fa-edit" style="font-size:20px"></i></button> 
+                                <button>
+                                    <a class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" data-toggle="modal" data-target="#deleteModal" href="{% url 'delete_sale' sale.pk %}">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </button>
+
+                                <button class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
+                                    <a class="text-white hover:no-underline" href="{% url 'update_sale' sale.pk %}"><i class="fa fa-edit" style="font-size:20px"></i></a>
+                                    
+                                </button> 
                                     
                                 <button
                                     class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
                                     <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fas fa-qrcode"></i></button>
+                                    <i class="fas fa-qrcode"></i>
+                                </button>
 
                                 <button
                                     class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
                                     <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fas fa-barcode"></i></button>
+                                    <i class="fas fa-barcode"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
+                    <!-- sales delete modal start -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <form action="{% url 'delete_sale' sale.pk %}" method="post">
+                            <!-- Security token -->
+                            {% csrf_token %}
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Are you sure you want to delete this? 
+                                        <br>This action cannot be undone.</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <input class="text-white hover:no-underline py-1 px-3 text-white rounded-lg bg-red-500 block md:inline-block" type="submit" value="Yes">
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    <!-- sales delete modal end -->
                     {% endfor %}
                 </table>
             </div>
@@ -137,30 +179,9 @@
             <!--- Pagination End -->
         </div>
         {% else %}
-        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 p-2" role="alert">
-            <p class="font-bold">NOTHING HERE...</p>
-            <p class="text-sm">It's empty, here you don't have any data.</p>
-          </div>
+        {% include 'core/info/message.html' %}
         {% endif %}
     </div>
     <!-- Sale Table -->
-</div>
-<!-- delete Modal-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this item?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-footer">
-                <button class="py-2 px-2 text-white rounded-lg bg-green-400 block md:inline-block" type="button" data-dismiss="modal">Cancel</button>
-                <a class="py-2 px-2 text-white rounded-lg bg-red-400 block md:inline-block" href="login.html">Delete</a>
-            </div>
-        </div>
-    </div>
 </div>
 {% endblock body %}
