@@ -4,7 +4,7 @@ from simple_history.models import HistoricalRecords
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from utils.models.common_fields import Ledger, Timestamp
+from utils.models.common_fields import Timestamp
 
 
 class Supplier(Timestamp):
@@ -19,9 +19,6 @@ class Supplier(Timestamp):
     supplier_country = CountryField()
     supplier_fax = models.BigIntegerField(null=True, blank=True, verbose_name=_('Supplier Fax'))
     supplier_previous_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name=_('Supplier Previous Balance'))
-
-    supplier_ledger = models.ManyToManyField(Ledger, verbose_name=_('Supplier Ledger'))
-
     history = HistoricalRecords()
 
     class Meta:
