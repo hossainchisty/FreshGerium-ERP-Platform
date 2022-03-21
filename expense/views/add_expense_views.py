@@ -7,6 +7,7 @@ class CreateExpense(View):
     '''
     Intentionally simple parent class for all views.
     '''
+
     def get(self, request, *args, **kwargs):
         ''' Get the expense form '''
         categories = Category.objects.all()
