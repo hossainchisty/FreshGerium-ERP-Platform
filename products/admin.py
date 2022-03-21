@@ -20,7 +20,7 @@ class ProductAdmin(ImportExportModelAdmin):
         'supplier'
 
     )
-    list_filter = ('category', 'unit', 'status', 'supplier')
+    list_filter = ('status', 'category', 'unit', 'status', 'supplier')
     search_fields = ('name', 'category__name', 'unit__name')
     list_per_page = 20
 
