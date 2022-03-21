@@ -81,6 +81,7 @@ class CategoryAdmin(ImportExportModelAdmin):
     list_display = ('name', 'is_active')
     list_filter = ('is_active',)
     search_fields = ('name',)
+    list_per_page = 10
 
 
 @ admin.register(Unit)
@@ -88,3 +89,4 @@ class UnitAdmin(ImportExportModelAdmin):
     list_display = ('name', 'status')
     list_filter = ('status',)
     search_fields = ('name',)
+    list_per_page = 10
