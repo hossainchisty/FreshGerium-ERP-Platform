@@ -8,6 +8,7 @@ from utils import random
 from utils.models.common_fields import Timestamp
 
 from .category_model import Category
+from .unit_model import Unit
 
 
 class Product(Timestamp):
