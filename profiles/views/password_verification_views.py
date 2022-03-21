@@ -9,7 +9,7 @@ def password_verification(request):
     if request.method == "POST":
         valid_password = request.POST.get('password')
         if request.user.check_password(valid_password):
-            return redirect('download_requested')
+            return redirect('data_download_requested')
         else:
             messages.error(request, 'The password you entered is incorrect.')
             return render(request, 'profiles/password_verification.html')
