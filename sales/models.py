@@ -37,8 +37,8 @@ class Sale(Timestamp):
         ('bank payment', 'Bank Payment'),
     ))
     status = models.CharField(max_length=50, choices=(
-        ('⌛due', '⌛Due'),
-        ('✅paid', '✅Paid'),
+        ('due', 'Due'),
+        ('paid', 'Paid'),
     ))
     is_paid = models.BooleanField(
         verbose_name='Is Paid',
@@ -54,9 +54,9 @@ class Sale(Timestamp):
     def save(self, *args, **kwargs):
         """ override the save method for logical purposes """
         if self.is_paid is True:
-            self.status = '✅paid'
+            self.status = 'paid'
         else:
-            self.status = '⌛due'
+            self.status = 'due'
             self.is_paid = False
         # Save the purchase invoice_number, purchase_id with a random code.
         self.invoice_number = random.unique_code(10)
