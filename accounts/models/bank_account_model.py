@@ -7,18 +7,20 @@ from utils.models.common_fields import Timestamp
 class Bank(Timestamp):
     '''Model definition for Bank.'''
 
-    bank_account_name = models.CharField(verbose_name='Bank Account Name', max_length=25)
-    bank_account_number = models.IntegerField(verbose_name='Bank Account Number', unique=True)
-
-    account_type = models.CharField(verbose_name='Bank Account Type', max_length=225, choices=ACCOUNT_TYPE)
+    bank_account_name = models.CharField(verbose_name='A/C Name', max_length=25)
     bank_name = models.CharField(verbose_name='Bank Name', max_length=25)
     bank_short_name = models.CharField(verbose_name='Bank Short Name', max_length=5, null=True, blank=True)
-    bank_branch = models.CharField(verbose_name='Bank Branch', max_length=25)
+    bank_account_number = models.IntegerField(verbose_name='A/C Number', unique=True)
+    bank_branch = models.CharField(verbose_name='Branch', max_length=25)
+    account_type = models.CharField(verbose_name='Bank Account Type', max_length=225, choices=ACCOUNT_TYPE)
+
+    # TODO: Need to Migrate this field
+    # signature_picture = models.ImageField(verbose_name = 'Signature Picture', upload_to = 'signature_pictures/', null = True, blank = True)
 
     class Meta:
         '''Meta definition for Bank.'''
-        verbose_name = 'Bank Account'
-        verbose_name_plural = 'Bank Accounts'
+        verbose_name = 'Bank'
+        verbose_name_plural = 'Bank'
 
     def get_details_url(self):
         return reverse('bank_account_details', kwargs={'pk': self.pk})
