@@ -9,6 +9,14 @@ class BankAdmin(admin.ModelAdmin):
     search_fields = ('bank_account_name', 'bank_account_number')
     list_filter = ('account_type', 'bank_name', 'bank_short_name', 'bank_branch')
     list_per_page = 10
+    exclude = ('user',)
+
+    def save_model(self, request, obj, form, change):
+        '''
+        Associate model with current user while saving.
+        '''
+        obj.user = request.user
+        super().save_model(request, obj, form, change)
 
 
 @admin.register(Account)
