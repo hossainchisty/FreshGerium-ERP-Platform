@@ -14,8 +14,24 @@ class Service(Timestamp):
     vat = models.DecimalField(max_digits=10, decimal_places=2, default=2.00, null=True, blank=True)
     paid_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
+    class Meta:
+        '''
+        Meta class for the Service model.
+        '''
+        verbose_name = 'Service'
+        verbose_name_plural = 'Services'
+
     def __str__(self):
         '''
         Return a string representation of the model object.
         '''
         return self.service_name
+
+    def save(self, *args, **kwargs):
+        '''
+        Override the save method to calculate the total amount.
+        '''
+        self.grand_total = self.net_total + self.total_tax
+        self.grand_total - self.vat + self.charge
+        self.paid_amount = self.grand_total - self.charge
+        super(Service, self).save(*args, **kwargs)
