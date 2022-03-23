@@ -4,18 +4,20 @@ from django.views import View
 
 
 class CreateDamage(View):
-    '''
-    Intentionally simple parent class for all views.
-    '''
+    ''' Create a new purchase '''
+
     def get(self, request, *args, **kwargs):
+        ''' Respond to GET request '''
         return render(request,  'damage/add_damage.html', {'forms': DamageForm()})
 
     def post(self, request, *args, **kwargs):
-        ''' Create a new purchase '''
+        ''' Respond to POST request '''
         form = DamageForm(request.POST)
+        # Automatically set to the currently logged-in user
+        form.instance.user = request.user
         if form.is_valid():
             form.save()
-            """Provide a redirect on GET request."""
+            ''' Provide a redirect on GET request. '''
             return redirect('damage_list')
         else:
             return render(request, 'damage/add_damage.html', {'forms': form})
