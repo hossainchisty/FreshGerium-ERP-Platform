@@ -330,23 +330,23 @@
 
 <script type="text/babel">
     class Greeting extends React.Component {
-      render() {
-        const currentTime = new Date().getHours();
-        return (
-            <>
-            {% load cache %}
-            {% cache 700 owner_name %} 👋 {{ request.user.owner_name }} {% endcache %}, Good{" "} 
-              {currentTime >= 12
-                ? currentTime >= 16
-                  ? "Evening🌇"
-                  : "Afternoon🌆"
-                : "Morning​​🌅"}
-            </>
-        );
-      }
+        render() {
+            const currentTime = new Date().getHours();
+            return (
+                <>
+                    {% load cache %}
+                    {% cache 700 owner_name %} 👋 {{ request.user.owner_name }} {% endcache %}, Good{" "}
+                    {currentTime >= 12
+                        ? currentTime >= 16
+                            ? "Evening🌇"
+                            : "Afternoon🌆"
+                        : "Morning​​🌅"}
+                </>
+            );
+        }
     }
 
     ReactDOM.render(<Greeting />, document.getElementById("greeting"));
-  </script>
+</script>
 
 {% endblock body %}
