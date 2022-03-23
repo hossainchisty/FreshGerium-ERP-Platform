@@ -14,7 +14,7 @@ class PurchaseAdmin(admin.ModelAdmin):
     list_filter = ('purchase_date', 'payment_method')
     fieldsets = (
         (None, {
-            'fields': ('user', 'product', 'supplier', 'purchase_date', 'payment_method', 'details',
+            'fields': ('product', 'supplier', 'purchase_date', 'payment_method', 'details',
                        'discount', 'paid_amount', 'due_amount', 'total_amount')
         }),
     )
