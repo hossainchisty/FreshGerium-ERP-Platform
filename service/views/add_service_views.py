@@ -16,7 +16,7 @@ class CreateService(View):
         service_charge = request.POST.get('service_charge')
         description = request.POST.get('service_description')
         vat = request.POST.get('service_vat')
-        service = Service(user=request.user, service_name=service_name, charge=service_charge, description=description, vat=vat)
+        service = Service(user=self.request.user, service_name=service_name, charge=service_charge, description=description, vat=vat)
         service.save()
         '''Provide a redirect on GET request.'''
         return redirect('manage_service')
