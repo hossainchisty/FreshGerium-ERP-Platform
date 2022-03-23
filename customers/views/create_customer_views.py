@@ -19,7 +19,7 @@ class CreateCustomer(View):
         customer_address = request.POST.get('customer_address')
         balance = request.POST.get('balance')
         customer = Customer(
-            user=self.reqeust.user,
+            user=request.user,
             customer_name=customer_name,
             customer_email=customer_email,
             mobile_no=mobile_no,
