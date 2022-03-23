@@ -7,7 +7,7 @@ class PurchaseForm(ModelForm):
     ''' Form asking for the Purchase Information '''
     class Meta:
         model = Purchase
-        fields = ['invoice_number', 'purchase_id', 'supplier', 'purchase_date', 'total_amount']
+        fields = ['product', 'supplier', 'purchase_date', 'payment_method', 'details', 'discount', 'paid_amount', 'due_amount', 'total_amount']
         widgets = {
             'purchase_date': DateInput(attrs={'type': 'date'})
         }
