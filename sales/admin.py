@@ -26,5 +26,8 @@ class SaleAdmin(admin.ModelAdmin):
         return format_html('<span style="color:green;">#{}</span>', obj.invoice_number)
 
     def save_model(self, request, obj, form, change):
+        '''
+        Associate model with current user while saving.
+        '''
         obj.user = request.user
         super().save_model(request, obj, form, change)
