@@ -1,5 +1,6 @@
 {% extends 'core/_base.html' %}
 {% block title %} Manage Sale {% endblock title %}
+{% load humanize %}
 {% block body %}
 <div class="container-fluid">
     <!-- Sale Table -->
@@ -70,7 +71,7 @@
                             <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-400 text-white rounded-full">{{ sale.status|title }}</span></td>
                             {% endif %}
                             <td class="text-center text-green-700">
-                                {{ sale.total }} <small class="text-black">BDT</small>
+                                {{ sale.total | intcomma }} <small class="text-black">BDT</small>
                             </td>
                             <td class="text-center">
                                 <button>
