@@ -6,6 +6,7 @@ from sales.views.export_sale_csv_views import DownloadSaleCSV
 from sales.views.manage_sale_views import SalesList
 from sales.views.sale_pdf_views import ViewSalePDF
 from sales.views.update_sale_views import UpdateSale
+from sales.views.due_collection_views import DueCollection
 
 urlpatterns = [
     path('', SalesList.as_view(), name='sales_list'),
@@ -15,6 +16,7 @@ urlpatterns = [
     path('pdf/download/', DownloadSalePDF.as_view(), name="download_sale_pdf"),
     path('pdf/', ViewSalePDF.as_view(), name='view_sale_pdf'),
     path('export/', DownloadSaleCSV.as_view(), name="download_sale_csv"),
+    path('due/', DueCollection.as_view(), name='due_collection'),
     # API URLS
     path('api/v1/', include('sales.api.urls.sales_urls')),
 ]
