@@ -13,6 +13,7 @@
       <p class="mt-2 text-black">
         Organization name: {{ request.user.organization_name }} <br>
         Email: {{ request.user.email }}<br>
+        Member since: {{ request.user.date_joined | date:"M Y"}}<br>
       </p>
     </div>
     <button class="bg-black hover:bg-purple-500 font-bold py-1 px-3 rounded-full">
