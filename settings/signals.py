@@ -1,5 +1,5 @@
 from authenticator.models import User
-from core.middleware import RequestMiddleware
+from core.middleware.requests import RequestMiddleware
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.db.models.signals import pre_save
