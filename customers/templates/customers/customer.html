@@ -1,7 +1,9 @@
 {% extends 'core/_base.html' %}
 {% load customer_tags %}
+{% load static %}
 {% block title %} Customers {% endblock title %}
 {% block body %}
+<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
 
 <div class="container-fluid">
     <!-- Customer Table -->
@@ -16,12 +18,13 @@
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Customer Name</th>
-                            <th>Email</th>
-                            <th>Mobile Number</th>
-                            <th>Address</th>
-                            <th>Balance</th>
-                            <th>Action</th>
+                            <th  class="text-center">Customer Name</th>
+                            <th  class="text-center">Email</th>
+                            <th  class="text-center">Mobile Number</th>
+                            <th  class="text-center">Country</th>
+                            <th  class="text-center">Address</th>
+                            <th  class="text-center">Balance</th>
+                            <th  class="text-center">Action</th>
                         </tr>
                     </thead>
 
@@ -33,7 +36,12 @@
                             <td>{{ customer.customer_name}}</td>
                             <td>{{ customer.customer_email }}</td>
                             <td>{{ customer.mobile_no }}</td>
-                            <td>{{ customer.customer_address }}</td>
+                             {% comment %} FIXME: Make responsive to country flag  {% endcomment %}
+                            <td>
+                               <img class="" src="{{ customer.city.flag }}" alt="{{ customer.city.code }}">
+                               {{ customer.city.name }}
+                            </td>
+                            <td>{{ customer.customer_address|truncatechars:9  }}</td>
                             <td>${{ customer.balance|floatformat:2 }}</td>
                             <td class="text-center">
                                 <button>
@@ -80,7 +88,6 @@
                     <th></th>
                 </table>
             </div>
-            <!-- TODO: Dynamic Pagination  -->
             <!--- Pagination Start -->
             <div class="flex items-center justify-center lg:px-0 sm:px-6">
                 <div class="lg:w-3/5 w-full  flex items-center justify-between border-t border-gray-200">
@@ -98,10 +105,14 @@
                       {% endif %}
                     </div>
                     <div class="sm:flex hidden">
-                        <p
-                            class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
-                            1</p>
+                    {% for i in customers.paginator.page_range %}
+                        {% if customers.number == i %}
+                            <a class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2" href="#">{{ i }} </a>
                         
+                        {% else %}
+                            <a class="text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-indigo-700 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2" href="?page={{ i }}">{{ i }}</a>
+                        {% endif %}
+                    {% endfor %}
                     </div>
                     <div class="flex items-center pt-3 text-gray-600 hover:text-indigo-700 cursor-pointer">
                         {% if customers.has_next %}
