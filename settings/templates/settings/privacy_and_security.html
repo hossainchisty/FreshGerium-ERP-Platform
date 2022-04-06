@@ -1,11 +1,13 @@
 {% extends 'core/_base.html' %}
 {% block title %}Privacy and Security{% endblock title %}
 {% block body %}
+{% load humanize %}
+{% load user_agents %}
+{% load static %}
 <div class="w-10/12 md:w-7/12 lg:6/12 mx-auto relative py-20 bg-white">
-  <h1 class="text-3xl text-left font-bold text-gray-800 ml-4">Account Privacy</h1>
+  <h1 class="text-3xl text-left font-bold text-black ml-4">Account Privacy</h1>
+  <!-- Account Privacy Start -->
   <div class="border-l-2 mt-10">
-
-    <!-- Two-Factor Authentication -->
     <div
       class="transform transition cursor-pointer hover:-translate-y-2 ml-10 relative flex items-center px-6 py-4 bg-green-600 text-white rounded mb-10 flex-col md:flex-row space-y-4 md:space-y-0">
       <!-- Dot Follwing the Left Vertical Line -->
@@ -149,6 +151,7 @@
     </div>
 
   </div>
+  <!-- Account Privacy End -->
 
   <!-- Connected Devices Start -->
   <div class="text-2xl text-black font-bold mb-6 ml-4">CONNECTED DEVICES
@@ -179,31 +182,40 @@
                   </th>
                 </tr>
               </thead>
+              {% for current in device %}
               <tbody>
                 <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     <div class="avatar">
                       <div class="w-10 rounded">
-                        <img src="https://cdn-icons-png.flaticon.com/512/7204/7204537.png" />
+                        {% if request|is_pc %}
+                        <img src="{% static 'img/devices/pc.png' %}" />
+                        {% endif %}
+                        {% if request|is_tablet %}
+                        <img src="{% static 'img/devices/tablet.png' %}" />
+                        {% endif %}
+                        {% if request|is_mobile %}
+                        <img src="{% static 'img/devices/mobile.png' %}" />
+                      {% endif %}
                       </div>
                     </div>
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bangladesh</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ current.location }}</td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Chrome - Windows
+                    {{ current.user_agent }}
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-
-                    103.91.129.82
+                    {{ current.ip_address }}
                   </td>
 
                   <td class="text-sm text-green-500 font-bold px-6 py-4 whitespace-nowrap">
-                    THIS DEVICE
+                    {{ current.last_activity | naturaltime }}
                   </td>
                 </tr>
               </tbody>
+              {% endfor %}
 
-              <tbody>
+              {% comment %} <tbody>
                 <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     <div class="avatar">
@@ -248,7 +260,7 @@
                     29 min ago
                   </td>
                 </tr>
-              </tbody>
+              </tbody> {% endcomment %}
             </table>
           </div>
         </div>
