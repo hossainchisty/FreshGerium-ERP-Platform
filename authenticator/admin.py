@@ -48,7 +48,7 @@ class UserAdmin(admin.ModelAdmin):
     )
 
     def _brand_logo(self, obj):
-        return format_html('<img src="{}" width="40" height="40"  loading=lazy /> '.format(obj.brand_logo.url))
+        return format_html('<img src="{}" width="40" height="40"  loading=lazy /> '.format(obj.brand_logo))
 
     def change(self, obj):
         view_name = "admin:{}_{}_change".format(obj._meta.app_label, obj._meta.model_name)
