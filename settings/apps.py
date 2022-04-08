@@ -7,4 +7,4 @@ class SettingsConfig(AppConfig):
     varbose_name = 'User Settings'
 
     def ready(self):
-        import settings.signals
+        import settings.signals # noqa
