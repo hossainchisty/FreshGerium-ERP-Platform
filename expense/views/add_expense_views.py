@@ -19,6 +19,7 @@ class CreateExpense(View):
         expense_type = request.POST.get('expense_type')
         expense_amount = request.POST.get('expense_amount')
         categories = request.POST.get('categories')
+        # FIXME: Need to check current user is set to database
         expense = Expense(date=expense_date, expense_type=expense_type, amount=expense_amount, category=categories)
 
         expense.save()
