@@ -14,7 +14,8 @@ class ManagePurchase(LoginRequiredMixin, View):
     @method_decorator(_currentUser())
     def get(self, request):
         purchase_list = Purchase.objects.all().order_by('-id')
-        paginator = Paginator(purchase_list, 25) # Show 25 customers per page.
+        # TODO: pagination
+        paginator = Paginator(purchase_list, 25)  # Show 25 customers per page.
         page_number = request.GET.get('page')
         purchases = paginator.get_page(page_number)
 
