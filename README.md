@@ -24,3 +24,5 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 
 ✅ Supplier Management
 
+✅ View connected device activity 
+
