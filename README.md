@@ -35,5 +35,6 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 ### **What's new◽** 
 Daily & Monthly Sales Reports
 
+Performance Improve
 
 Bug Fixed & UI improved
