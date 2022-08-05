@@ -1,12 +1,16 @@
 # Freshdesk
 
-Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. 🚀
+Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. It's easy-to-use for keeping all kinds of business records 🚀
 
-### **Awesome Key Features:** 
+### **Awesome Key Features:**
+
+✅ Dynamic Dashboard 
 
 ✅ Account Management
 
 ✅ Product Management
+
+✅ Sells Products by Barcode
 
 ✅ Purchase Management
 
