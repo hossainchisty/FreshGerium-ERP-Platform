@@ -32,6 +32,8 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 
 ✅ View connected device activity 
 
+✅ Two-Factor Authentication (2FA) In Admin
+
 ### **What's new◽** 
 Daily & Monthly Sales Reports
 
@@ -40,7 +42,7 @@ Performance Improve
 Bug Fixed & UI improved
 
 <!-- Get in touch - Start -->
-### **Get in touch**
+### **Get in touch 👋**
 
 <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/hossainchisty/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
