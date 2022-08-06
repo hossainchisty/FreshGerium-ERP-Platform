@@ -2,7 +2,7 @@
 
 Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. It's easy-to-use for keeping all kinds of business records 🚀
 
-### **Awesome Key Features:**
+### **Awesome Key Features◽**
 
 ✅ Activity Dashboard 
 
@@ -42,7 +42,7 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 
 ✅ Accessing & Downloading your Freshdesh Information 
 <br>
-<sub><sup>Get a copy of your data. We'll email you a link to a file with your information. it may take up to 48 hours to collect this information and send it to you.</sup></sub>
+<sub>Get a copy of your data. We'll email you a link to a file with your information. it may take up to 48 hours to collect this information and send it to you.</sup>
 
 ✅ Two-Factor Authentication (2FA) In Admin
 
