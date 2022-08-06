@@ -4,13 +4,13 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 
 ### **Awesome Key Features:**
 
-✅ Dynamic Dashboard 
+✅ Activity Dashboard 
 
 ✅ Account Management
 
 ✅ Product Management
 
-✅ Sells Products by Barcode
+✅ Sells Products by Barcode & QR-Code
 
 ✅ Purchase Management
 
@@ -28,11 +28,26 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 
 ✅ Supplier Management
 
-✅ Reports Download in PDF
+### **Noticeable Features◽**
 
-✅ View connected device activity 
+✅ Engagement Tracking
+
+✅ Export excle, csv files
+
+✅ View Connected Device
+
+✅ Device Activity Tracking
+
+✅ Reports View & Download in PDF
+
+✅ Accessing & Downloading your Freshdesh Information 
+<br>
+<sub><sup>Get a copy of your data. We'll email you a link to a file with your information. it may take up to 48 hours to collect this information and send it to you.</sup></sub>
 
 ✅ Two-Factor Authentication (2FA) In Admin
+
+✅ ... And More.
+
 
 ### **What's new◽** 
 Daily & Monthly Sales Reports
