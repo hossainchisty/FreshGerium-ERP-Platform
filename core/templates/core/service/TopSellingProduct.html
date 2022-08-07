@@ -1,3 +1,4 @@
+{% load humanize %}
 <div class="justify-between rounded-xl mt-4 p-3 bg-white shadow-lg">
     <div class="p-3">
             <h5 class="font-semibold text-gray-800">Top Selling Products</h5>
@@ -6,7 +7,7 @@
                     <thead class="text-xs font-semibold text-gray-400 bg-gray-50">
                         <tr>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="text-black font-semibold text-left">Rank</div>
+                                <div class="text-black font-semibold text-left"></div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
                                 <div class="text-black font-semibold text-left">Item</div>
@@ -19,12 +20,35 @@
                             </th>
                         </tr>
                     </thead>
+                    {% for items in top_sold_products %}
+                    
                     <tbody class="text-sm divide-y divide-gray-100">
                         <tr>
                             <td class="p-2 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov"></div>
-                                    <div class="font-medium text-gray-800">Alex Shatov</div>
+                                    <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="{{ items.image.url }}" width="40" height="40" alt="{{ items.product_name }}"></div>
+                                </div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="text-left">{{ items.product_name }}</div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="text-lg text-center">{{ items.quantity }}</div>
+                            </td>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="text-left font-medium text-green-500">{{ items.price | intcomma }}<small class="text-black">TK</small></div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                    
+                    {% endfor %}
+                    {% comment %} <tbody class="text-sm divide-y divide-gray-100">
+                        <tr>
+                            <td class="p-2 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="{{ items.product.}}"></div>
+                                    <div class="font-medium text-gray-800">{{ items.product.}}</div>
                                 </div>
                             </td>
                             <td class="p-2 whitespace-nowrap">
@@ -40,12 +64,13 @@
                         
                     </tbody>
 
+
                     <tbody class="text-sm divide-y divide-gray-100">
                         <tr>
                             <td class="p-2 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov"></div>
-                                    <div class="font-medium text-gray-800">Alex Shatov</div>
+                                    <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="{{ items.product.}}"></div>
+                                    <div class="font-medium text-gray-800">{{ items.product.}}</div>
                                 </div>
                             </td>
                             <td class="p-2 whitespace-nowrap">
@@ -59,29 +84,7 @@
                             </td>
                         </tr>
                         
-                    </tbody>
-
-
-                    <tbody class="text-sm divide-y divide-gray-100">
-                        <tr>
-                            <td class="p-2 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov"></div>
-                                    <div class="font-medium text-gray-800">Alex Shatov</div>
-                                </div>
-                            </td>
-                            <td class="p-2 whitespace-nowrap">
-                                <div class="text-left">F9 Buds</div>
-                            </td>
-                            <td class="p-2 whitespace-nowrap">
-                                <div class="text-lg text-center">500</div>
-                            </td>
-                            <td class="p-2 whitespace-nowrap">
-                                <div class="text-left font-medium text-green-500">$2,890.66</div>
-                            </td>
-                        </tr>
-                        
-                    </tbody>
+                    </tbody> {% endcomment %}
                 </table>
             </div>
         </div>
