@@ -1,14 +1,21 @@
-from notifications.signals import notify
-
 from authenticator.models import User
+from django.core.signals import request_finished, request_started
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 from expense.models import Expense
 
-# TODO: Send notification to the accountant when expense will be created.
-# def my_handler(sender, instance, created, **kwargs):
-#     notify.send(instance, verb='was saved')
-#     user = User.objects.get(id=1)
-#     notify.send(user, recipient=user[0], verb='Added a new expense')
+
+# TODO: Send notification/email to the accountant when expense will be created.
+@receiver(post_save, sender=Expense)
+def send_alert(sender, instance, created, **kwargs):
+    print(f'Expense created Date: {instance.date}, Amount: {instance.expense_type}')
 
 
-# post_save.connect(my_handler, sender=Expense)
+@receiver(request_started)
+def mystarter(sender, **kwargs):
+    print('Request Started!')
+
+
+@receiver(request_finished)
+def my_callback(sender, **kwargs):
+    print('Request Finished!')
