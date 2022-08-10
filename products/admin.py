@@ -12,17 +12,19 @@ class ProductAdmin(ImportExportModelAdmin):
         'product_name',
         'product_code',
         'price',
+        'quantity',
         'supplier_price',
         'unit',
         'category',
         'in_stock',
         '_status',
-        'supplier'
+        'supplier',
 
     )
     list_filter = ('status', 'category', 'unit', 'status', 'supplier')
     search_fields = ('name', 'category__name', 'unit__name')
     list_per_page = 20
+    list_editable = ('quantity', 'price')
 
     fieldsets = (
         (None, {
