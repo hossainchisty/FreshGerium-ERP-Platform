@@ -67,27 +67,21 @@ Human Resource Management System Software (HRMS) Module
 
 ✅ Employee information management system
 
+✅ Employee leave management system
+
+✅ Employee recruitment system
+
 ✅ Attendance management system
 
 ✅ Asset & equipment management
 
 ✅ Bank & loan management system
 
-✅ Expense & income reports
-
 ✅ Department management system
-
-✅ Employee leave management system
 
 ✅ Leave tracking system
 
 ✅ Dynamic report system
-
-✅ Employee recruitment system
-
-✅ Notification system
-
-✅ Communication system
 
 ✅ Account management system
 
