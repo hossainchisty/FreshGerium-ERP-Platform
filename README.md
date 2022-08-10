@@ -58,6 +58,9 @@ Performance Improve
 
 Bug Fixed & UI improved
 
+### **Comming Soon◽**
+Human Resource Management System Software (HRMS) Module
+
 <!-- Get in touch - Start -->
 ### **Get in touch 👋**
 
