@@ -1,5 +1,5 @@
 from functools import cached_property
-
+from django.core.validators import RegexValidator
 from cloudinary.models import CloudinaryField
 
 from common.utils import INDUSTRYCHOICES
@@ -20,11 +20,8 @@ class User(AbstractUser):
         verbose_name=_('Owner Name'),
         max_length=50,
     )
-    mobile_number = models.CharField(
-        verbose_name=_("Mobile Number"),
-        max_length=11,
-        help_text=_('Enter your mobile number'),
-    )
+    phone_regex = RegexValidator(regex=r'^(?:\+88|88)?(01[3-9]\d{8})$', message="Phone number must be entered in the format: '+8801XXXXXX'. Up to 14 digits allowed.")
+    mobile_number = models.CharField(validators=[phone_regex], max_length=20, unique=True) 
     organization_name = models.CharField(
         verbose_name=_("Organization Name"),
         max_length=50
