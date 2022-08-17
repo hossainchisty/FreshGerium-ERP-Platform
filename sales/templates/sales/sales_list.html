@@ -53,7 +53,9 @@
                             <th class="text-center">Date</th>
                             <th class="text-center">Payment Method</th>
                             <th class="text-center">Status</th>
-                            <th class="text-center">Total Amount</th>
+                            <th class="text-center">Due</th>
+                            <th class="text-center">Total</th>
+                            <th class="text-center">Total Profit</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -70,8 +72,15 @@
                             {% else %}
                             <td class="text-center"><span class="text-xs inline-block py-2 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-400 text-white rounded-full">{{ sale.status|title }}</span></td>
                             {% endif %}
+                            <td class="text-center text-red-700">
+                                {{ sale.due | intcomma }} <small class="text-black">BDT</small>
+                            </td> 
                             <td class="text-center text-green-700">
                                 {{ sale.total | intcomma }} <small class="text-black">BDT</small>
+                            </td>
+                            
+                            <td class="text-center text-green-700">
+                                {{ sale.total_profit | intcomma }} <small class="text-black">BDT</small>
                             </td>
                             <td class="text-center">
                                 <button>
@@ -84,18 +93,6 @@
                                     <a class="text-white hover:no-underline" href="{% url 'update_sale' sale.pk %}"><i class="fa fa-edit" style="font-size:20px"></i></a>
                                     
                                 </button> 
-                                    
-                                <button
-                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
-                                    <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fas fa-qrcode"></i>
-                                </button>
-
-                                <button
-                                    class="py-1 px-3 text-white rounded-lg bg-green-400 block md:inline-block">
-                                    <a class="text-white hover:no-underline" href=""></a>
-                                    <i class="fas fa-barcode"></i>
-                                </button>
                             </td>
                         </tr>
                     </tbody>
