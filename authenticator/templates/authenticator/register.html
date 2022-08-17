@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    {% load static %}
 <head>
 
     <meta charset="utf-8">
@@ -9,16 +9,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Register</title>
+    <title>{% block title %} Sign Up {% endblock title %}- Freshdesk 🚀</title>
+
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+    href="{% static 'vendor/fontawesome-free/css/all.min.css' %}"
+    rel="stylesheet"
+    type="text/css"
+  />
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" />
 
 </head>
 
@@ -39,17 +44,21 @@
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                        <input type="text" class="form-control form-control-user" id="exampleOwnerName"
+                                            placeholder="Owner Name">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                        <input type="text" class="form-control form-control-user" id="exampleOrganizationName"
+                                            placeholder="Organization Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Email Address">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-user" id="exampleInputMobile"
+                                        placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -62,7 +71,7 @@
                                     </div>
                                 </div>
                                 <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
+                                    Create Account
                                 </a>
                                 <hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
@@ -77,7 +86,7 @@
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="{% url 'sign-in' %}">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
@@ -88,14 +97,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
 </body>
 
