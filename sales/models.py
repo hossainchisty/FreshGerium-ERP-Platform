@@ -1,10 +1,15 @@
+from decimal import Decimal
+
 from simple_history.models import HistoricalRecords
 
 from customers.models import Customer
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from products.models import Product
 from utils import random
 from utils.models.common_fields import Timestamp
+
+PERCENTAGE_VALIDATOR = [MinValueValidator(0), MaxValueValidator(100)]
 
 
 class Sale(Timestamp):
@@ -26,8 +31,6 @@ class Sale(Timestamp):
     invoice_total = models.DecimalField(max_digits=10, decimal_places=2)
     pdf_file = models.FileField(upload_to='pdfs/')
     '''
-
-    discount = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
     payment_method = models.CharField(max_length=50, choices=(
         ('hand cash', 'Hand Cash'),
         ('cash on delivery', 'Cash On Delivery'),
@@ -46,34 +49,32 @@ class Sale(Timestamp):
         help_text='Is the sale paid? If yes, the status will be set to paid.',
         default=False,
     )
-    total_profit = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
+    discount = models.DecimalField(default=Decimal(0), max_digits=2, decimal_places=0, validators=PERCENTAGE_VALIDATOR)
     due = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
     total = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
+    total_profit = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
 
     history = HistoricalRecords()
 
     def save(self, *args, **kwargs):
         """ override the save method for logical purposes """
+        # If this flag is True then status will be set to 'paid'.
         if self.is_paid is True:
+            # Due amount subtract
+            self.due -= self.due
             self.status = 'paid'
         else:
+            # If this flag is False then status will be set to 'due'.
             self.status = 'due'
             self.is_paid = False
+
         # Save the purchase invoice_number, purchase_id with a random code.
+        # FIXME: NOT Recommended!!!
         self.invoice_number = random.unique_code(10)
         super(Sale, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-date']
-
-    # def save(self, *args, **kwargs):
-    #     ''' Calculate sum of total amount with due amount '''
-    #     self.total = self.total + self.due
-
-    #     ''' Calculate total profit '''
-    #     self.total_profit = self.total - self.discount
-
-    #     super().save(*args, **kwargs)
 
     def __str__(self):
         """String for representing the Model object."""
