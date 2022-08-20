@@ -1,4 +1,4 @@
-# Override base.py settings here
+# flake8: noqa
 import os
 
 import sentry_sdk
