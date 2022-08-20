@@ -21,7 +21,6 @@ sentry_sdk.init(
 )
 
 
-
 DEBUG = False
 
 # Security Principles🛡
@@ -34,6 +33,37 @@ DEBUG = False
 # SECURE_HSTS_PRELOAD = True
 # SECURE_CONTENT_TYPE_NOSNIFF = True
 # CSRF_COOKIE_SECURE = True
+
+
+# A list of origins that are authorized to make cross-site HTTP requests.
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
+# CORS_ALLOW_ALL_ORIGINS = True
+
+# HTTP verbs that are allowed
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+# Whether to append trailing slashes to URLs.
+APPEND_SLASH = True
+
+
+# Languages we provide translations for, out of the box.
+LANGUAGES = [
+    ('bn', gettext_noop('Bengali')),
+    ('en', gettext_noop('English')),
+]
+
+# Languages using BiDi (right-to-left) layout
+LANGUAGES_BIDI = ["he", "ar", "ar-dz", "fa", "ur"]
+
 
 try:
     from config.settings.local import *

@@ -13,8 +13,10 @@ from settings.views.login_activity_views import LoginActivityView
 if not settings.DEBUG:
     admin.site.__class__ = OTPAdminSite
 '''
-admin.site.site_header = 'Freshdesk CRM Platform'
-
+admin.site.site_header = 'Freshdesk Portal'
+admin.site.site_title = 'Freshdesk CRM Platform'
+admin.site.index_title = 'Freshdesk CRM Platform'
+admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),

@@ -39,7 +39,7 @@ DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = ['*']
 
 
-DEFAULT_APPS = [
+DJANGO_COMMON_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -47,7 +47,6 @@ DEFAULT_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sessions',
-    # 'django.contrib.gis',
 ]
 
 THIRD_PARTY_APPS = [
@@ -69,9 +68,10 @@ THIRD_PARTY_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'django_otp.plugins.otp_static',
-    'debug_toolbar',
     'defender',
     'zxcvbn_password',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 LOCAL_APPS = [
@@ -91,10 +91,10 @@ LOCAL_APPS = [
     'suppliers.apps.SuppliersConfig',
     'customers.apps.CustomersConfig',
     'authenticator.apps.AuthenticatorConfig',
-    'notifications.apps.NotificationsConfig',
+    'analytics.apps.AnalyticsConfig',
 ]
 
-INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS = DJANGO_COMMON_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 
 SITE_ID = 1
@@ -106,7 +106,8 @@ ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 ##################
 # REST FRAMEWORK #
 ##################
@@ -148,6 +149,8 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.http.ConditionalGetMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -161,10 +164,11 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django_otp.middleware.OTPMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
     # Custom middleware📌
-    'authenticator.middleware.FetchUserData',
-    'core.middleware.TrackUserDevice',
-    'core.middleware.RequestMiddleware',
+    'core.middleware.activity.UserActivityMiddleware',
+    'core.middleware.visitors.UserStatisticsMiddleware',
+    'core.middleware.requests.RequestMiddleware',
 ]
 
 
@@ -184,6 +188,20 @@ TEMPLATES = [
                 'expense.context_processors.get_total_expsense',
                 'expense.context_processors.get_total_expsense_by_month',
                 'expense.context_processors.get_total_expsense_by_year',
+                # customers
+                'customers.context_processors.customer_created_at_january',
+                'customers.context_processors.customer_created_at_february',
+                'customers.context_processors.customer_created_at_march',
+                'customers.context_processors.customer_created_at_april',
+                'customers.context_processors.customer_created_at_may',
+                'customers.context_processors.customer_created_at_june',
+                'customers.context_processors.customer_created_at_july',
+                'customers.context_processors.customer_created_at_august',
+                'customers.context_processors.customer_created_at_september',
+                'customers.context_processors.customer_created_at_october',
+                'customers.context_processors.customer_created_at_november',
+                'customers.context_processors.customer_created_at_december',
+
                 # 'sales.context_processors.march_sales',
             ],
         },
@@ -250,7 +268,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'zxcvbn_password.ZXCVBNValidator',
         'OPTIONS': {
             'min_score': 3,
-            'user_attributes': ('email', 'first_name', 'last_name')
+            'user_attributes': ('email', 'organization_name', 'owner_name')
         }
     }
 ]
@@ -260,6 +278,11 @@ IGNORABLE_404_URLS = [
     re.compile(r'^/favicon.ico$'),
     re.compile(r'^/robots.txt$'),
     re.compile(r'^/phpmyadmin/'),
+    re.compile(r'^/sitemap\.xml$'),
+    re.compile(r'^/sitemap-index\.xml$'),
+    re.compile(r'^/static/'),
+    re.compile(r'^/media/'),
+    re.compile(r'^/api/')
 ]
 
 
@@ -278,29 +301,10 @@ sqlite3
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'database/freshdeshdb.sqlite3',
+        'NAME': BASE_DIR / 'database/freshdesh-db.sqlite3',
     },
 
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'crmdb',
-#     }
-# }
-
-# DATABASES = {
-
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'freshdesk',
-#         'USER': 'postgres',
-#         'PASSWORD': 'admin',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
 
 # The list of routers that will be used to determine which database to use when performing a database query.
 # DATABASE_ROUTERS = ['database.routers.db_routers.ExpenseRouter']
@@ -330,15 +334,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Languages we provide translations for, out of the box.
-LANGUAGES = [
-    ('bn', gettext_noop('Bengali')),
-    ('en', gettext_noop('English')),
-]
-
-# Languages using BiDi (right-to-left) layout
-LANGUAGES_BIDI = ["he", "ar", "ar-dz", "fa", "ur"]
-
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
@@ -354,26 +349,3 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# A list of origins that are authorized to make cross-site HTTP requests.
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
-# CORS_ALLOW_ALL_ORIGINS = True
-
-# HTTP verbs that are allowed
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
-
-# Whether to append trailing slashes to URLs.
-APPEND_SLASH = True
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
