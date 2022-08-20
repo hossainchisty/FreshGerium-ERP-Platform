@@ -1,6 +1,7 @@
 from django_otp.admin import OTPAdminSite
 
 from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from profiles.views.account_data_views import account_data
