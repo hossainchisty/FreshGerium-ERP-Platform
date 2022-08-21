@@ -90,8 +90,6 @@ staticfiles/
 testAPI.html
 auth/Email verification/
 product_images/Hossain_Chisty.png
-analytics/
-config/settings/env.py
 command.md
 .github/workflows/docker-publish.yml
 start.bat
@@ -105,3 +103,9 @@ tests/
 static/js/reactjs/greeting.jsx
 database/routers/
 assets/
+sales/migrations/0001_initial.py
+sales/migrations/0002_alter_historicalsale_is_paid_alter_sale_is_paid.py
+sales/migrations/0001_initial.py
+service/migrations/0001_initial.py
+sales/migrations/0001_initial.py
+expense/migrations/0001_initial.py
