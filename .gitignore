@@ -68,9 +68,6 @@ docs/
 Procfile
 README1.md
 README2.md
-requirements-dev.txt
-requirements.txt
-.gitignore
 .isort.cfg
 setup.py
 requirements.txt
@@ -82,30 +79,21 @@ db.sqlite3
 .github/workflows/coverage.yml
 db.sqlite3
 .flake8
-freshdesk-frontend
-product_images/-ee4d3821356896d564818b4565b974c0f42a64f7.png
+
 .github/workflows/docker-image.yml
 .github/workflows/docker-image-build.yml
 staticfiles/
 testAPI.html
 auth/Email verification/
-product_images/Hossain_Chisty.png
 command.md
 .github/workflows/docker-publish.yml
 start.bat
-
-expense/migrations/
 quotation
-public/
-report/
 
-tests/
-static/js/reactjs/greeting.jsx
-database/routers/
-assets/
-sales/migrations/0001_initial.py
-sales/migrations/0002_alter_historicalsale_is_paid_alter_sale_is_paid.py
-sales/migrations/0001_initial.py
-service/migrations/0001_initial.py
-sales/migrations/0001_initial.py
-expense/migrations/0001_initial.py
+# Ignore Django Migrations in Development if you are working on team
+
+# Only for Development only
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+!**/migrations/0001_initial.py
