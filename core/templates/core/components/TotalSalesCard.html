@@ -1,4 +1,4 @@
-{% load total_profit %}
+{% load total_sale_balance %}
 <div class="col-xl-3 col-md-6 mb-4">
   <div class="card border-left-primary shadow h-100 py-2">
     <div class="card-body">
@@ -7,9 +7,9 @@
           <div
             class="text-xs font-weight-bold text-primary text-uppercase mb-1"
           >
-            TOTAL PROFIT
+            TOTAL SALE
           </div>
-          <div class="h5 mb-0 font-weight-bold text-gray-800">{% get_total_profit %}</div>
+          <div class="h5 mb-0 font-weight-bold text-gray-800">{% total_balance %} <small class="text-black">BDT</small></div>
         </div>
         <div class="col-auto">
           <i class="fas fa-wallet"></i>
