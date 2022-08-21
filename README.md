@@ -26,6 +26,7 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 ✅ Expense Management
 <br>
 <sub>Real-Time pie chart that shows expense by current year and month.</sub>
+<sub>We'll notify you when an expense syncs.</sub>
 
 ✅ Damage Management
 
