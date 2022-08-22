@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('owner_name', 'email', 'business_manager_name',
+    list_display = ('owner_name', 'email', 'mobile_number', 'business_manager_name',
                     'is_superuser', 'is_staff', '_brand_logo', 'change', 'history')
     list_filter = ('is_superuser', 'is_staff', 'is_active', 'is_verified')
     search_fields = ('email', )
@@ -15,7 +15,7 @@ class UserAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('owner_name', 'email', 'organization_name', 'business')
+            'fields': ('owner_name', 'email', 'mobile_number', 'organization_name', 'business')
         }),
         ('Brand Logo™', {
             'classes': ('collapse',),
