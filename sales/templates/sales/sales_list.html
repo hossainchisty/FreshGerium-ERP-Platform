@@ -55,7 +55,6 @@
                             <th class="text-center">Status</th>
                             <th class="text-center">Due</th>
                             <th class="text-center">Total</th>
-                            <th class="text-center">Total Profit</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -77,10 +76,6 @@
                             </td> 
                             <td class="text-center text-green-700">
                                 {{ sale.total | intcomma }} <small class="text-black">BDT</small>
-                            </td>
-                            
-                            <td class="text-center text-green-700">
-                                {{ sale.total_profit | intcomma }} <small class="text-black">BDT</small>
                             </td>
                             <td class="text-center">
                                 <button>
