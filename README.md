@@ -63,6 +63,8 @@ Performance Improve
 Bug Fixed & UI improved
 
 ### **Coming Soon◽**
+I will also set periodic automatic background tasks for backing up the database.
+
 Human Resource Management System Software (HRMS) Module
 <details>
  <summary>
