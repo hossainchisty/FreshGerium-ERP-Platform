@@ -1,9 +1,13 @@
+from authenticator.views.login_views import SignInView
 from authenticator.views.logout_views import LogoutView
 from authenticator.views.password_reset import PasswordResetView
+from authenticator.views.register_views import RegisterView
 from django.contrib.auth import views as auth_views
 from django.urls import path
 
 urlpatterns = [
+    path('sign-up/', RegisterView, name='sign-up'),
+    path('sign-in/', SignInView, name='sign-in'),
     path('logout/', LogoutView.as_view(), name='logout'),
     # Password Reset with email
 
