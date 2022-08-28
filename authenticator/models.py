@@ -1,11 +1,11 @@
 from functools import cached_property
-from django.core.validators import RegexValidator
+
 from cloudinary.models import CloudinaryField
 
 from common.utils import INDUSTRYCHOICES
 from django.contrib.auth.models import AbstractUser
-# from django.contrib.gis.db import models
 from django.contrib.sessions.models import Session
+from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
@@ -21,7 +21,7 @@ class User(AbstractUser):
         max_length=50,
     )
     phone_regex = RegexValidator(regex=r'^(?:\+88|88)?(01[3-9]\d{8})$', message="Phone number must be entered in the format: '+8801XXXXXX'. Up to 14 digits allowed.")
-    mobile_number = models.CharField(validators=[phone_regex], max_length=20, unique=True) 
+    mobile_number = models.CharField(validators=[phone_regex], max_length=20, unique=True)
     organization_name = models.CharField(
         verbose_name=_("Organization Name"),
         max_length=50
@@ -55,10 +55,6 @@ class User(AbstractUser):
         help_text='IP Address',
         blank=True, null=True
     )
-    # TODO: Add geographical location with django-gis
-    ''' location of the shop in latitude and longitude coordinates '''
-    # location = models.PointField()
-
     is_verified = models.BooleanField(
         _('verified'),
         default=False,
@@ -190,10 +186,9 @@ class User(AbstractUser):
 
     session = models.OneToOneField(Session, on_delete=models.CASCADE, blank=True, null=True)
 
-    # TODO: eXtract username from email address.
     username = None
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['mobile_number']
 
     objects = UserManager()
 
