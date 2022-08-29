@@ -20,7 +20,7 @@ class Expense(Timestamp):
     date = models.DateField()
     expense_type = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True, blank=True)
 
     def __str__(self):
         return f"{self.expense_type} - {self.amount}"
