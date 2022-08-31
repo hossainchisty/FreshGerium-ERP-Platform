@@ -133,6 +133,7 @@ Human Resource Management System Software (HRMS) Module
 
 ### Other
 1. Docker
+2. Github Actions CI/CD
 
 
 <!-- Get in touch - Start -->
