@@ -8,7 +8,7 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 ### 📸 Screenshot
 <details>
  <summary>
-    View
+    🔎 View
  </summary>
 
  ### Dashboard 
