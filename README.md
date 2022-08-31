@@ -12,13 +12,13 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
  </summary>
 
  ### 💻 Customer Management 
- <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer-management.png">
+ <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/customer-management.png">
 
  ### 🛠 Update customer 
-  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/update-customer.png">
+  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/update-customer.png">
 
  ### 🗑 Delete customer 
-  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/delete-customer.png">
+  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/delete-customer.png">
 
 </details>
 
