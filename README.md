@@ -6,6 +6,14 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/dashboard.png">
 
 ### 📸 Screenshot
+<details>
+ <summary>
+    View
+ </summary>
+
+ ### Dashboard 
+ <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/dashboard.png">
+</details>
 
 ### **Awesome Key Features◽**
 
