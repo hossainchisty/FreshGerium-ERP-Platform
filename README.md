@@ -22,6 +22,7 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 
 </details>
 
+
 ### **Awesome Key Features◽**
 
 ✅ Activity Dashboard 
@@ -110,30 +111,6 @@ Human Resource Management System Software (HRMS) Module
 
 ✅ Payroll management system
 </details>
-
-
-<details>
-  <summary>
-  🛠️Tools & Technologies 
-  </summary>
-
-### Core
-
-1. Python
-2. Django
-3. Postgres
-
-### Testing and Linting
-
-1. pytest
-2. Coverage.py
-3. Flake8
-4. Black
-5. isort
-
-### Other
-1. Docker
-2. Github Actions CI/CD
 
 
 <!-- Get in touch - Start -->
