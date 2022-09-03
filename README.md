@@ -20,6 +20,21 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
  ### 🗑 Delete customer 
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/delete-customer.png">
 
+ ### 💻 Expense Management 
+<img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-management.png">
+
+ ### 💰 Add New Expense
+  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/add-new-expense.png">
+
+ ### 🧾 PDF Report (Automaticly Generated)
+  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-pdf-viewer.png">
+
+ ### 🏢 Company Profile 
+  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile.png">
+
+ ### 🛠 Update Profile 
+  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile-update.png">
+
 </details>
 
 
@@ -56,13 +71,13 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
 
 ✅ Engagement Tracking
 
-✅ Export excle, csv files
+✅ Export excle, csv files (Automaticly Generated)
 
 ✅ View Connected Device
 
 ✅ Device Activity Tracking
 
-✅ Reports View & Download in PDF
+✅ PDF Report (Automaticly Generated)
 
 ✅ Accessing & Downloading your Freshdesh Information 
 <br>
