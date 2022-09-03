@@ -32,6 +32,15 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
   ### 🖋 Excel Sheet (Automaticly Generated)
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-excel-sheet.png">
 
+ ### 💻 Sale Management 
+ <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/sales-management.png">
+
+  ### ✅ Add New Sale
+ <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/add-new-sale.png">
+
+ ### 📥 Sale's Due Collection 
+ <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/sales-due-collection.png">
+
  ### 🏢 Company Profile 
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile.png">
 
