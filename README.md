@@ -3,7 +3,7 @@
 Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. It's easy-to-use for keeping all kinds of business records 🚀
 
 ### 💻 Dashboard Demo
-<img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/dashboard.png">
+https://user-images.githubusercontent.com/62835101/188276319-91e46baa-a047-442f-b2bc-7677a85b8cdb.mp4
 
 ### 📸 Screenshot
 <details>
