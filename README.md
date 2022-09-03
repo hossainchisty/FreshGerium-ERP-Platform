@@ -29,6 +29,9 @@ Freshdesk is smart ERP solution to manage your business. you can keep track of y
  ### 🧾 PDF Report (Automaticly Generated)
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-pdf-viewer.png">
 
+  ### 🖋 Excel Sheet (Automaticly Generated)
+  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-excel-sheet.png">
+
  ### 🏢 Company Profile 
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile.png">
 
