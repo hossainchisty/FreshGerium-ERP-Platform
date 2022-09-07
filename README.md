@@ -15,7 +15,13 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
  ### 💻 Customer Management 
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/customer-management.png">
 
- ### 💻 Expense Management 
+ ### 🛒 Purchase Management 
+<img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/purchase/manage-purchase.png">
+ 
+ ### 🤕 Damage Management 
+<img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/damage/damage-management.png">
+ 
+ ### 💰 Expense Management 
 <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-management.png">
 
  ### 🧾 PDF Report (Automaticly Generated)
@@ -24,7 +30,7 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
   ### 🖋 Excel Sheet (Automaticly Generated)
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-excel-sheet.png">
 
- ### 💻 Sale Management 
+ ### 📨 Sale Management 
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/sales-management.png">
 
  ### 📥 Sale's Due Collection 
@@ -34,6 +40,30 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile.png">
 
 ### ⚙ Settings <br/>
+ 
+<table width="100%"> 
+<tr>
+<td width="50%">
+&nbsp; 
+<p align="center">
+  Privacy and Security
+</p>
+<img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/settings/settings-privacy-and-security.png">
+</td> 
+
+ <table width="100%"> 
+<tr>
+<td width="50%">
+&nbsp; 
+<p align="center">
+  Delete your Freshdesk Account <br>
+ You can delete your Freshdesk Account at any time. If you change your mind, you might not be able to recover it.
+</p>
+<img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/settings/account-delete.png">
+</td> 
+ 
+<br/>
+</table>
 
 <table width="100%"> 
 <tr>
@@ -53,7 +83,8 @@ Forget password?
 <img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/settings/forget-password.png">  
 </td>
 </table>
-<br/>
+ 
+
 
 
 </details>
