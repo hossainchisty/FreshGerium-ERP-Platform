@@ -90,6 +90,18 @@ Forget password?
 </details>
 
 
+### 🗂 Tech Stack
+
+Below is a list of technologies we use at Freshdesk.
+
+*  🎨 **Frontend:**  SB Admin 2 v4.1.3.
+* 🌳 **Services:** Python, Django, DRF
+* ☁️ **Cloud:** PostgreSQL
+* ♾ **CI/CD:** Github Action, CircleCI
+* 🎩 **Deployment:** Heroku
+* 📨 **Email Service:** Zoho
+* 🚨 **Push Notifications:** OneSignal
+
 ### **Awesome Key Features◽**
 
 ✅ Activity Dashboard 
@@ -179,9 +191,11 @@ Human Resource Management System Software (HRMS) Module
 ✅ Payroll management system
 </details>
 
+## 📑 License
+Licensed under [MIT](https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/LICENCE).
 
 <!-- Get in touch - Start -->
-### **Get in touch 👋**
+### 💬 Connect with me 
 
 <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/hossainchisty/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
