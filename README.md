@@ -33,9 +33,6 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
  ### 🏢 Company Profile 
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile.png">
 
- ### 🛠 Update Profile 
-  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile-update.png">
-
 ### ⚙ Settings <br/>
 
 <table width="100%"> 
