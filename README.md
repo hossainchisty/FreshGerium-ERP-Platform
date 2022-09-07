@@ -103,6 +103,13 @@ Below is a list of technologies we use at Freshdesk.
 * 📨 **Email Service:** Zoho
 * 🚨 **Push Notifications:** OneSignal
 
+
+<!-- ## 🏛 Architecture
+
+<p align="center">
+    <img src="assets/architecture/overview.svg" alt="Freshdesk architecture" width="700">
+</p> -->
+
 ### **Awesome Key Features◽**
 
 ✅ Activity Dashboard 
