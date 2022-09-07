@@ -95,8 +95,9 @@ Forget password?
 Below is a list of technologies we use at Freshdesk.
 
 *  🎨 **Frontend:**  SB Admin 2 v4.1.3.
-* 🌳 **Services:** Python, Django, DRF
-* ☁️ **Cloud:** PostgreSQL
+* 🏗 **Backend:** Python, Django, DRF
+* 🌳 **Services:** Celery, Redis, PostgreSQL 
+* ☁️ **Cloud:** Cloudinary
 * ♾ **CI/CD:** Github Action, CircleCI
 * 🎩 **Deployment:** Heroku
 * 📨 **Email Service:** Zoho
