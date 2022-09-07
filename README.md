@@ -15,17 +15,8 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
  ### 💻 Customer Management 
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/customer-management.png">
 
- ### 🛠 Update customer 
-  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/update-customer.png">
-
- ### 🗑 Delete customer 
-  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/delete-customer.png">
-
  ### 💻 Expense Management 
 <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-management.png">
-
- ### 💰 Add New Expense
-  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/add-new-expense.png">
 
  ### 🧾 PDF Report (Automaticly Generated)
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-pdf-viewer.png">
@@ -35,9 +26,6 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
 
  ### 💻 Sale Management 
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/sales-management.png">
-
-  ### ✅ Add New Sale
- <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/add-new-sale.png">
 
  ### 📥 Sale's Due Collection 
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/sales-due-collection.png">
