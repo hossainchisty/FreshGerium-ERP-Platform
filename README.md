@@ -48,6 +48,29 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
  ### 🛠 Update Profile 
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile-update.png">
 
+### ⚙ Settings <br/>
+
+<table width="100%"> 
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+  Change Password
+</p>
+<img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/settings/change-password.png">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+Forget password?
+</p>
+<img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/settings/forget-password.png">  
+</td>
+</table>
+<br/>
+
+
 </details>
 
 
