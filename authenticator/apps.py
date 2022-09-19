@@ -6,6 +6,5 @@ class AuthenticatorConfig(AppConfig):
     name = 'authenticator'
     verbose_name = 'User Accounts'
     verbose_name_plural = 'User Accounts'
+    icon = 'fa fa-users'
 
-    def ready(self):
-        import authenticator.signals
