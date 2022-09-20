@@ -31,6 +31,7 @@ class User(AbstractUser):
         max_length=50,
         choices=INDUSTRYCHOICES,
         help_text=_("Select your business type:"),
+        null=True, blank=True,
     )
     business_manager_name = models.CharField(
         verbose_name=_('Business Manager Name'),
