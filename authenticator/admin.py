@@ -12,6 +12,7 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ('is_superuser', 'is_staff', 'is_active', 'is_verified')
     search_fields = ('email', )
     ordering = ('email', )
+    readonly_fields = ('token',)
 
     fieldsets = (
         (None, {
@@ -40,6 +41,10 @@ class UserAdmin(admin.ModelAdmin):
         ('Session🛢', {
             'classes': ('collapse',),
             'fields': ('session',)
+        }),
+        ('Secret🔐', {
+            'classes': ('collapse',),
+            'fields': ('token',)
         }),
         ('Groups🏷', {
             'classes': ('collapse',),
