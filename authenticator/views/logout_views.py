@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from django.views.generic import View
 
 
-class LogoutView(LoginRequiredMixin, View):
+class SignOutView(LoginRequiredMixin, View):
     ''' Logoutview will logout the current login user '''
 
     def get(self, request):
