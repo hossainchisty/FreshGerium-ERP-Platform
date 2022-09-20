@@ -110,7 +110,7 @@ Below is a list of technologies we use at Freshdesk.
     <img src="assets/architecture/overview.svg" alt="Freshdesk architecture" width="700">
 </p> -->
 
-### **Awesome Key Features◽**
+### **Why Freshdesk ERP Platform?**
 
 ✅ Activity Dashboard 
 
