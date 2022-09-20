@@ -25,8 +25,6 @@ def SignInView(request):
         if auth_user is None:
             messages.info(request, 'Wrong credentials')
             return redirect('sign-in')
-
         login(request, auth_user)
-        messages.info(request, '%s Sign In Successful!' % email)
         return redirect('dashboard')
     return render(request, 'authenticator/login.html')
