@@ -3,7 +3,6 @@ import os
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
-
 from config.settings.base import *
 
 sentry_sdk.init(
