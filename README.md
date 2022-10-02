@@ -159,7 +159,7 @@ Below is a list of technologies we use at Freshdesk.
 
 ✅ ... And More.
 
-
+***For any feature/improvement request ping me here hossain.chisty11@gmail.com***
 ### **What's new◽** 
 Daily & Monthly Sales Reports
 
