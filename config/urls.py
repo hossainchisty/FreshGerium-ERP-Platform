@@ -1,3 +1,4 @@
+# flake8: noqa
 from django_otp.admin import OTPAdminSite
 
 from django.conf import settings
@@ -19,8 +20,7 @@ admin.site.site_title = 'Freshdesk CRM Platform'
 admin.site.index_title = 'Freshdesk CRM Platform'
 admin.autodiscover()
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('__debug__/', include('debug_toolbar.urls')),
+    # path('__debug__/', include('debug_toolbar.urls')),
     path('', include('core.urls')),
     path('customers/', include('customers.urls')),
     path('profile/', include('profiles.urls')),
@@ -37,8 +37,13 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts-user/', include('allauth.urls')),
     path('auth/', include('authenticator.urls')),
-    path('notifications/', include('notifications.urls')),
+    path('analytics/', include('analytics.urls')),
     path('accounts/access_tool/', account_data, name='account_data'),
-    path('admin/defender/', include('defender.urls')),
     path('session/login_activity/', LoginActivityView.as_view(), name='login_activity'),
-]
+
+    # Admin Stuff
+    path('admin/', admin.site.urls),
+    path('admin/defender/', include('defender.urls')),
+
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
