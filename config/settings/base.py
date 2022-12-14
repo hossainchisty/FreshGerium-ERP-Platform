@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ['*']
 
 
 DJANGO_COMMON_APPS = [
+    # 'admin_volt.apps.AdminVoltConfig', # Modern Admin UI 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -166,8 +167,8 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
     # Custom middleware📌
-    'core.middleware.activity.UserActivityMiddleware',
-    'core.middleware.visitors.UserStatisticsMiddleware',
+    # 'core.middleware.activity.UserActivityMiddleware',
+    # 'core.middleware.visitors.UserStatisticsMiddleware',
     'core.middleware.requests.RequestMiddleware',
 ]
 
@@ -241,9 +242,9 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 AUTH_USER_MODEL = 'authenticator.User'
 
-LOGIN_REDIRECT_URL = '/accounts/profile/'
+LOGIN_REDIRECT_URL = '/dashboard'
 
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/auth/sign-in/'
 
 LOGOUT_REDIRECT_URL = '/'
 
