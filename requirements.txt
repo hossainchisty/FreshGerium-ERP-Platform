@@ -11,7 +11,7 @@ Automat==20.2.0
 autopep8==1.5.7
 backports.entry-points-selectable==1.1.0
 billiard==3.6.4.0
-celery==5.1.2
+celery==5.2.2
 certifi==2022.6.15
 cffi==1.15.0
 chardet==4.0.0
