@@ -129,7 +129,7 @@ tablib==3.1.0
 toml==0.10.2
 trio==0.19.0
 trio-websocket==0.9.2
-Twisted==21.7.0
+Twisted==22.10.0
 twisted-iocpsupport==1.0.2
 txaio==21.2.1
 typing_extensions==4.0.1
