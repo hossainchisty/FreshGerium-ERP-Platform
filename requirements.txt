@@ -75,7 +75,7 @@ MarkupPy==1.14
 mccabe==0.6.1
 msgpack==1.0.3
 num2words==0.5.10
-oauthlib==3.1.1
+oauthlib==3.2.1
 odfpy==1.4.1
 openpyxl==3.0.9
 outcome==1.1.0
