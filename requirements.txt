@@ -12,7 +12,7 @@ autopep8==1.5.7
 backports.entry-points-selectable==1.1.0
 billiard==3.6.4.0
 celery==5.1.2
-certifi==2022.6.15
+certifi==2022.12.7
 cffi==1.15.0
 chardet==4.0.0
 charset-normalizer==2.0.7
