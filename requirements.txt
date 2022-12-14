@@ -82,7 +82,7 @@ outcome==1.1.0
 packaging==21.0
 pathspec==0.8.1
 phonenumbers==8.12.24
-Pillow==8.4.0
+Pillow==9.3.0
 pipenv==2022.3.28
 platformdirs==2.4.0
 pluggy==0.13.1
