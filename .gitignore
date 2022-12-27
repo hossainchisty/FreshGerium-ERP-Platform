@@ -121,3 +121,4 @@ analytics/migrations/0001_initial.py
 accounts/migrations/
 analytics/tests/__init__.py
 analytics/tests/tests.py
+Freshdesk Mockup/
