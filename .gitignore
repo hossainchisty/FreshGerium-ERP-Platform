@@ -65,7 +65,6 @@ cache/
 CRM_frontend/
 image/
 docs/
-Procfile
 README1.md
 README2.md
 .isort.cfg
