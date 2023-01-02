@@ -27,7 +27,7 @@ coverage~=5.5
 crispy-tailwind~=0.5.0
 cryptography~=35.0.0
 defusedxml~=0.7.1
-diff-match-patch~=20200713
+diff-match-patch
 distlib~=0.3.3
 dj-database-url~=0.5.0
 Django~=4.0.7
