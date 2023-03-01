@@ -33,11 +33,15 @@ def settings(request):
         return redirect('settings')
     else:
         s = pyshorteners.Shortener()
+
         # short brand logo url
-        brand_logo_short = s.tinyurl.short(request.user.brand_logo.url)
+        # TODO: AttributeError: 'NoneType' object has no attribute 'url'
+        brand_logo_short = s.tinyurl.short(request.user.brand_logo)
+        defaultURLshort = s.tinyurl.short(request.user.defaultURL)
 
         context = {
             'form': UserSettingsForm(),
             'brand_logo_short': brand_logo_short,
+            'defaultURLshort': defaultURLshort
         }
         return render(request, 'settings/settings.html', context)

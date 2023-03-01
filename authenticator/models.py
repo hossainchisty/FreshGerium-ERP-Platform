@@ -38,7 +38,10 @@ class User(AbstractUser):
         max_length=50,
         null=True, blank=True
     )
+    # FIXME: dEFAUTL brand logo not showing in UI throughing error inside view.
     brand_logo = CloudinaryField('Brand Logo', null=True, blank=True)
+
+    defaultURL = models.URLField(null=True, blank=True)
 
     otp = models.SmallIntegerField(
         help_text='One Time Password',
@@ -193,12 +196,6 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-    @cached_property
-    def get_brand_logo_url(self):
-        if self.brand_logo and hasattr(self.brand_logo, 'url'):
-            return self.brand_logo.url
-        else:
-            return "/static/images/avatar.jpg"
 
     def __str__(self):
         return self.email

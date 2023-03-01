@@ -11,33 +11,33 @@ from utils.email_thread import EmailThread
 localtimezone = timezone.now()
 
 
-@receiver(pre_save, sender=User)
-def detect_password_change(sender, instance, **kwargs):
-    """
-    Checks if the user changed his/her password and sends an email to the user to alert.
-    """
-    if instance._password is None:
-        return f"{instance.email}'s password is not changed."
-    try:
-        user = User.objects.get(id=instance.id)
-        # Get current request object
-        request = RequestMiddleware(get_response=None)
-        request = request.thread_local.current_request
-        # Track user password change datetime
-        request.user.password_changes_datatime = localtimezone
-        request.user.save()
-        user_ip_address = request.session['user_ip']
-        timezone = request.session['timezone']
+# @receiver(pre_save, sender=User)
+# def detect_password_change(sender, instance, **kwargs):
+#     """
+#     Checks if the user changed his/her password and sends an email to the user to alert.
+#     """
+#     if instance._password is None:
+#         return f"{instance.email}'s password is not changed."
+#     try:
+#         user = User.objects.get(id=instance.id)
+#         # Get current request object
+#         request = RequestMiddleware(get_response=None)
+#         request = request.thread_local.current_request
+#         # Track user password change datetime
+#         request.user.password_changes_datatime = localtimezone
+#         request.user.save()
+#         user_ip_address = request.session['user_ip']
+#         timezone = request.session['timezone']
 
-        body = render_to_string("settings/email/security_alert_after_changed_password.html",
-                                {"user": user, "user_ip_address": user_ip_address, "timezone": timezone})
-        email = EmailMessage(
-            subject="Your Freskdesk password was changed.",
-            body=body,
-            from_email=settings.EMAIL_HOST_USER,
-            to=[user.email],
-        )
-        email.content_subtype = "HTML"
-        EmailThread(email).start()
-    except User.DoesNotExist:
-        return f'User with id {instance.id} does not exist'
+#         body = render_to_string("settings/email/security_alert_after_changed_password.html",
+#                                 {"user": user, "user_ip_address": user_ip_address, "timezone": timezone})
+#         email = EmailMessage(
+#             subject="Your Freskdesk password was changed.",
+#             body=body,
+#             from_email=settings.EMAIL_HOST_USER,
+#             to=[user.email],
+#         )
+#         email.content_subtype = "HTML"
+#         EmailThread(email).start()
+#     except User.DoesNotExist:
+#         return f'User with id {instance.id} does not exist'
