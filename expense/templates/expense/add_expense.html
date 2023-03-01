@@ -1,43 +1,20 @@
 {% extends 'core/_base.html' %}
 {% block title %} Add Expense {% endblock title %}
+{% load crispy_forms_tags %}
 {% block body %}
-<section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20">
+<section class="max-w-2xl p-5 mx-auto bg-white rounded-md shadow-md mt-20">
     <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Add Expense</h2>
-    <form method="POST" required>
+    <form method="POST">
         <!-- Security token -->
         {% csrf_token %}
-        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+        <div class="grid grid-cols-1 gap-2 mt-4 sm:grid-cols-1">
             <div>
-                <label class="text-gray-700 dark:text-gray-200 required" for="expense_type">Expense Type</label>
-                <input id="expense_type" type="text" name="expense_type" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Expense Name" required>
-
-
-                <label class="text-gray-700 dark:text-gray-200 pt-3 required" for="expense_amount">Amount</label>
-                <input id="expense_amount" type="number" name="expense_amount" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" placeholder="Enter Expense Amount" required>
-
-                <div class="dropdown">
-                    <label class="text-gray-700 dark:text-gray-200 pt-3 required" for="expense_amount">Expense Category</label>
-                    <button class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required>
-                        Select Category
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {% for category in categories %}
-                      <a class="dropdown-item">Select Category</a>
-                      <a class="dropdown-item" href="{{ category.name }}" name="categories">{{ category.name }}</a>
-                    {% endfor %}
-                    </div>
-                </div>
+                {{ form|crispy }}
             </div>
-
-            <div>
-                <label class="text-gray-700 dark:text-gray-200 required" for="expense_date">Date</label>
-                <input id="datePicker" type="date" name="expense_date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" required>
+            <div class="flex justify-end mt-6">
+                <button type="submit"
+                    class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
             </div>
-        </div>
-
-        <div class="flex justify-end mt-6">
-            <button  type="submit" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
-        </div>
     </form>
 </section>
 {% endblock body %}

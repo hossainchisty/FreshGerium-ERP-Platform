@@ -16,9 +16,9 @@ class DownloadExpenseCSV(LoginRequiredMixin, View):
     def get(self, request):
         response = HttpResponse(content_type="text/csv")
         write = csv.writer(response)
-        write.writerow(["Date", "Expense Type", "Amount"])
+        write.writerow(["Date", "Expense Type", "Category", "Amount"])
 
         for expense in Expense.objects.all():
-            write.writerow([expense.date, expense.expense_type, expense.amount])
+            write.writerow([expense.date, expense.expense_type, expense.category.name, expense.amount])
             response["Content-Disposition"] = "attachment; filename=expense-data.csv"
             return response
