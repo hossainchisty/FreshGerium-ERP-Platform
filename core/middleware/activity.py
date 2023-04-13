@@ -10,6 +10,8 @@ from django_user_agents.utils import get_user_agent
 from dotenv import load_dotenv
 
 from analytics.models import DeviceTrack
+from django.contrib.auth.models import AnonymousUser
+from django.shortcuts import redirect
 from django.utils import timezone
 
 load_dotenv()  # take environment variables from .env.
@@ -36,7 +38,6 @@ class UserActivityMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
         # One-time configuration and initialization.
-        print('Initializing...')
 
     def __call__(self, request):
         # Code to be executed for each request before
@@ -73,7 +74,7 @@ class UserActivityMiddleware:
         # Code to be executed for each request/response after
         # the view is called.
 
-        if 'admin' not in request.path or request.user.is_authenticated:
+        if 'admin' and 'sign-in' not in request.path or request.user.is_authenticated:
             last_seen = DeviceTrack.objects.filter(user__id=request.user.id).update(last_activity=timezone.now())
             if not last_seen:
                 DeviceTrack.objects.update_or_create(

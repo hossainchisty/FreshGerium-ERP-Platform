@@ -1,0 +1,23 @@
+{% extends 'core/_base.html' %}
+{% block title %} Account Data {% endblock title %}
+{% load cache %}
+{% block body %}
+{% comment %} {% cache 500 logout_datetime %} {% endcomment %}
+<div class="flex items-center justify-center">
+  <div class="max-w-md py-4 px-10 bg-white shadow-lg rounded-lg my-20">
+    <h1 class="text-2xl font-bold text-left">Logouts</h1>
+    <div class="flex flex-col items-center">
+      <div class="w-full max-w-xs">
+        {% for times in request.user.logout_datetime %}
+          <p> {{ times.logout_datetime }}</p>
+        {% endfor %}
+      </div>
+      <p class="text-center">
+        <button class="bg-black hover:bg-purple-500 font-bold py-1 px-3 rounded-full">
+          <a class="text-sm text-white hover:no-underline" href="">View More</a>
+        </button>
+      </p>
+    </div>
+</div>
+{% comment %} {% endcache %} {% endcomment %}
+{% endblock body %}

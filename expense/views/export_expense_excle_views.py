@@ -35,7 +35,7 @@ class DownloadExpenseEXCLE(LoginRequiredMixin, View):
         font_style.font.bold = True
 
         # column header name.
-        columns = ['Date', 'Expense Type', 'Amount']
+        columns = ['Date', 'Expense Type', 'Category', 'Amount']
 
         # write column headers in sheet
         for col_num in range(len(columns)):
@@ -45,7 +45,7 @@ class DownloadExpenseEXCLE(LoginRequiredMixin, View):
         font_style = xlwt.XFStyle()
 
         # Get all expense data
-        rows = Expense.objects.all().values_list('date', 'expense_type', 'amount')
+        rows = Expense.objects.all().values_list('date', 'expense_type', 'category', 'amount')
         for row in rows:
             row_num += 1
             for col_num in range(len(row)):

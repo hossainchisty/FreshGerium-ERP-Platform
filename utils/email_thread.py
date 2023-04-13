@@ -2,6 +2,7 @@ import threading
 
 __author__ = "Hossain Chisty"
 
+
 class EmailThread(threading.Thread):
     ''' This module provides sending emails with threading that run in background. '''
 

@@ -20,7 +20,7 @@ class UserAdmin(admin.ModelAdmin):
         }),
         ('Brand Logo™', {
             'classes': ('collapse',),
-            'fields': ('brand_logo',)
+            'fields': ('brand_logo', 'defaultURL')
         }),
         ('Timestamps⏳', {
             'classes': ('collapse',),

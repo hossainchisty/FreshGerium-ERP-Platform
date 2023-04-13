@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
+{% load static %} 
 {% load cache %}
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    {% comment %} {% load pwa %}
-    {% progressive_web_app_meta %} {% endcomment %}
     <!-- SEO Meta Tags Start -->
-    <meta name="author" content="Hossain Chisty(Backend Developer)">
+    <meta name="author" content="Hossain Chisty(Backend Developer)" />
     <meta property="og:title" content="Freshdesk CRM Platform" />
-    <meta name="description" content="Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more.">
-    <meta name="keywords" content="accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers">
-    <link rel="canonical" href="">
+    <meta
+      name="description"
+      content="Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more."
+    />
+    <meta
+      name="keywords"
+      content="accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers"
+    />
+    <link rel="canonical" href="" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="">
+    <meta property="og:url" content="" />
     <meta property="og:site_name" content="django e-commerce website" />
     <!-- SEO Meta Tags End -->
 
     <!-- Favicon Icon Start -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'img/favicon.ico' %}"
+    />
     <!-- Favicon Icon End -->
 
-    <title>{% block title %} Dashboard {% endblock title %}- Freshdesk 🚀</title>
-
-    <!-- Chartjs bundle -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <!-- Title -->
+    <title>
+      {% block title %} Dashboard {% endblock title %}- Freshdesk 🚀
+    </title>
 
     <!-- Fontawesome CDN -->
     <link
@@ -60,12 +68,12 @@
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Custom styles for this template-->
-    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 
-    <!-- Additional asteriskStyle  -->
-    <link href="{% static 'css/asteriskStyle.css' %}" rel="stylesheet">
-    
+    <!-- CSS Files Start -->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/asteriskStyle.css' %}" rel="stylesheet" />
+    <!-- CSS Files End -->
   </head>
 
   <body id="page-top">
@@ -73,12 +81,7 @@
     <div id="wrapper">
       <!-- Sidebar -->
       <ul
-        class="
-          navbar-nav
-          bg-purple-500 bg-opacity-79
-          sidebar sidebar-dark
-          accordion
-        "
+        class="navbar-nav bg-purple-500 bg-opacity-79 sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
@@ -101,11 +104,11 @@
             <i class="fas fa-home"></i>
             <span>Dashboard</span></a
           >
-        </li> 
-        
+        </li>
+
         <!-- Nav Item - Analytics -->
         <li class="nav-item active">
-          <a class="nav-link" href="{% url 'dashboard' %}">
+          <a class="nav-link" href="{% url 'customer_graph' %}">
             <i class="fas fa-chart-line"></i>
             <span>Analytics</span></a
           >
@@ -155,7 +158,8 @@
         <!-- Return menus end -->
 
         <!-- Quotation menus start -->
-        {% include 'core/sidemenus/quotation_side_menus.html' %}
+        {% comment %} {% include 'core/sidemenus/quotation_side_menus.html' %}
+        {% endcomment %}
         <!-- Quotation menus end -->
 
         <!-- Service menus start -->
@@ -172,8 +176,8 @@
 
         <!-- Expense menus start -->
         {% include 'core/sidemenus/expense_side_menus.html' %}
-        <!-- Expense menus end -->        
-        
+        <!-- Expense menus end -->
+
         <!-- Settings menus start -->
         {% include 'core/sidemenus/setting_side_menus.html' %}
         <!-- Settings menus end -->
@@ -181,7 +185,8 @@
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
-        {% comment %} <li class="nav-item active">
+        {% comment %}
+        <li class="nav-item active">
           <a
             class="nav-link collapsed"
             href="#"
@@ -190,7 +195,7 @@
             aria-expanded="true"
             aria-controls="collapsePages"
           >
-          <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-shield-alt"></i>
             <span>Authentication</span>
           </a>
           <div
@@ -201,14 +206,15 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Login Screens:</h6>
-              <a class="collapse-item" href="{% url 'logout' %}">Logout</a>
+              <a class="collapse-item" href="{% url 'sign-out' %}">Logout</a>
               <a class="collapse-item" href="register.html">Register</a>
               <a class="collapse-item" href="forgot-password.html"
                 >Forgot Password</a
               >
             </div>
           </div>
-        </li> {% endcomment %}
+        </li>
+        {% endcomment %}
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
           <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -222,13 +228,7 @@
         <div id="content">
           <!-- Topbar -->
           <nav
-            class="
-              navbar navbar-expand navbar-light
-              bg-white
-              topbar
-              mb-4
-              static-top
-            "
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top"
           >
             <!-- Sidebar Toggle (Topbar) -->
             <button
@@ -248,7 +248,7 @@
 
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
-                {% cache 700 nav_info %} 
+                {% cache 700 nav_info %}
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -261,19 +261,19 @@
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                     {{ request.user.organization_name }}
                   </span>
-                  <img
-                    class="img-profile rounded-circle"
-                    src="{{ request.user.brand_logo.url }}"
-                  />
+                  {% if request.user.brand_logo.url  %}
+                    <img
+                        class="img-profile rounded-circle"
+                        src="{{ request.user.brand_logo.url }}"
+                      />
+                  {% else %}
+                    <img class="img-profile rounded-circle" src="{{ request.user.defaultURL }}">
+                  {% endif %}
                 </a>
                 {% endcache %}
                 <!-- Dropdown - User Information -->
                 <div
-                  class="
-                    dropdown-menu dropdown-menu-right
-                    shadow
-                    animated--grow-in
-                  "
+                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                   aria-labelledby="userDropdown"
                 >
                   <a class="dropdown-item" href="{% url 'profile' %}">
@@ -287,7 +287,7 @@
                   <div class="dropdown-divider"></div>
                   <a
                     class="dropdown-item"
-                    href="{% url 'logout' %}"
+                    href="{% url 'sign-out' %}"
                     data-toggle="modal"
                     data-target="#logoutModal"
                   >
@@ -348,12 +348,12 @@
             >
               Cancel
             </button>
-            <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+            <a class="btn btn-primary" href="{% url 'sign-out' %}">Logout</a>
           </div>
         </div>
       </div>
     </div>
-    
+
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -368,10 +368,7 @@
     <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{% static 'js/demo/chart-bar-demo.js' %}"></script> 
-    <script src="{% static 'js/demo/chart-area-demo.js' %}"></script> 
-
-    <!-- Django Websocket scripts -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/demo/chart-bar-demo.js' %}"></script>
+    <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
   </body>
 </html>
