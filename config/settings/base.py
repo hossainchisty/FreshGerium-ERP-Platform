@@ -32,9 +32,9 @@ cloudinary.config(cloud_name=os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = "-wqb87uk+7&li2#p8#*sa=w+b_7x&+b@iea#tk=#f!(bf3!_gc"
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -288,13 +288,13 @@ IGNORABLE_404_URLS = [
 
 
 # Celery Configurations
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
-# CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Dhaka'
+# CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+# # CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+# CELERY_RESULT_BACKEND = 'django-db'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'Asia/Dhaka'
 
 '''
 sqlite3
