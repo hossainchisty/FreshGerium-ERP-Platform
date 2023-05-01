@@ -61,40 +61,11 @@ venv.bak/
 /.vscode/
 
 # File stytem 
-cache/
-CRM_frontend/
-image/
-docs/
-README1.md
-README2.md
-.isort.cfg
-setup.py
-config/settings.py
-ERP-Software-Requirement.md
-.github/FUNDING.yml
-db.sqlite3
-.github/workflows/ci-pipeline.yml
-.github/workflows/coverage.yml
-db.sqlite3
-.flake8
 
-.github/workflows/docker-image.yml
-.github/workflows/docker-image-build.yml
-staticfiles/
-testAPI.html
-auth/Email verification/
-.github/workflows/docker-publish.yml
-start.bat
-quotation
 
 # Ignore Django Migrations in Development if you are working on team
 
 # Only for Development only
-**/migrations/**
-!**/migrations
-!**/migrations/__init__.py
-!**/migrations/0001_initial.py
-database/routers/db_routers.py
 assets/password changed alert emailtemplate/password_changed_alert_email.html
 assets/password changed alert emailtemplate/images/rounder-up.png
 assets/welcome email template/welcome_email.html
@@ -107,16 +78,6 @@ assets/welcome email template/images/Up_pink.png
 assets/welcome email template/images/Welcome_Email.png
 assets/welcome email template/images/youtube2x.png
 authenticator/Email verification/
-authenticator/migrations/__init__.py
-authenticator/migrations/0001_initial.py
-damage/migrations/0001_initial.py
-expense/migrations/0001_initial.py
-service/migrations/0001_initial.py
-returns/migrations/0001_initial.py
-products/migrations/0001_initial.py
-analytics/migrations/__init__.py
-analytics/migrations/0001_initial.py
-accounts/migrations/
 analytics/tests/__init__.py
 analytics/tests/tests.py
 Freshdesk Mockup/
