@@ -7,5 +7,5 @@ urlpatterns = [
     path('', AccountView.as_view(), name='accounts'),
     path('view/<pk>/', BankAccountDetails.as_view(), name='bank_account_details'),
     path('bank/accounts/', BankAccountList.as_view(), name='bank_accounts'),
-    path('api/v1/', include('accounts.api.urls.accounts_urls')),
+    # path('api/v1/', include('accounts.api.urls.accounts_urls')),
 ]

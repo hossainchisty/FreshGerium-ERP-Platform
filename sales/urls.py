@@ -18,5 +18,5 @@ urlpatterns = [
     path('export/', DownloadSaleCSV.as_view(), name="download_sale_csv"),
     path('due/', DueCollection.as_view(), name='due_collection'),
     # API URLS
-    path('api/v1/', include('sales.api.urls.sales_urls')),
+    # path('api/v1/', include('sales.api.urls.sales_urls')),
 ]

@@ -60,9 +60,7 @@ THIRD_PARTY_APPS = [
     'crispy_forms',
     'simple_history',
     'django_countries',
-    'rest_framework',
     'phonenumber_field',
-    'rest_framework.authtoken',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -80,7 +78,6 @@ LOCAL_APPS = [
     'stock.apps.StockConfig',
     'expense.apps.ExpenseConfig',
     'sales.apps.SalesConfig',
-    'report.apps.ReportConfig',
     'service.apps.ServiceConfig',
     'returns.apps.ReturnsConfig',
     'damage.apps.DamageConfig',
@@ -106,43 +103,8 @@ PHONENUMBER_DEFAULT_REGION = 'BD'
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
-##################
-# REST FRAMEWORK #
-##################
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         # 'rest_framework.permissions.IsAuthenticated',
-#         'rest_framework.permissions.AllowAny',
-#     ],
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#     'rest_framework.authentication.TokenAuthentication',
-#     'rest_framework.authentication.SessionAuthentication',
-#     ],
-#     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-# }
-
-REST_FRAMEWORK = {
-    # 'SEARCH_PARAM': 'search'
-    'SEARCH_PARAM': 'q'
-}
-
-# Setting the throttling policy
-
-REST_FRAMEWORK = {
-    'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
-    ],
-    # 'DEFAULT_THROTTLE_RATES': {
-    #     'anon': '2/day',
-    #     'user': '5/hour',
-    #     'sale': '3/min',
-    # }
-}
 
 ##############
 # MIDDLEWARE #
@@ -164,7 +126,6 @@ MIDDLEWARE = [
     # Third party middleware📌
     'corsheaders.middleware.CorsMiddleware',
     'django_otp.middleware.OTPMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
     # Custom middleware📌
     # 'core.middleware.activity.UserActivityMiddleware',
@@ -217,7 +178,7 @@ TEMPLATES = [
 # EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ############
 # SESSIONS #
@@ -320,13 +281,13 @@ CACHES = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': 'C:/Users/laptop house/Desktop/Freshdesk-CRM-Platform/cache/',
+        'LOCATION': 'P:\Github Workflow(Remote)/Freshdesk-CRM-Platform/cache/',
     }
 }
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = os.getenv('TIME_ZONE')
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -338,7 +299,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # Maximum size, in bytes, of a request before it will be streamed to the

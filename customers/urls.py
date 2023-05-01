@@ -14,5 +14,5 @@ urlpatterns = [
     path('delete/<pk>', DeleteCustomer.as_view(), name='delete_customer'),
 
     # API URLs
-    path('api/v1/', include('customers.api.urls.customer_urls')),
+    # path('api/v1/', include('customers.api.urls.customer_urls')),
 ]
