@@ -55,7 +55,6 @@ platformdirs==2.4.1
 pluggy==0.13.1
 prompt-toolkit==3.0.38
 psutil==5.9.4
-psycopg2==2.9.6
 py==1.10.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
