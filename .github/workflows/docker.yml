@@ -7,7 +7,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name:  🏗 Checkout code
         uses: actions/checkout@v2
       - name: Login to Docker Hub
         uses: docker/login-action@v1
