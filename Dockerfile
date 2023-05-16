@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.9-alpine3.14
+FROM python:3.9-slim-buster
 
 # set work directory
 WORKDIR /app
@@ -8,11 +8,18 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# install system dependencies
+RUN apt-get update && apt-get install -y build-essential pkg-config libcairo2-dev libgirepository1.0-dev
+
 # install dependencies
 RUN python -m pip install --upgrade pip
-RUN pip install --upgrade setuptools
-RUN apk update && apk add --no-cache freetype-dev
+RUN pip install --upgrade pip setuptools
+RUN pip install --only-binary :all: psutil reportlab
+
+# copy requirements.txt
 COPY requirements.txt /app/
+
+# install project dependencies
 RUN pip install -r requirements.txt
 
 # copy project
