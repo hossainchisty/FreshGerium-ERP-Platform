@@ -2,7 +2,7 @@ name: 🏗 Build and Push Docker Image
 on:
   push:
     branches:
-      - production
+      - master
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
