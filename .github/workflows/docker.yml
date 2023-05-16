@@ -22,6 +22,7 @@ jobs:
             --pull \
             --cache-from ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:${{ secrets.TAG }} \
             --tag ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:${{ secrets.TAG }} \
-            --file Dockerfile .
+            --file Dockerfile.build .
+
       - name: 🚀 Push Docker image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:${{ secrets.TAG }}
