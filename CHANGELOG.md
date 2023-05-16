@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.3.0...v1.3.1) (2023-05-16)
+
+
+### Bug Fixes
+
+* Docker builds ([01dcf01](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/01dcf01c323c8f327d80198e8fb6d43d7133b6c9))
+
+
+
 # [1.3.0](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.2.2...v1.3.0) (2023-05-16)
 
 
