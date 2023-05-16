@@ -40,12 +40,6 @@ coverage.xml
 pytestdebug.log
 
 
-# Django stuff:
-*.log
-db.sqlite3
-*db.sqlite3
-db.sqlite3-journal
-
 
 # Environments
 /fast/
