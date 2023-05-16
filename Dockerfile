@@ -9,6 +9,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install dependencies
+RUN python -m pip install --upgrade pip
+RUN pip install --upgrade setuptools
+RUN apk update && apk add --no-cache freetype-dev
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
