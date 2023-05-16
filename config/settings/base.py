@@ -40,7 +40,6 @@ ALLOWED_HOSTS = ['*']
 
 
 DJANGO_COMMON_APPS = [
-    # 'admin_volt.apps.AdminVoltConfig', # Modern Admin UI 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -51,14 +50,12 @@ DJANGO_COMMON_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'corsheaders',
     'import_export',
     'django_user_agents',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django_filters',
     'crispy_forms',
-    'simple_history',
     'django_countries',
     'phonenumber_field',
     'allauth',
@@ -119,12 +116,10 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # Third party middleware📌
-    'defender.middleware.FailedLoginMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Third party middleware📌
-    'corsheaders.middleware.CorsMiddleware',
+    'defender.middleware.FailedLoginMiddleware',
     'django_otp.middleware.OTPMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
     # Custom middleware📌
@@ -171,30 +166,6 @@ TEMPLATES = [
 ]
 
 
-# Mail configrations
-# EMAIL_HOST = os.getenv('EMAIL_HOST')
-# EMAIL_PORT = os.getenv('EMAIL_PORT')
-# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-# EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-############
-# SESSIONS #
-############
-
-# Cookie name. This can be whatever you want.
-# SESSION_COOKIE_NAME = 'DUMMY_SESSION'
-
-# Age of cookie, in seconds 52 weeks
-SESSION_COOKIE_AGE = 31449600
-
-# Whether to save the session data on every request.
-SESSION_SAVE_EVERY_REQUEST = False
-
-# Whether a user's session cookie expires when the web browser is closed.
-SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 
 ##################
@@ -208,9 +179,6 @@ LOGIN_REDIRECT_URL = '/dashboard'
 LOGIN_URL = '/auth/sign-in/'
 
 LOGOUT_REDIRECT_URL = '/'
-
-# The number of seconds a password reset link is valid for (default: 3 days).
-PASSWORD_RESET_TIMEOUT = 60 * 60 * 24 * 3
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -234,19 +202,6 @@ AUTH_PASSWORD_VALIDATORS = [
         }
     }
 ]
-
-IGNORABLE_404_URLS = [
-    re.compile(r'^/apple-touch-icon.*/.png$'),
-    re.compile(r'^/favicon.ico$'),
-    re.compile(r'^/robots.txt$'),
-    re.compile(r'^/phpmyadmin/'),
-    re.compile(r'^/sitemap\.xml$'),
-    re.compile(r'^/sitemap-index\.xml$'),
-    re.compile(r'^/static/'),
-    re.compile(r'^/media/'),
-    re.compile(r'^/api/')
-]
-
 
 # Celery Configurations
 # CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
@@ -301,13 +256,3 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-# Maximum size, in bytes, of a request before it will be streamed to the
-# file system instead of into memory.
-FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
-
-# Maximum size in bytes of request data (excluding file uploads) that will be
-# read before a SuspiciousOperation (RequestDataTooBig) is raised.
-DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

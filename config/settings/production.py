@@ -43,22 +43,6 @@ DEBUG = False
 # CSRF_COOKIE_SECURE = True
 
 
-# A list of origins that are authorized to make cross-site HTTP requests.
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
-# CORS_ALLOW_ALL_ORIGINS = True
-
-# HTTP verbs that are allowed
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
-
 # Whether to append trailing slashes to URLs.
 APPEND_SLASH = True
 
@@ -69,9 +53,47 @@ LANGUAGES = [
     ('en', gettext_noop('English')),
 ]
 
-# Languages using BiDi (right-to-left) layout
-LANGUAGES_BIDI = ["he", "ar", "ar-dz", "fa", "ur"]
+# Maximum size, in bytes, of a request before it will be streamed to the
+# file system instead of into memory.
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
 
+# Maximum size in bytes of request data (excluding file uploads) that will be
+# read before a SuspiciousOperation (RequestDataTooBig) is raised.
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440  # i.e. 2.5 MB
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+# The number of seconds a password reset link is valid for (default: 3 days).
+PASSWORD_RESET_TIMEOUT = 60 * 60 * 24 * 3
+
+
+############
+# SESSIONS #
+############
+
+# Cookie name. This can be whatever you want.
+# SESSION_COOKIE_NAME = 'DUMMY_SESSION'
+
+# Age of cookie, in seconds 52 weeks
+SESSION_COOKIE_AGE = 31449600
+
+# Whether to save the session data on every request.
+SESSION_SAVE_EVERY_REQUEST = False
+
+# Whether a user's session cookie expires when the web browser is closed.
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+
+
+# Mail configrations
+# EMAIL_HOST = os.getenv('EMAIL_HOST')
+# EMAIL_PORT = os.getenv('EMAIL_PORT')
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:
     from config.settings.local import *
