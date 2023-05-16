@@ -1,7 +1,5 @@
 from decimal import Decimal
 
-from simple_history.models import HistoricalRecords
-
 from customers.models import Customer
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
@@ -52,8 +50,6 @@ class Sale(Timestamp):
     discount = models.DecimalField(default=Decimal(0), max_digits=2, decimal_places=0, validators=PERCENTAGE_VALIDATOR)
     due = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
     total = models.DecimalField(default=00.00, max_digits=10, decimal_places=2)
-
-    history = HistoricalRecords()
 
     def save(self, *args, **kwargs):
         """ override the save method for logical purposes """

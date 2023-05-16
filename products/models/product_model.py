@@ -1,7 +1,6 @@
 from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 from django_countries.fields import CountryField
-from simple_history.models import HistoricalRecords
 
 from django.db import models
 from suppliers.models import Supplier
@@ -131,7 +130,7 @@ class Product(Timestamp):
     recently_updated = models.DateTimeField(null=True, blank=True)
     supplier_price = models.DecimalField(max_digits=10, decimal_places=2)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    history = HistoricalRecords()
+
 
     def save(self, *args, **kwargs):
         """ override the save method for logical purposes """
