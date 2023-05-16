@@ -9,21 +9,24 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install system dependencies
-RUN apt-get update && apt-get install -y build-essential pkg-config libcairo2-dev libgirepository1.0-dev
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        pkg-config \
+        libcairo2-dev \
+        libgirepository1.0-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # install dependencies
-RUN python -m pip install --upgrade pip
-RUN pip install --upgrade pip setuptools
-RUN pip install --only-binary :all: psutil reportlab
-
-# copy requirements.txt
-COPY requirements.txt /app/
-
-# install project dependencies
-RUN pip install -r requirements.txt
+COPY requirements.txt .
+RUN python -m pip install --upgrade pip \
+    && pip install --no-cache-dir --upgrade pip setuptools \
+    && pip install --no-cache-dir --only-binary :all: psutil reportlab \
+    && pip install --no-cache-dir -r requirements.txt
 
 # copy project
-COPY . /app/
+COPY . .
+
 EXPOSE 8000
 
 # run django server
