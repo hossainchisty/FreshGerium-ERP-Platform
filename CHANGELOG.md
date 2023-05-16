@@ -1,3 +1,12 @@
+## [1.3.3](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.3.2...v1.3.3) (2023-05-16)
+
+
+### Bug Fixes
+
+* Change file exte ([e99783a](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/e99783a46d12adc159fac03d1adbf68ad8fc53e1))
+
+
+
 ## [1.3.2](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.3.1...v1.3.2) (2023-05-16)
 
 
@@ -28,10 +37,6 @@
 ### Features
 
 * Create releases.json ([70075e3](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/70075e3571e1cc10f2af9ae130459d0a92dbdc4e))
-
-
-
-## [1.2.2](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.1.1...v1.2.2) (2022-09-20)
 
 
 
