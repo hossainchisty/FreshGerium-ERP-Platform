@@ -6,7 +6,7 @@ import django.db.models.deletion
 import django.utils.timezone
 import django_countries.fields
 import phonenumber_field.modelfields
-import simple_history.models
+
 
 
 class Migration(migrations.Migration):
@@ -38,34 +38,5 @@ class Migration(migrations.Migration):
                 'verbose_name': 'Supplier',
                 'verbose_name_plural': 'Suppliers',
             },
-        ),
-        migrations.CreateModel(
-            name='HistoricalSupplier',
-            fields=[
-                ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
-                ('updated_at', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
-                ('supplier_full_name', models.CharField(max_length=100, verbose_name='Supplier Full Name')),
-                ('supplier_address', models.CharField(max_length=100, verbose_name='Supplier Address')),
-                ('supplier_phone', phonenumber_field.modelfields.PhoneNumberField(max_length=128, region=None)),
-                ('supplier_email', models.EmailField(db_index=True, max_length=254, verbose_name='Supplier Email')),
-                ('supplier_zip_code', models.CharField(max_length=10)),
-                ('supplier_country', django_countries.fields.CountryField(max_length=2)),
-                ('supplier_fax', models.BigIntegerField(blank=True, null=True, verbose_name='Supplier Fax')),
-                ('supplier_previous_balance', models.DecimalField(decimal_places=2, default=0, max_digits=10, verbose_name='Supplier Previous Balance')),
-                ('history_id', models.AutoField(primary_key=True, serialize=False)),
-                ('history_date', models.DateTimeField(db_index=True)),
-                ('history_change_reason', models.CharField(max_length=100, null=True)),
-                ('history_type', models.CharField(choices=[('+', 'Created'), ('~', 'Changed'), ('-', 'Deleted')], max_length=1)),
-                ('history_user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to=settings.AUTH_USER_MODEL)),
-                ('user', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL, verbose_name='User')),
-            ],
-            options={
-                'verbose_name': 'historical Supplier',
-                'verbose_name_plural': 'historical Suppliers',
-                'ordering': ('-history_date', '-history_id'),
-                'get_latest_by': ('history_date', 'history_id'),
-            },
-            bases=(simple_history.models.HistoricalChanges, models.Model),
         ),
     ]

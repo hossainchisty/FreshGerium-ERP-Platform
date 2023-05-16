@@ -6,7 +6,6 @@ import django.core.validators
 from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
-import simple_history.models
 
 
 class Migration(migrations.Migration):
@@ -42,35 +41,6 @@ class Migration(migrations.Migration):
                 'ordering': ['-date'],
             },
         ),
-        migrations.CreateModel(
-            name='HistoricalSale',
-            fields=[
-                ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
-                ('updated_at', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
-                ('invoice_number', models.CharField(db_index=True, max_length=10)),
-                ('date', models.DateField()),
-                ('payment_method', models.CharField(choices=[('hand cash', 'Hand Cash'), ('cash on delivery', 'Cash On Delivery'), ('bKash', 'bKash'), ('উপায় (upay)', 'উপায় (upay)'), ('nagad', 'Nagad'), ('dutch-bangla bank', 'Dutch-Bangla Bank'), ('bank payment', 'Bank Payment')], max_length=50)),
-                ('status', models.CharField(choices=[('due', 'Due'), ('paid', 'Paid')], max_length=50)),
-                ('is_paid', models.BooleanField(default=False, help_text='Is the sale paid? If yes, the status will be set to paid.', verbose_name='Is Paid')),
-                ('discount', models.DecimalField(decimal_places=0, default=Decimal('0'), max_digits=2, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100)])),
-                ('due', models.DecimalField(decimal_places=2, default=0.0, max_digits=10)),
-                ('total', models.DecimalField(decimal_places=2, default=0.0, max_digits=10)),
-                ('history_id', models.AutoField(primary_key=True, serialize=False)),
-                ('history_date', models.DateTimeField(db_index=True)),
-                ('history_change_reason', models.CharField(max_length=100, null=True)),
-                ('history_type', models.CharField(choices=[('+', 'Created'), ('~', 'Changed'), ('-', 'Deleted')], max_length=1)),
-                ('customer', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='customers.customer')),
-                ('history_user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to=settings.AUTH_USER_MODEL)),
-                ('product', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='products.product')),
-                ('user', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL, verbose_name='User')),
-            ],
-            options={
-                'verbose_name': 'historical sale',
-                'verbose_name_plural': 'historical sales',
-                'ordering': ('-history_date', '-history_id'),
-                'get_latest_by': ('history_date', 'history_id'),
-            },
-            bases=(simple_history.models.HistoricalChanges, models.Model),
-        ),
+        
+    
     ]

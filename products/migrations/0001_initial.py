@@ -7,7 +7,6 @@ from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
 import django_countries.fields
-import simple_history.models
 
 
 class Migration(migrations.Migration):
@@ -85,64 +84,5 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
             },
-        ),
-        migrations.CreateModel(
-            name='HistoricalProduct',
-            fields=[
-                ('id', models.BigIntegerField(auto_created=True, blank=True, db_index=True, verbose_name='ID')),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
-                ('updated_at', models.DateTimeField(default=django.utils.timezone.now, editable=False)),
-                ('product_name', models.CharField(max_length=100)),
-                ('product_code', models.CharField(blank=True, db_index=True, max_length=4, null=True)),
-                ('product_model', models.CharField(max_length=100)),
-                ('product_description', ckeditor.fields.RichTextField()),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('in_stock', models.IntegerField(default=0)),
-                ('image', cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='Product Images')),
-                ('barcode', cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='barcode/')),
-                ('qrcode', cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='qrcode/')),
-                ('quantity', models.IntegerField(default=0)),
-                ('out_of_stock', models.BooleanField(default=False)),
-                ('mfg_date', models.DateField(blank=True, help_text='The MFG date is the date the product was manufactured, or the Manufacturing Date (MFG). It is not an expiration date.', null=True)),
-                ('exp_date', models.DateField(blank=True, help_text='An expiration date is the last day that a consumable product such as food or medicine.', null=True)),
-                ('status', models.CharField(choices=[('out of stock', 'Out of Stock'), ('in stock', 'In Stock')], default='In stock', max_length=20)),
-                ('hard_disk_size', models.CharField(blank=True, help_text='Example: 256 GB', max_length=100, null=True, verbose_name='Hard Disk Size')),
-                ('screen_size', models.CharField(blank=True, help_text='13.3 Inches, 15.6 Inches, etc.', max_length=100, null=True, verbose_name='Screen Size')),
-                ('operating_system', models.CharField(blank=True, help_text='Example: Windows, Mac, Linux, etc.', max_length=10, null=True, verbose_name='Operating System')),
-                ('cpu_manufacturer', models.CharField(blank=True, help_text='Apple, Intel, AMD, etc.', max_length=30, null=True, verbose_name='CPU Manufacturer')),
-                ('connectivity_technology', models.CharField(blank=True, help_text='Bluetooth, Wi-Fi, USB, Ethernet, etc.', max_length=40, null=True, verbose_name='Connectivity Technology')),
-                ('uses_for_product', models.CharField(blank=True, help_text='Personal, Gaming, Business, etc.', max_length=50, null=True, verbose_name='Specific Uses For Product')),
-                ('brand_name', models.CharField(blank=True, help_text='Example: Apple, Samsung, Sony, LG, etc.', max_length=50, null=True, verbose_name='Brand Name')),
-                ('manufacturer', models.CharField(blank=True, help_text='Example: Apple, Samsung, LG, Sony, etc.', max_length=50, null=True, verbose_name='Manufacturer')),
-                ('size', models.CharField(blank=True, help_text="The numeric or text version of the item's size. Example: Small, Medium, Large, X-Large, XX-Large, etc.", max_length=10, null=True, verbose_name='Size')),
-                ('weight', models.CharField(blank=True, help_text="The numeric or text version of the item's weight. Example: 1.5 lbs, 2.5 lbs, etc.", max_length=10, null=True, verbose_name='Weight')),
-                ('height', models.CharField(blank=True, help_text="The numeric or text version of the item's height. Example: 1.5 inches, 2.5 inches, etc.", max_length=10, null=True, verbose_name='Height')),
-                ('color', models.CharField(blank=True, help_text='The color of the item. Example: Red, Blue, Green, etc.', max_length=10, null=True, verbose_name='Color')),
-                ('shape', models.CharField(blank=True, help_text='The shape of the item. Example: Round, Square, Oval, etc.', max_length=10, null=True, verbose_name='Shape')),
-                ('material_type', models.CharField(blank=True, help_text="what material is the product made out of? '\n Example: plastic, metal, wood, etc.", max_length=10, null=True, verbose_name='Material Type')),
-                ('count_sold', models.IntegerField(default=0)),
-                ('country', django_countries.fields.CountryField(max_length=2)),
-                ('recently_sold', models.DateTimeField(blank=True, null=True)),
-                ('recently_added', models.DateTimeField(blank=True, null=True)),
-                ('recently_viewed', models.DateTimeField(blank=True, null=True)),
-                ('recently_updated', models.DateTimeField(blank=True, null=True)),
-                ('supplier_price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('history_id', models.AutoField(primary_key=True, serialize=False)),
-                ('history_date', models.DateTimeField(db_index=True)),
-                ('history_change_reason', models.CharField(max_length=100, null=True)),
-                ('history_type', models.CharField(choices=[('+', 'Created'), ('~', 'Changed'), ('-', 'Deleted')], max_length=1)),
-                ('category', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='products.category')),
-                ('history_user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to=settings.AUTH_USER_MODEL)),
-                ('supplier', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='suppliers.supplier')),
-                ('unit', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='products.unit')),
-                ('user', models.ForeignKey(blank=True, db_constraint=False, null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to=settings.AUTH_USER_MODEL, verbose_name='User')),
-            ],
-            options={
-                'verbose_name': 'historical product',
-                'verbose_name_plural': 'historical products',
-                'ordering': ('-history_date', '-history_id'),
-                'get_latest_by': ('history_date', 'history_id'),
-            },
-            bases=(simple_history.models.HistoricalChanges, models.Model),
         ),
     ]
