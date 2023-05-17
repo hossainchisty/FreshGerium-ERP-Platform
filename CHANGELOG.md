@@ -1,3 +1,12 @@
+## [1.3.5](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.3.4...v1.3.5) (2023-05-17)
+
+
+### Bug Fixes
+
+* Remove DRF APIs ([b3ae9d4](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/b3ae9d4d8d011200eea9bcf67f53802e5e577e25))
+
+
+
 ## [1.3.4](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.3.3...v1.3.4) (2023-05-17)
 
 
@@ -31,21 +40,6 @@
 ### Bug Fixes
 
 * Docker builds ([01dcf01](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/01dcf01c323c8f327d80198e8fb6d43d7133b6c9))
-
-
-
-# [1.3.0](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.2.2...v1.3.0) (2023-05-16)
-
-
-### Bug Fixes
-
-* Remove history model migrations ([bb8239c](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/bb8239cd3148d73f242d56ff9bfae5be450aa4e6))
-* Remove history tracker ([2c00f94](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/2c00f94c3624d9cb315f90ab47c84df51deb788e))
-
-
-### Features
-
-* Create releases.json ([70075e3](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/70075e3571e1cc10f2af9ae130459d0a92dbdc4e))
 
 
 
