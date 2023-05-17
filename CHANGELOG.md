@@ -1,3 +1,12 @@
+## [1.3.4](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.3.3...v1.3.4) (2023-05-17)
+
+
+### Bug Fixes
+
+* Remove throttling ([36777f1](https://github.com/hossainchisty/Freshdesk-ERP-Platform/commit/36777f15b3190941c5ef0af284de973fcafbba17))
+
+
+
 ## [1.3.3](https://github.com/hossainchisty/Freshdesk-ERP-Platform/compare/v1.3.2...v1.3.3) (2023-05-16)
 
 
