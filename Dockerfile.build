@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.9-slim-buster
+FROM python:3.9-slim-bullseye
 
 # set work directory
 WORKDIR /app
@@ -27,7 +27,9 @@ RUN python -m pip install --upgrade pip \
 # copy project
 COPY . .
 
-EXPOSE 8000
+# Set the port number to use
+EXPOSE 8080
 
-# run django server
-CMD python manage.py runserver 0.0.0.0:8000
+# Start the Django server
+CMD python manage.py runserver 0.0.0.0:8080
+
