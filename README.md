@@ -2,7 +2,7 @@
 
 Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. It's easy-to-use for keeping all kinds of business records 🚀
 <br>
-[![🎉Release](https://github.com/hossainchisty/Freshdesk-ERP-Platform/actions/workflows/release.yml/badge.svg?branch=master&event=push)](https://github.com/hossainchisty/Freshdesk-ERP-Platform/actions/workflows/release.yml) [![Build and Push Docker Image](https://github.com/hossainchisty/Freshdesk-ERP-Platform/actions/workflows/docker.yml/badge.svg?branch=master&event=push)](https://github.com/hossainchisty/Freshdesk-ERP-Platform/actions/workflows/docker.yml)
+
 
 https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-b633-d275e5bd8daf.mp4
 
@@ -104,13 +104,6 @@ Below is a list of technologies we use at Freshdesk.
 * 🎩 **Deployment:** Heroku
 * 📨 **Email Service:** Zoho
 * 🚨 **Push Notifications:** OneSignal
-
-
-<!-- ## 🏛 Architecture
-
-<p align="center">
-    <img src="assets/architecture/overview.svg" alt="Freshdesk architecture" width="700">
-</p> -->
 
 ### **Why Freshdesk ERP Platform?**
 
