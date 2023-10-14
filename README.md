@@ -3,21 +3,23 @@
 Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. It's easy-to-use for keeping all kinds of business records 🚀
 <br>
 
-
 https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-b633-d275e5bd8daf.mp4
 
 ###### Don't forget to leave a [star ⭐!](https://github.com/hossainchisty/Freshdesk-CRM-Platform/stargazers)
 
 ### 📸 Screenshot
+
 <details>
  <summary>
     🔎 View
  </summary>
 
- ### 💻 Customer Management 
+### 💻 Customer Management
+
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/customer/customer-management.png">
 
- ### 🛒 Purchase Management 
+### 🛒 Purchase Management
+
 <img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/purchase/manage-purchase.png">
  
  ### 🤕 Damage Management 
@@ -26,23 +28,28 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
  ### 💰 Expense Management 
 <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-management.png">
 
- ### 🧾 PDF Report (Automaticly Generated)
+### 🧾 PDF Report (Automaticly Generated)
+
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-pdf-viewer.png">
 
-  ### 🖋 Excel Sheet (Automaticly Generated)
+### 🖋 Excel Sheet (Automaticly Generated)
+
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/expense/expense-excel-sheet.png">
 
- ### 📨 Sale Management 
+### 📨 Sale Management
+
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/sales-management.png">
 
- ### 📥 Sale's Due Collection 
+### 📥 Sale's Due Collection
+
  <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/sale/sales-due-collection.png">
 
- ### 🏢 Company Profile 
+### 🏢 Company Profile
+
   <img src="https://github.com/hossainchisty/Freshdesk-CRM-Platform/blob/master/static/Mockup/comapny/company-profile.png">
 
 ### ⚙ Settings <br/>
- 
+
 <table width="100%"> 
 <tr>
 <td width="50%">
@@ -51,7 +58,7 @@ https://user-images.githubusercontent.com/62835101/188616020-d935cd4f-5e9b-4e2c-
   Privacy and Security
 </p>
 <img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/settings/settings-privacy-and-security.png">
-</td> 
+</td>
 
  <table width="100%"> 
 <tr>
@@ -85,29 +92,26 @@ Forget password?
 <img src="https://github.com/hossainchisty/Freshdesk-ERP-Platform/blob/master/static/Mockup/settings/forget-password.png">  
 </td>
 </table>
- 
-
-
 
 </details>
-
 
 ### 🗂 Tech Stack
 
 Below is a list of technologies we use at Freshdesk.
 
-*  🎨 **Frontend:**  SB Admin 2 v4.1.3.
-* 🏗 **Backend:** Python, Django, DRF
-* 🌳 **Services:** Celery, Redis, PostgreSQL 
-* ☁️ **Cloud:** Cloudinary
-* ♾ **CI/CD:** Github Action, CircleCI
-* 🎩 **Deployment:** Heroku
-* 📨 **Email Service:** Zoho
-* 🚨 **Push Notifications:** OneSignal
+- 🎨 **Frontend:** SB Admin 2 v4.1.3
+- 🏗 **Backend:** Python, Django, Jinja2, and more
+- ⌛ **Asynchronous:** Celery
+- 🌳 **Services:** Redis, PostgreSQL
+- ☁️ **Cloud:** Cloudinary
+- ♾ **CI/CD:** Github Action
+- 🎩 **Deployment:** Render Cloud
+- 📨 **Email Service:** Zoho Mail
+- 🐋 **Devops:** Docker
 
 ### **Why Freshdesk ERP Platform?**
 
-✅ Activity Dashboard 
+✅ Activity Dashboard
 
 ✅ Account Management
 
@@ -146,7 +150,7 @@ Below is a list of technologies we use at Freshdesk.
 
 ✅ PDF Report (Automaticly Generated)
 
-✅ Accessing & Downloading your Freshdesh Information 
+✅ Accessing & Downloading your Freshdesh Information
 <br>
 <sub>Get a copy of your data. We'll email you a link to a file with your information. it may take up to 48 hours to collect this information and send it to you.</sup>
 
@@ -154,8 +158,10 @@ Below is a list of technologies we use at Freshdesk.
 
 ✅ ... And More.
 
-***For any feature/improvement request ping me here hossain.chisty11@gmail.com***
-### **What's new◽** 
+**_For any feature/improvement request ping me here hossain.chisty11@gmail.com_**
+
+### **What's new◽**
+
 Daily & Monthly Sales Reports
 
 Performance Improve
@@ -163,9 +169,11 @@ Performance Improve
 Bug Fixed & UI improved
 
 ### **Coming Soon◽**
+
 I will also set periodic automatic background tasks for backing up the database.
 
 Human Resource Management System Software (HRMS) Module
+
 <details>
  <summary>
  Key Features of HRMS
@@ -192,6 +200,7 @@ Human Resource Management System Software (HRMS) Module
 ✅ Account management system
 
 ✅ Payroll management system
+
 </details>
 
 You may noticed that I didn't include any instructions on how to run this project in the README file. However, I want to clarify that this was an intentional decision on my part.
@@ -203,8 +212,10 @@ If you are interested in purchasing this project for commercial use, I would be 
 Thank you for your understanding.
 
 Best regards,
+
 <!-- Get in touch - Start -->
-### 💬 Connect with me 
+
+### 💬 Connect with me
 
 <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/hossainchisty/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
@@ -229,4 +240,5 @@ Best regards,
 Author:
 <a href="https://www.linkedin.com/in/hossainchisty/" target="_blank">Hossain Chisty</a><br>
 If you would like to have my help with your team and product, feel free to contact me. 🤓
+
 <!-- Get in touch - End -->
