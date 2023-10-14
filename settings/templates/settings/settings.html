@@ -60,25 +60,18 @@
                     </label>
                     <p class="pl-1 text-white">or drag and drop</p>
                 </div>
+                
                 <p class="text-xs text-white">
                     PNG, JPG, GIF up to 2.5 MB
                     <br>
-                    {% comment %} TODO: nEed to fix defaultURLshort {% endcomment %}
-                    {% load cache %}
-                    {% cache 500 brand_logo_short %}
-                    {% cache 500 defaultURLshort %}
 
                     {% if brand_logo_short %}
                         Current Brand Logo <a class="font-mono italic text-white" href="{{ brand_logo_short }}" target="_blank">{{ brand_logo_short }}</a>
-
                     {% endif %}
 
                     {% if defaultURLshort %}
                         Current Brand Logo <a class="font-mono italic text-white" href="{{ defaultURLshort }}" target="_blank">{{ defaultURLshort }}</a>
-                   
                     {% endif %}
-                   
-                    {% endcache %}
                 </p>
                 </div>
             </div>

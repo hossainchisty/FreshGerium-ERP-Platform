@@ -38,7 +38,6 @@ class User(AbstractUser):
         max_length=50,
         null=True, blank=True
     )
-    # FIXME: dEFAUTL brand logo not showing in UI throughing error inside view.
     brand_logo = CloudinaryField('Brand Logo', null=True, blank=True)
 
     defaultURL = models.URLField(null=True, blank=True)
@@ -95,13 +94,6 @@ class User(AbstractUser):
             'Designates whether this user should be treated as manager.'
         ),
     )
-    is_head_office = models.BooleanField(
-        _('head office'),
-        default=False,
-        help_text=_(
-            'Designates whether this user should be treated as head office.'
-        ),
-    )
     is_hr = models.BooleanField(
         _('hr'),
         default=False,
@@ -114,28 +106,6 @@ class User(AbstractUser):
         default=False,
         help_text=_(
             'Designates whether this user should be treated as accountant.'
-        ),
-    )
-    is_auditor = models.BooleanField(
-        _('auditor'),
-        default=False,
-        help_text=_(
-            'Designates whether this user should be treated as auditor.'
-        ),
-
-    )
-    is_auditor_manager = models.BooleanField(
-        _('auditor manager'),
-        default=False,
-        help_text=_(
-            'Designates whether this user should be treated as auditor manager.'
-        ),
-    )
-    is_auditor_head_office = models.BooleanField(
-        _('auditor head office'),
-        default=False,
-        help_text=_(
-            'Designates whether this user should be treated as auditor head office.'
         ),
     )
     is_employee = models.BooleanField(
@@ -168,16 +138,6 @@ class User(AbstractUser):
     )
     password_changes_datatime = models.DateTimeField(
         verbose_name=_('Password changes datatime'),
-        blank=True,
-        null=True,
-    )
-    login_datetime = models.DateTimeField(
-        verbose_name=_('Login datetime'),
-        blank=True,
-        null=True,
-    )
-    logout_datetime = models.DateTimeField(
-        verbose_name=_('Logout datetime'),
         blank=True,
         null=True,
     )
