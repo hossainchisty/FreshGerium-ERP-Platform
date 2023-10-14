@@ -1,16 +1,17 @@
 import pyshorteners
-
+from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.views.decorators.cache import cache_page
+from authenticator.models import User
 from settings.forms.user_settings_form import UserSettingsForm
 
 
 @login_required
 @cache_page(60 * 15)
 def settings(request):
-    user = request.user
+    user = get_object_or_404(User, pk=request.user.pk)
     if request.method == 'POST':
         email = request.POST.get('email')
         owner_name = request.POST.get('owner_name')
@@ -34,10 +35,13 @@ def settings(request):
     else:
         s = pyshorteners.Shortener()
 
-        # short brand logo url
-        # TODO: AttributeError: 'NoneType' object has no attribute 'url'
-        brand_logo_short = s.tinyurl.short(request.user.brand_logo)
-        defaultURLshort = s.tinyurl.short(request.user.defaultURL)
+        # Check if brand_logo and defaultURL are not None before shortening
+        brand_logo_short = None
+        defaultURLshort = None
+        if user.brand_logo:
+            brand_logo_short = s.tinyurl.short(user.brand_logo.url)
+        if user.defaultURL:
+            defaultURLshort = s.tinyurl.short(user.defaultURL)
 
         context = {
             'form': UserSettingsForm(),
