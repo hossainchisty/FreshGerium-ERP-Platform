@@ -3,13 +3,11 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from django.views.decorators.cache import cache_page
 from authenticator.models import User
 from settings.forms.user_settings_form import UserSettingsForm
 
 
 @login_required
-@cache_page(60 * 15)
 def settings(request):
     user = get_object_or_404(User, pk=request.user.pk)
     if request.method == 'POST':
