@@ -24,7 +24,7 @@ class UserAdmin(admin.ModelAdmin):
         }),
         ('Timestamps⏳', {
             'classes': ('collapse',),
-            'fields': ('date_joined', 'password_changes_datatime', 'login_datetime', 'logout_datetime', 'last_activity'),
+            'fields': ('date_joined', 'password_changes_datatime', 'last_activity'),
             'description': 'Timestamps fields are automatically updated by the system.'
         }),
         ('Permissions🔐', {
@@ -33,8 +33,7 @@ class UserAdmin(admin.ModelAdmin):
                 ('is_verified', 'is_superuser', 'is_active', ),
                 ('is_staff', 'is_founder', 'is_ceo', 'is_manager',),
                 ('is_employee', 'is_customer', 'is_supplier'),
-                ('is_auditor', 'is_auditor_manager', 'is_auditor_head_office'),
-                ('is_head_office', 'is_hr', 'is_accountant'),
+                ('is_hr', 'is_accountant'),
             ),
             'description': 'Note: If you want to change the permissions of a user, you need to contact in our headquarters.'
         }),
