@@ -1,20 +1,34 @@
 <li class="nav-item active">
-    <a class="nav-link collapsed" href="{% url 'customer_list' %}" data-toggle="collapse"
-        data-target="#collapsePagesCustomer" aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-hands-helping"></i>
-        <span>Customer</span>
-    </a>
-    <div id="collapsePagesCustomer" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{% url 'add_customer' %}">Add Customer</a>
-            <a class="collapse-item" href="{% url 'customer_list' %}">Customer List</a>
+  <a
+    class="nav-link collapsed"
+    href="{% url 'customer_list' %}"
+    data-toggle="collapse"
+    data-target="#collapsePagesCustomer"
+    aria-expanded="true"
+    aria-controls="collapsePages"
+  >
+    <i class="fas fa-hands-helping"></i>
+    <span>Customer</span>
+  </a>
+  <div
+    id="collapsePagesCustomer"
+    class="collapse"
+    aria-labelledby="headingPages"
+    data-parent="#accordionSidebar"
+  >
+    <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item" href="{% url 'add_customer' %}">Add Customer</a>
+      <a class="collapse-item" href="{% url 'customer_list' %}"
+        >Customer List</a
+      >
 
-            <a class="collapse-item" href="forgot-password.html">Paid Customer</a>
+      <!-- <a class="collapse-item" href="forgot-password.html">Paid Customer</a> -->
 
-            <a class="collapse-item" href="{% url 'customer_ledger_list' %}">Customer Ledger</a>
+      <a class="collapse-item" href="{% url 'customer_ledger_list' %}"
+        >Customer Ledger</a
+      >
 
-            <a class="collapse-item" href="forgot-password.html">Customer Advance</a>
-
-        </div>
+      <!-- <a class="collapse-item" href="forgot-password.html">Customer Advance</a> -->
     </div>
+  </div>
 </li>
