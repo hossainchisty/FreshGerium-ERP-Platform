@@ -459,8 +459,8 @@
             const currentTime = new Date().getHours();
             return (
                 <>
-                    {% load cache %}
-                    {% cache 700 owner_name %} 👋 {{ request.user.owner_name }} {% endcache %}, Good{" "}
+                    
+                    👋 {{ request.user.owner_name }}, Good{" "}
                     {currentTime >= 12
                         ? currentTime >= 16
                             ? "Evening🌇"
