@@ -15,7 +15,7 @@ defusedxml==0.7.1
 diff-match-patch==20200713
 distlib==0.3.6
 dj-database-url==0.5.0
-Django==4.2
+Django==4.2.6
 django-allauth==0.54.0
 django-autoslug==1.9.9
 django-ckeditor==6.5.1
@@ -32,6 +32,8 @@ django-zxcvbn-password==2.1.1
 docopt==0.6.2
 et-xmlfile==1.1.0
 ez-setup==0.9
+freetype-py==2.3.0
+gunicorn==21.2.0
 html5lib==1.1
 idna==2.10
 incremental==21.3.0
@@ -45,11 +47,17 @@ oauthlib==3.2.2
 odfpy==1.4.1
 openpyxl==3.1.2
 oscrypto==1.3.0
+packaging==23.2
 phonenumbers==8.12.57
 Pillow==9.5.0
 psutil==5.9.5
 psycopg2-binary==2.9.1
+pycairo==1.23.0
+pycodestyle==2.8.0
 pycparser==2.21
+pyflakes==2.4.0
+pyHanko==0.18.1
+pyhanko-certvalidator==0.22.0
 PyJWT==2.6.0
 pyotp==2.6.0
 pyparsing==2.4.7
@@ -60,6 +68,7 @@ pyshorteners==1.0.1
 python-bidi==0.4.2
 python-dotenv==0.19.2
 python3-openid==3.2.0
+pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
 PyYAML==6.0
 qrcode==7.4.2
@@ -68,6 +77,7 @@ regex==2022.3.15
 reportlab==4.0.0
 requests==2.28.2
 requests-oauthlib==1.3.1
+rlPyCairo==0.2.0
 roundrobin==0.0.4
 six==1.16.0
 sniffio==1.2.0
