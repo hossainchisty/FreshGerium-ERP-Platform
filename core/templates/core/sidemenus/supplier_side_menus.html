@@ -1,15 +1,29 @@
 <li class="nav-item active">
-    <a class="nav-link " href="" data-toggle="collapse" data-target="#collapsePagesSupplier" aria-expanded="false"
-        aria-controls="collapsePages">
-        <i class="fas fa-people-carry"></i>
-        <span>Supplier</span>
-    </a>
-    <div id="collapsePagesSupplier" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{% url 'suppliers_list' %}">Supplier List</a>
-            <a class="collapse-item" href="{% url 'suppliers_add' %}">Add Supplier</a>
-            <a class="collapse-item" href="{% url 'suppliers_ledger_list' %}">Supplier Ledger</a>
-            <a class="collapse-item" href="register.html">Supplier Advance</a>
-        </div>
+  <a
+    class="nav-link"
+    href=""
+    data-toggle="collapse"
+    data-target="#collapsePagesSupplier"
+    aria-expanded="false"
+    aria-controls="collapsePages"
+  >
+    <i class="fas fa-people-carry"></i>
+    <span>Supplier</span>
+  </a>
+  <div
+    id="collapsePagesSupplier"
+    class="collapse"
+    aria-labelledby="headingPages"
+    data-parent="#accordionSidebar"
+  >
+    <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item" href="{% url 'suppliers_list' %}"
+        >Supplier List</a
+      >
+      <a class="collapse-item" href="{% url 'suppliers_add' %}">Add Supplier</a>
+      <a class="collapse-item" href="{% url 'suppliers_ledger_list' %}"
+        >Supplier Ledger</a
+      >
     </div>
+  </div>
 </li>

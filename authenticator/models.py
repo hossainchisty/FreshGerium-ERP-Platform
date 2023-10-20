@@ -1,5 +1,3 @@
-from functools import cached_property
-
 from cloudinary.models import CloudinaryField
 
 from common.utils import INDUSTRYCHOICES
