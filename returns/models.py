@@ -1,20 +1,13 @@
-from customers.models import Customer
 from django.db import models
-from django.utils import timezone
-from products.models import Product
-from purchase.models import Purchase
-from suppliers.models import Supplier
+from order.models import Order
+from utils.models.common_fields import Timestamp
 
 
-class Return(models.Model):
+class Return(Timestamp):
     """
     Return model for storing return info🛢
     """
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    purchase = models.ForeignKey(Purchase, on_delete=models.CASCADE, null=True, blank=True)
-    reutrn_date = models.DateField(default=timezone.now)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
     additional_information = models.TextField(max_length=500, help_text="e.g. My phone has missing headphones", verbose_name="Additional Information (optional)", blank=True, null=True)
     select_a_reason = [
         ('item is defective or not working', 'Item is defective or not working'),
@@ -27,15 +20,13 @@ class Return(models.Model):
         ("don't want to item anymore", "Don't want to item anymore"),
         ('item is damaged/broken/has dent or scratches', 'Item is damaged/broken/has dent or scratches'),
     ]
-    return_reason = models.CharField(max_length=100, choices=select_a_reason)
+    return_reason = models.CharField(max_length=70, choices=select_a_reason)
     is_returned = models.BooleanField(default=False)
     is_returned_by_customer = models.BooleanField(default=False)
     is_returned_by_supplier = models.BooleanField(default=False)
 
     def __str__(self):
-        if self.is_returned_by_customer:
-            return f'Customer {self.customer} return {self.product} due to {self.return_reason}'
-        elif self.is_returned_by_supplier:
-            return f'Supplier {self.supplier} return {self.product} due to {self.return_reason}'
-        else:
-            return f'{self.product} returned due to this {self.return_reason}'
+        """String for representing the Model object."""
+        return f'{self.order} returned due to {self.get_return_reason_display()}'
+
+

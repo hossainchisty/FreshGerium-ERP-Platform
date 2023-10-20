@@ -4,13 +4,10 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.generic import View
 from suppliers.models import Supplier
-from utils.helper.decorators.filter import _currentUser
-
 
 @method_decorator(cache_page(60 * 5), name='dispatch')
 class SupplierList(View):
 
-    @method_decorator(_currentUser())
     def get(self, request):
         ''' List of suppliers '''
 

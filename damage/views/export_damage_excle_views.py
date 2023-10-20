@@ -5,16 +5,13 @@ import xlwt
 from damage.models import Damage
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
-from django.utils.decorators import method_decorator
 from django.views.generic import View
-from utils.helper.decorators.filter import _currentUser
 
 
 class DownloadDamageEXCLE(LoginRequiredMixin, View):
     '''
     Automaticly download service data as Excle file.
     '''
-    @method_decorator(_currentUser())
     def get(self, request):
         # content-type of response
         response = HttpResponse(content_type="application/ms-excel")

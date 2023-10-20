@@ -3,16 +3,13 @@ import csv
 from damage.models import Damage
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
-from django.utils.decorators import method_decorator
 from django.views.generic import View
-from utils.helper.decorators.filter import _currentUser
 
 
 class DownloadDamageCSV(LoginRequiredMixin, View):
     '''
     Automaticly download damage data as CSV file.
     '''
-    @method_decorator(_currentUser())
     def get(self, request):
         response = HttpResponse(content_type="text/csv")
         write = csv.writer(response)

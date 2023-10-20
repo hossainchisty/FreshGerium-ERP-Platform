@@ -88,6 +88,7 @@ LOCAL_APPS = [
     'authenticator.apps.AuthenticatorConfig',
     'analytics.apps.AnalyticsConfig',
     'order.apps.OrderConfig',
+    'report.apps.ReportConfig',
 ]
 
 INSTALLED_APPS = DJANGO_COMMON_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -127,6 +128,7 @@ MIDDLEWARE = [
     # 'core.middleware.activity.UserActivityMiddleware',
     # 'core.middleware.visitors.UserStatisticsMiddleware',
     'core.middleware.requests.RequestMiddleware',
+    'core.middleware.auth.CurrentUserMiddleware',
 ]
 
 
