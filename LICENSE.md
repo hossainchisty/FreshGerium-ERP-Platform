@@ -210,7 +210,7 @@ How to Apply These Terms to Your New Programs
 
 If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.
 
-To do so, attach the following notices to the program. It is safest to attach them to the start of each source file to most effectively state the exclusion of this warranty.```
+To do so, attach the following notices to the program. It is safest to attach them to the start of each source file to most effectively state the exclusion of this warranty.
 
 ```plaintext
 Copyright (C)
@@ -220,3 +220,4 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
+```
