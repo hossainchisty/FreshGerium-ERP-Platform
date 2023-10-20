@@ -1,11 +1,30 @@
-from authenticator.models import User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from utils.models.common_fields import Timestamp
+from customers.models import Customer
+from products.models import Product
 
 
-class DeviceTrack(models.Model):
+class SalesAnalytics(Timestamp):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    sales_volume = models.PositiveIntegerField()
+    revenue = models.DecimalField(max_digits=10, decimal_places=2)
+
+
+class CustomerAnalytics(Timestamp):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    total_orders = models.PositiveIntegerField()
+    total_spent = models.DecimalField(max_digits=10, decimal_places=2)
+
+
+class InventoryAnalytics(Timestamp):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    stock_level = models.PositiveIntegerField()
+    stockout_count = models.PositiveIntegerField()
+
+
+class DeviceTrack(Timestamp):
     ''' Model for connected devices tracking '''
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('User'), null=True, blank=True)
     user_agent = models.CharField(
         verbose_name='User Agent',
         help_text='e.g. Chrome 98, Windows, TECNO KE5, Android',
@@ -48,7 +67,7 @@ class DeviceTrack(models.Model):
         return f'{self.user_agent} Last Activity - {self.last_activity}'
 
 
-class Visitor(models.Model):
+class Visitor(Timestamp):
     '''
     Model for the visitor tracking devices.
     '''

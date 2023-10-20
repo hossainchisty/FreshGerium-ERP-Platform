@@ -14,9 +14,9 @@ class CreateService(View):
         ''' Respond to POST request '''
         service_name = request.POST.get('service_name')
         service_charge = request.POST.get('service_charge')
+        paid_amount = request.POST.get('paid_amount')
         description = request.POST.get('service_description')
-        vat = request.POST.get('service_vat')
-        service = Service(user=self.request.user, service_name=service_name, charge=service_charge, description=description, vat=vat)
+        service = Service(user=self.request.user, service_name=service_name, charge=service_charge, description=description, paid_amount=paid_amount)
         service.save()
         '''Provide a redirect on GET request.'''
         return redirect('manage_service')
