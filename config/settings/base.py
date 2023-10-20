@@ -87,6 +87,7 @@ LOCAL_APPS = [
     'customers.apps.CustomersConfig',
     'authenticator.apps.AuthenticatorConfig',
     'analytics.apps.AnalyticsConfig',
+    'order.apps.OrderConfig',
 ]
 
 INSTALLED_APPS = DJANGO_COMMON_APPS + LOCAL_APPS + THIRD_PARTY_APPS
@@ -119,9 +120,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Third party middleware📌
-    'defender.middleware.FailedLoginMiddleware',
+    # 'defender.middleware.FailedLoginMiddleware',
     'django_otp.middleware.OTPMiddleware',
-    'django_user_agents.middleware.UserAgentMiddleware',
+    # 'django_user_agents.middleware.UserAgentMiddleware',
     # Custom middleware📌
     # 'core.middleware.activity.UserActivityMiddleware',
     # 'core.middleware.visitors.UserStatisticsMiddleware',
