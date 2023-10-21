@@ -203,15 +203,17 @@ Human Resource Management System Software (HRMS) Module
 
 </details>
 
-You may noticed that I didn't include any instructions on how to run this project in the README file. However, I want to clarify that this was an intentional decision on my part.
+## Disclaimer
 
-I have been working on this project with the intention of selling it for commercial purposes. Therefore, I have chosen not to include detailed instructions in the README file in order to protect the value and exclusivity of the project for potential buyers.
+**Note: This project is no longer actively maintained. We have stopped working on this project and will not be providing further updates or support publicly.**
 
-If you are interested in purchasing this project for commercial use, I would be happy to discuss the terms and provide you with the necessary information. Please let me know if you would like to proceed with the discussion.
+We appreciate your interest in this project, and while we have discontinued public updates, the project might still be under development privately for specific purposes or clients. If you have any questions or inquiries about the project, please contact us privately for more information.
 
 Thank you for your understanding.
 
-Best regards,
+
+Best regards,<br>
+<a href="https://www.linkedin.com/in/hossainchisty/" target="_blank">Hossain Chisty</a>
 
 <!-- Get in touch - Start -->
 
@@ -237,8 +239,7 @@ Best regards,
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=Gmail&logo=Gmail&style=social">
 </a>
 
-Author:
-<a href="https://www.linkedin.com/in/hossainchisty/" target="_blank">Hossain Chisty</a><br>
+
 If you would like to have my help with your team and product, feel free to contact me. 🤓
 
 <!-- Get in touch - End -->
