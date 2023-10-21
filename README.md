@@ -213,7 +213,8 @@ Thank you for your understanding.
 
 
 Best regards,<br>
-<a href="https://www.linkedin.com/in/hossainchisty/" target="_blank">Hossain Chisty</a>
+<a href="https://www.linkedin.com/in/hossainchisty/" target="_blank">Hossain Chisty</a><br>
+*21-Oct-23 02:32PM*
 
 <!-- Get in touch - Start -->
 
