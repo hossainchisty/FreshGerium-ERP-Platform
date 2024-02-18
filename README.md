@@ -1,6 +1,6 @@
-# Freshdesk
+# FreshGerium
 
-Freshdesk is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. It's easy-to-use for keeping all kinds of business records 🚀
+FreshGerium is smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expense, purchase, report, return, damage, sales, service, stock, suppliers and more. It's easy-to-use for keeping all kinds of business records 🚀
 <br>
 ![demo](https://github.com/hossainchisty/Freshdesk-ERP-Platform/assets/62835101/09c14801-54e9-4681-a715-a8c79d8b3903)
 
@@ -96,7 +96,7 @@ Forget password?
 
 ### 🗂 Tech Stack
 
-Below is a list of technologies we use at Freshdesk.
+Below is a list of technologies we use at FreshGerium.
 
 - 🎨 **Frontend:** SB Admin 2 v4.1.3
 - 🏗 **Backend:** Python, Django, Jinja2, and more
@@ -108,7 +108,7 @@ Below is a list of technologies we use at Freshdesk.
 - 📨 **Email Service:** Zoho Mail
 - 🐋 **Devops:** Docker
 
-### **Why Freshdesk ERP Platform?**
+### **Why FreshGerium ERP Platform?**
 
 ✅ Activity Dashboard
 
