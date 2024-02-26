@@ -24,7 +24,7 @@ Below is a list of technologies we use at FreshGerium.
 - 📨 **Email Service:** Zoho Mail
 - 🐋 **Devops:** Docker
 
-### **Why FreshGerium ERP Platform?**
+### 🔋 **Why FreshGerium ERP Platform?**
 
 ✅ Activity Dashboard
 
