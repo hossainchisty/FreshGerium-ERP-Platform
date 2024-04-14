@@ -8,7 +8,7 @@ FreshGerium is a smart ERP solution to manage your business. you can keep track 
 
 ## 💬 Contact Us 
 
-If you are interested in experiencing a demo of FreshGerium, please don't hesitate to get in touch with us at your earliest convenience. We can be contacted via email at hossain.chisty11@gmail.com.
+If you are interested in experiencing a demo of FreshGerium, please don't hesitate to get in touch with us at your earliest convenience. We can be contacted via email at freshgerium@gmail.com.
 
 ### 🗂 Tech Stack
 
@@ -131,31 +131,6 @@ Best regards,<br>
 <a href="https://www.linkedin.com/in/hossainchisty/" target="_blank">Hossain Chisty</a><br>
 *21-Oct-23 02:32PM*
 
-<!-- Get in touch - Start -->
-
-### 💬 Connect with me
-
-<a class="header-badge" target="_blank" href="https://www.linkedin.com/in/hossainchisty/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
-</a>
-
-<a class="header-badge" target="_blank" href="https://github.com/hossainchisty">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=Github&logo=Github&style=social">
-</a>
-
-<a class="header-badge" target="_blank" href="https://www.instagram.com/hossain.chisty/">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=Instagram&logo=Instagram&style=social">
-</a>
-
-<a class="header-badge" target="_blank" href="https://www.facebook.com/hossain.chisty11">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=Facebook&logo=Facebook&style=social">
-</a>
-
-<a class="header-badge" target="_blank" href="mailto:hossain.chisty11@gmail.com">
-  <img src="https://img.shields.io/badge/style--5eba00.svg?label=Gmail&logo=Gmail&style=social">
-</a>
-
 
 If you would like to have my help with your team and product, feel free to contact me. 🤓
 
-<!-- Get in touch - End -->
