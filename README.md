@@ -75,7 +75,7 @@ Below is a list of technologies we use at FreshGerium.
 
 ✅ ... And More.
 
-**_For any feature/improvement request ping me here hossain.chisty11@gmail.com_**
+**_For any feature/improvement request ping me here freshgerium@gmail.com_**
 
 ### **What's new◽**
 
