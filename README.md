@@ -2,7 +2,9 @@
 
 FreshGerium is a smart ERP solution to manage your business. you can keep track of your accounts, customers, products, orders, invoices, expenses, purchases, reports, returns, damage, sales, service, stock, suppliers, and more. It's easy to use for keeping all kinds of business records 🚀
 <br>
-![demo](https://github.com/hossainchisty/Freshdesk-ERP-Platform/assets/62835101/09c14801-54e9-4681-a715-a8c79d8b3903)
+
+![final](https://github.com/hossainchisty/FreshGerium-ERP-Platform/assets/62835101/26cc4a64-3ae3-456b-a73a-63383faabdaf)
+
 
 ###### Don't forget to leave a [star ⭐!](https://github.com/hossainchisty/Freshdesk-CRM-Platform/stargazers)
 
